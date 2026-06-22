@@ -1,0 +1,14 @@
+# Sistema operacional
+.DS_Store
+
+# Dependências / build
+node_modules/
+dist/
+.netlify/
+*.log
+
+# Ferramentas de desenvolvimento (Claude Code / preview local)
+.claude/
+
+# Arquivos de referência de design (não vão pro site)
+*.pdf
