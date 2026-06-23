@@ -1,0 +1,77 @@
+# Página Nossa História
+hero:
+  title: "Nossa"
+  title_accent: "História"
+  subtitle: "Mais de 90 anos de tradição, conquistas e paixão pelo quadricolor de São Luís."
+  image: "Imagens MAC/IMG_5135.JPG"
+
+intro: 'O <strong>Maranhão Atlético Clube</strong> é o <strong>Bode Gregório</strong>, o quadricolor de São Luís. Fundado em <strong>24 de setembro de 1932</strong>, nasceu de uma dissidência do antigo Ciro e mostrou força desde o primeiro dia: na estreia, venceu o ex-rival por 4 a 0. Dali em diante, construiu uma das histórias mais vitoriosas do futebol maranhense.'
+
+timeline_title: "Linha do Tempo"
+timeline:
+  - year: "1932"
+    title: "Nasce o Bode Gregório"
+    text: "Fundado em 24 de setembro, o MAC estreia goleando o ex-rival por 4 a 0 — o primeiro capítulo de uma trajetória de sucesso."
+  - year: "1937"
+    title: "O primeiro título estadual"
+    text: "O Maranhão conquista o Campeonato Maranhense pela primeira vez e inaugura sua era de protagonismo."
+  - year: "39 · 41 · 43"
+    title: "Sequência vitoriosa"
+    text: "Novas conquistas estaduais em 1939, 1941 e 1943 consolidam o clube entre os grandes do estado."
+  - year: "1951"
+    title: "Campeão na década de 50"
+    text: "Em meio a um período mais modesto, o MAC levanta mais uma taça maranhense."
+  - year: "1963"
+    title: "De volta ao topo"
+    text: "O clube retoma a hegemonia estadual e reafirma sua tradição vencedora."
+  - year: "1979"
+    title: "A melhor campanha nacional"
+    text: "Na elite do futebol brasileiro, o Maranhão fez história superando gigantes do país. (veja o destaque abaixo)"
+  - year: "1986"
+    title: "Vice da Série B"
+    text: "O MAC chega à decisão do Campeonato Brasileiro da Série B, mostrando força no cenário nacional."
+  - year: "93 · 94 · 95"
+    title: "Tricampeão maranhense"
+    text: "Uma nova era de domínio: três títulos estaduais seguidos entre 1993 e 1995."
+  - year: "1999"
+    title: "Mais um estadual"
+    text: "O quadricolor encerra a década com nova conquista maranhense."
+  - year: "2000"
+    title: "Vice da Copa Norte e Copa do Brasil"
+    text: "Vice-campeão da Copa Norte, garante vaga na Copa dos Campeões. Na Copa do Brasil, alcança sua melhor campanha: a terceira fase."
+  - year: "2007"
+    title: "Campeão maranhense"
+    text: "O MAC volta a erguer a taça estadual no novo século."
+  - year: "2013"
+    title: "Mais um título estadual"
+    text: "Nova conquista reafirma a tradição vencedora do clube."
+  - year: "2015"
+    title: "Reação imediata"
+    text: "Após o rebaixamento em 2014, o Maranhão conquista a Série B estadual e retorna à elite."
+  - year: "2022"
+    title: "De volta à elite"
+    text: "Mais uma vez resiliente, o clube é campeão da Série B estadual e volta à primeira divisão."
+  - year: "2023"
+    title: "Campeão maranhense"
+    text: "O Bode Gregório volta a erguer o Campeonato Maranhense."
+  - year: "2025"
+    title: "O 18º título maranhense"
+    text: "A tradição confirmada: o MAC conquista seu 18º Campeonato Maranhense."
+
+feature:
+  tag: "Auge nacional"
+  title: "1979: o Maranhão na elite do Brasil"
+  text: 'Foi em 1979 que o clube alcançou a sua melhor campanha na história: disputou a Primeira Divisão do Campeonato Brasileiro e terminou em 26º entre quase 100 equipes, superando camisas pesadas como <strong>Fluminense, Bahia e Botafogo</strong>.'
+  stats:
+    - { number: "8", label: "Vitórias" }
+    - { number: "3", label: "Empates" }
+    - { number: "5", label: "Derrotas" }
+    - { number: "26º", label: "Entre ~100 clubes" }
+
+blocks:
+  - title: "Estádios"
+    text: 'O MAC manda a maior parte de seus jogos no <strong>Estádio Nhozinho Santos</strong> e utiliza o <strong>Castelão</strong> nas partidas de maior demanda — ambos em São Luís.'
+  - title: "Torcida e Rivalidades"
+    text: 'O clube tem uma das maiores torcidas do estado e é apontado como o terceiro mais popular da capital, com rivalidades históricas contra <strong>Moto Club</strong> e <strong>Sampaio Corrêa</strong>.'
+  - title: "Quem somos hoje"
+    text: 'Tradição, camisa quadricolor e presença constante nas decisões. O Maranhão Atlético Clube segue como pilar do futebol maranhense: competitivo no estadual, ativo no calendário nacional e sustentado por uma torcida que atravessa gerações. É o Bode Gregório em campo — resistência, paixão e resultado, com história para contar e ambição para seguir crescendo.'

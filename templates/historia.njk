@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nossa História — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'historia' %}
+{% include "_header.njk" %}
+
+  <section class="hero" style="min-height:420px;">
+    <img class="hero-bg" src="{{ historia.hero.image }}" alt="Maranhão Atlético Clube em campo">
+    <div class="hero-content"><div class="container">
+      <h1>{{ historia.hero.title }} <span class="accent">{{ historia.hero.title_accent }}</span></h1>
+      <p class="subtitle">{{ historia.hero.subtitle }}</p>
+    </div></div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="history-intro">{{ historia.intro | safe }}</p>
+
+      <h2 class="section-title" style="margin-top:48px;">{{ historia.timeline_title }}</h2>
+
+      <div class="timeline">
+        {%- for item in historia.timeline %}
+        <div class="tl-item"><div class="tl-year">{{ item.year }}</div><div class="tl-mid"><span class="tl-dot"></span></div>
+          <div class="tl-content"><h4>{{ item.title }}</h4><p>{{ item.text }}</p></div></div>
+        {%- endfor %}
+      </div>
+
+      <div class="feature-1979">
+        <span class="tag">{{ historia.feature.tag }}</span>
+        <h3>{{ historia.feature.title }}</h3>
+        <p>{{ historia.feature.text | safe }}</p>
+        <div class="mini-stats">
+          {%- for s in historia.feature.stats %}
+          <div><span>{{ s.number }}</span><small>{{ s.label }}</small></div>
+          {%- endfor %}
+        </div>
+      </div>
+
+      <div class="history-block">
+        {%- for b in historia.blocks %}
+        <h3>{{ b.title }}</h3>
+        <p>{{ b.text | safe }}</p>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

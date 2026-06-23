@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'galeria' %}
+{% include "_header.njk" %}
+
+  <section class="hero" style="min-height:420px;">
+    <img class="hero-bg" data-rotate='{{ galeria.hero.slides | dump | safe }}' src="{{ galeria.hero.slides[0] }}" alt="Momentos do MAC">
+    <div class="hero-content"><div class="container">
+      <h1>{{ galeria.hero.title }} <span class="accent">{{ galeria.hero.title_accent }}</span></h1>
+      <p class="subtitle">{{ galeria.hero.subtitle }}</p>
+    </div></div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">{{ galeria.section_title }}</h2>
+      <div class="gallery-grid">
+        {%- for img in galeria.images %}
+        <img src="{{ img }}" alt="Foto do MAC">
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  <div class="lightbox"><span class="close">&times;</span><img src="" alt="Foto ampliada"></div>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
