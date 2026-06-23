@@ -1,0 +1,334 @@
+# =====================================================================
+# Configuração do Painel de Edição (Sveltia CMS) — Maranhão Atlético Clube
+# Cada campo tem um rótulo claro (label) e uma dica (hint) explicando
+# o que ele muda e onde aparece no site.
+# =====================================================================
+
+backend:
+  name: github
+  repo: dariojcutrim/maranhao-atletico-clube
+  branch: main
+
+# Onde as novas imagens enviadas pelo painel ficam guardadas
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+# Mensagens dos commits (histórico de alterações)
+site_url: "https://maranhaoatleticoclube.netlify.app"
+locale: "pt"
+
+collections:
+  # ================================================================ HOME
+  - name: home
+    label: "🏠 Página Inicial"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Conteúdo da Página Inicial"
+        file: "content/home.yaml"
+        description: "Tudo o que aparece na primeira página do site."
+        fields:
+          - label: "Destaque principal (topo com a foto)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Título — linha 1", name: title_line1, widget: string, hint: "Primeira linha do título grande sobre a foto. Ex.: História, tradição" }
+              - { label: "Título — ligação", name: title_line2_prefix, widget: string, hint: "Palavrinha de ligação no começo da 2ª linha. Ex.: e" }
+              - { label: "Título — palavra em vermelho", name: title_accent, widget: string, hint: "Última palavra do título, que aparece em VERMELHO. Ex.: conquistas" }
+              - { label: "Frase abaixo do título", name: subtitle, widget: text, hint: "Frase de apresentação logo abaixo do título grande." }
+              - { label: "Fotos que passam no fundo (carrossel)", name: slides, widget: list, field: { label: "Foto", name: img, widget: image }, hint: "As fotos que vão trocando sozinhas no fundo do topo. Adicione, remova ou reordene." }
+          - label: "Faixa de números (conquistas)"
+            name: stats
+            widget: list
+            label_singular: "Número"
+            summary: "{{fields.number}} — {{fields.label}}"
+            hint: "Os 4 números azuis (1932, 18, 1979, +90)."
+            fields:
+              - { label: "Número", name: number, widget: string, hint: "O número em si. Ex.: 1932 ou 18" }
+              - { label: "Texto abaixo do número", name: label, widget: string, hint: "Descrição embaixo do número. Ex.: Títulos maranhenses" }
+              - { label: "Animar contando? (opcional)", name: count, widget: number, required: false, hint: "Preencha SÓ se quiser o efeito de contagem crescente (ex.: 18). Deixe vazio para anos como 1932." }
+              - { label: "Símbolo antes (opcional)", name: prefix, widget: string, required: false, hint: 'Ex.: + (para mostrar "+90"). Deixe vazio se não usar.' }
+              - { label: "Texto pequeno depois (opcional)", name: suffix, widget: string, required: false, hint: 'Ex.: anos (para mostrar "+90 anos"). Deixe vazio se não usar.' }
+          - label: "Seção SOBRE"
+            name: sobre
+            widget: object
+            fields:
+              - { label: "Título da seção", name: title, widget: string, hint: 'Título azul da seção. Ex.: Sobre' }
+              - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text }, hint: "Cada item é um parágrafo. Para deixar uma parte em destaque azul, envolva com <strong class=\"hl\">texto</strong>." }
+              - { label: "Fotos da colagem (lado direito)", name: images, widget: list, summary: "{{fields.alt}}", fields: [ { label: "Foto", name: src, widget: image }, { label: "Descrição da foto", name: alt, widget: string, hint: "Texto que descreve a foto (acessibilidade)." } ], hint: "As 3 fotos sobrepostas ao lado do texto." }
+          - label: "Seção Patrocinadores (textos)"
+            name: sponsors
+            widget: object
+            hint: "Os logos ficam na aba 🤝 Patrocinadores. Aqui só os textos."
+            fields:
+              - { label: "Título da seção", name: title, widget: string }
+              - { label: "Texto do botão", name: cta, widget: string, hint: 'Botão azul. Ex.: Quero ser um patrocinador' }
+          - label: "Seção Apoio"
+            name: apoio
+            widget: object
+            fields:
+              - { label: "Título", name: title, widget: string, hint: 'Ex.: Apoio:' }
+              - { label: "Lista de apoiadores", name: items, widget: list, field: { label: "Apoiador", name: item, widget: string }, hint: "Nomes que aparecem separados por • no final da home." }
+          - label: "SEO (título e descrição no Google)"
+            name: meta
+            widget: object
+            fields:
+              - { label: "Título da aba/Google", name: title, widget: string, hint: "Aparece na aba do navegador e nos resultados de busca." }
+              - { label: "Descrição no Google", name: description, widget: text, hint: "Texto curto que aparece embaixo do título nos resultados de busca." }
+
+  # ========================================================= PATROCINADORES
+  - name: sponsors
+    label: "🤝 Patrocinadores"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: lista
+        label: "Logos dos Patrocinadores"
+        file: "content/sponsors.yaml"
+        description: "Os logos que aparecem na faixa de patrocinadores da home."
+        fields:
+          - label: "Patrocinadores"
+            name: items
+            widget: list
+            label_singular: "Patrocinador"
+            summary: "{{fields.name}}"
+            hint: "A ordem aqui é a ordem no site. Arraste para reordenar."
+            fields:
+              - { label: "Nome", name: name, widget: string, hint: "Nome da empresa (usado para acessibilidade)." }
+              - { label: "Logo", name: logo, widget: image, hint: "Imagem do logo. Prefira PNG com fundo transparente." }
+
+  # ============================================================== DIRETORIA
+  - name: diretoria
+    label: "👔 Diretoria"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Diretoria"
+        file: "content/diretoria.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Texto de introdução", name: intro, widget: text, hint: "Parágrafo no topo da página de diretoria." }
+          - label: "Membros da diretoria"
+            name: members
+            widget: list
+            label_singular: "Membro"
+            summary: "{{fields.role}}: {{fields.name}}"
+            fields:
+              - { label: "Cargo", name: role, widget: string, hint: "Ex.: Presidente" }
+              - { label: "Nome da pessoa", name: name, widget: string, hint: "Nome completo de quem ocupa o cargo." }
+          - label: "Conselho Fiscal"
+            name: council
+            widget: object
+            fields:
+              - { label: "Título do bloco", name: title, widget: string, hint: "Ex.: Conselho Fiscal" }
+              - { label: "Membros", name: members, widget: list, field: { label: "Nome", name: nome, widget: string }, hint: "Um nome por item." }
+
+  # ================================================================ CONTATO
+  - name: contato
+    label: "📞 Contato"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Fale Conosco"
+        file: "content/contato.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string, hint: 'Ex.: Fale Conosco' }
+          - { label: "Endereço", name: address, widget: string, hint: "Endereço da sede do clube." }
+          - { label: "Telefone", name: phone, widget: string, hint: "Ex.: (98) 99999-9999 / WhatsApp" }
+          - { label: "Horário de atendimento", name: hours, widget: string, hint: "Ex.: De segunda a sexta / 9h às 17h" }
+          - { label: "Observação do horário", name: hours_note, widget: string, hint: "Texto pequeno em itálico abaixo do horário." }
+          - { label: "E-mail", name: email, widget: string, hint: "E-mail de contato. Ex.: contato@seuclube.com.br" }
+
+  # ============================================================ REDES/RODAPÉ
+  - name: geral
+    label: "⚙️ Geral (rodapé e redes)"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: site
+        label: "Dados gerais do site"
+        file: "content/site.yaml"
+        description: "Aparece no topo e no rodapé de TODAS as páginas."
+        fields:
+          - label: "Identidade (topo do site)"
+            name: brand
+            widget: object
+            fields:
+              - { label: "Nome curto", name: name, widget: string, hint: "Ao lado do escudo, no topo. Ex.: Maranhão A.C." }
+              - { label: "Linha abaixo do nome", name: subtitle, widget: string, hint: "Texto pequeno embaixo. Ex.: Atlético Clube" }
+              - { label: "Nome completo (rodapé)", name: full_name, widget: string, hint: "Usado no © do rodapé." }
+          - { label: "Ano do rodapé", name: copyright_year, widget: number, hint: "Ano que aparece no © do rodapé." }
+          - label: "Rodapé"
+            name: footer
+            widget: object
+            fields:
+              - { label: "Frase do rodapé", name: text, widget: text, hint: "Frase curta sobre o clube no rodapé de todas as páginas." }
+          - label: "Redes sociais e WhatsApp"
+            name: social
+            widget: object
+            hint: "Afeta os ícones do rodapé e o botão verde flutuante."
+            fields:
+              - { label: "Link do WhatsApp", name: whatsapp, widget: string, hint: "Link completo. Ex.: https://wa.me/5598999999999 (55 + DDD + número). Muda o botão flutuante e o ícone do rodapé." }
+              - { label: "Link do Instagram", name: instagram, widget: string, hint: "Ex.: https://instagram.com/seuperfil" }
+              - { label: "E-mail (link)", name: email, widget: string, hint: "Ex.: mailto:contato@seuclube.com.br" }
+
+  # ================================================================ PROJETOS
+  - name: projetos
+    label: "📋 Projetos"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Projetos"
+        file: "content/projetos.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - label: "Projetos"
+            name: items
+            widget: list
+            label_singular: "Projeto"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Nome do projeto", name: title, widget: string }
+              - { label: "Foto", name: image, widget: image }
+              - { label: "Descrição da foto", name: image_alt, widget: string, hint: "Texto de acessibilidade da foto." }
+              - { label: "Foto à direita?", name: reverse, widget: boolean, default: false, hint: "Ligado = foto à direita; desligado = foto à esquerda. (Alterne para intercalar.)" }
+              - { label: "Ajuste do recorte da foto (opcional)", name: image_position, widget: string, required: false, hint: 'Avançado. Ex.: center 18% para subir o recorte. Deixe vazio para o padrão.' }
+              - label: "Informações (lista)"
+                name: meta
+                widget: list
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: "Rótulo", name: label, widget: string, hint: "Ex.: Categorias" }
+                  - { label: "Valor", name: value, widget: string, hint: "Ex.: Sub-15, Sub-17 e Sub-20" }
+              - { label: "Parágrafos", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text }, hint: "Cada item é um parágrafo da descrição." }
+
+  # ===================================================================== FAQ
+  - name: faq
+    label: "❓ Perguntas Frequentes"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Perguntas Frequentes"
+        file: "content/faq.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - label: "Perguntas e respostas"
+            name: items
+            widget: list
+            label_singular: "Pergunta"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Pergunta", name: question, widget: string }
+              - { label: "Resposta", name: answer, widget: text }
+
+  # ================================================================= HISTÓRIA
+  - name: historia
+    label: "📜 Nossa História"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Nossa História"
+        file: "content/historia.yaml"
+        fields:
+          - label: "Topo da página (hero)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Título", name: title, widget: string, hint: 'Ex.: Nossa' }
+              - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: História' }
+              - { label: "Frase abaixo", name: subtitle, widget: text }
+              - { label: "Foto de fundo", name: image, widget: image }
+          - { label: "Texto de introdução", name: intro, widget: text, hint: "Parágrafo de abertura. Use <strong>texto</strong> para negrito." }
+          - { label: "Título da linha do tempo", name: timeline_title, widget: string, hint: 'Ex.: Linha do Tempo' }
+          - label: "Linha do tempo (conquistas)"
+            name: timeline
+            widget: list
+            label_singular: "Marco"
+            summary: "{{fields.year}} — {{fields.title}}"
+            fields:
+              - { label: "Ano", name: year, widget: string, hint: "Ex.: 1932 ou 93 · 94 · 95" }
+              - { label: "Título do marco", name: title, widget: string }
+              - { label: "Descrição", name: text, widget: text }
+          - label: "Destaque 1979 (faixa azul)"
+            name: feature
+            widget: object
+            fields:
+              - { label: "Etiqueta (em vermelho)", name: tag, widget: string, hint: 'Ex.: Auge nacional' }
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: text, widget: text, hint: "Use <strong>texto</strong> para negrito." }
+              - label: "Mini-números"
+                name: stats
+                widget: list
+                summary: "{{fields.number}} {{fields.label}}"
+                fields:
+                  - { label: "Número", name: number, widget: string, hint: "Ex.: 8 ou 26º" }
+                  - { label: "Texto", name: label, widget: string, hint: "Ex.: Vitórias" }
+          - label: "Blocos finais (Estádios, Torcida, etc.)"
+            name: blocks
+            widget: list
+            label_singular: "Bloco"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Título do bloco", name: title, widget: string }
+              - { label: "Texto", name: text, widget: text, hint: "Use <strong>texto</strong> para negrito." }
+
+  # ================================================================== GALERIA
+  - name: galeria
+    label: "🖼️ Galeria"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Galeria de Fotos"
+        file: "content/galeria.yaml"
+        fields:
+          - label: "Topo da página (hero)"
+            name: hero
+            widget: object
+            fields:
+              - { label: "Título", name: title, widget: string, hint: 'Ex.: Galeria' }
+              - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: MAC' }
+              - { label: "Frase abaixo", name: subtitle, widget: text }
+              - { label: "Fotos que passam no topo", name: slides, widget: list, field: { label: "Foto", name: img, widget: image } }
+          - { label: "Título da galeria", name: section_title, widget: string, hint: 'Ex.: Momentos' }
+          - { label: "Fotos da galeria", name: images, widget: list, field: { label: "Foto", name: img, widget: image }, hint: "Todas as fotos da grade. Adicione, remova ou reordene." }
+
+  # ================================================================ OUVIDORIA
+  - name: ouvidoria
+    label: "📨 Ouvidoria"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Ouvidoria"
+        file: "content/ouvidoria.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text } }
+          - { label: "E-mail da ouvidoria", name: email, widget: string, hint: "Ex.: ouvidoria@seuclube.com.br" }
+
+  # ==================================================================== TERMOS
+  - name: termos
+    label: "📄 Termos de Cotações"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Termos de Cotações"
+        file: "content/termos.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - label: "Itens / links"
+            name: items
+            widget: list
+            label_singular: "Item"
+            summary: "{{fields.label}}"
+            fields:
+              - { label: "Texto do link", name: label, widget: string }
+              - { label: "Endereço (URL)", name: url, widget: string, hint: "Para onde o link leva. Use # se ainda não tiver." }
