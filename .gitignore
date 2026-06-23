@@ -4,6 +4,7 @@
 # Dependências / build
 node_modules/
 dist/
+_site/
 .netlify/
 *.log
 

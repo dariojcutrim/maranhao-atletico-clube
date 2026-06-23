@@ -1,0 +1,4 @@
+# Configuração de publicação da Netlify (deploy contínuo a partir do GitHub)
+[build]
+  command = "bash netlify-build.sh"
+  publish = "_site"
