@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ termos.title }} — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'termos' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ termos.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      <ul class="terms-list">
+        <div class="terms-divider"></div>
+        {%- for item in termos.items %}
+        <li><a href="{{ item.url }}">{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

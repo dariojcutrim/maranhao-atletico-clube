@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ ouvidoria.title }} — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'ouvidoria' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ ouvidoria.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      <div class="form-grid">
+        <div class="contact-info">
+          {%- for p in ouvidoria.paragraphs %}
+          <p style="margin-bottom:16px;">{{ p }}</p>
+          {%- endfor %}
+          <p>O endereço eletrônico é: <a href="mailto:{{ ouvidoria.email }}">{{ ouvidoria.email }}</a></p>
+        </div>
+        <form class="club-form">
+          <div class="form-feedback"></div>
+          <div class="field"><label>Nome: <span class="req">*</span></label><input type="text" placeholder="Digite seu nome completo" required></div>
+          <div class="field"><label>Celular/WhatsApp: <span class="req">*</span></label><input type="tel" placeholder="Digite seu número de celular/WhatsApp" required></div>
+          <div class="field"><label>Telefone Residencial:</label><input type="tel" placeholder="Digite seu telefone residencial"></div>
+          <div class="field"><label>E-mail: <span class="req">*</span></label><input type="email" placeholder="Digite seu e-mail" required></div>
+          <div class="field"><label>Matrícula:</label><input type="text" placeholder="Se for associado"></div>
+          <div class="field"><label>Mensagem <span class="req">*</span></label><textarea placeholder="Escreva sua dúvida, sugestão ou solicitação" required></textarea></div>
+          <div><button type="submit" class="btn btn-primary">Enviar</button></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# Página Projetos
+title: "Projetos"
+items:
+  - title: "Formação de Atletas"
+    image: "Imagens MAC/IMG_3867.JPG"
+    image_alt: "Categoria de base do MAC"
+    reverse: false
+    meta:
+      - { label: "Categorias", value: "Sub-15, Sub-17 e Sub-20" }
+      - { label: "Período", value: "temporada 2026" }
+      - { label: "Local", value: "Centro de Treinamento do MAC" }
+    paragraphs:
+      - "Projeto que viabiliza a formação de jovens atletas maranhenses, oferecendo estrutura de treino, acompanhamento técnico, médico e educacional."
+      - "O projeto contempla a manutenção do centro de treinamento, contratação de comissão técnica especializada, aquisição de materiais esportivos, transporte e logística para as competições estaduais e nacionais de base."
+  - title: "Temporada Profissional"
+    image: "Imagens MAC/IMG_5135.JPG"
+    image_alt: "Equipe profissional do MAC"
+    reverse: true
+    meta:
+      - { label: "Competição", value: "Campeonato Maranhense" }
+      - { label: "Período", value: "janeiro a maio de 2026" }
+      - { label: "Local", value: "São Luís / MA" }
+    paragraphs:
+      - "Projeto que viabiliza a participação da equipe profissional do Maranhão Atlético Clube nas principais competições do calendário estadual."
+      - "Contempla a montagem do elenco, comissão técnica, infraestrutura de jogos e treinos, serviços de logística e transporte, materiais esportivos e ações de relacionamento com a torcida."
+  - title: "MAC na Comunidade"
+    image: "Imagens MAC/IMG_4096.JPG"
+    image_alt: "Projeto social do MAC"
+    image_position: "center 18%"
+    reverse: false
+    meta:
+      - { label: "Público", value: "crianças e adolescentes" }
+      - { label: "Período", value: "ações contínuas" }
+      - { label: "Local", value: "bairros de São Luís" }
+    paragraphs:
+      - "Projeto social que leva o esporte a crianças e jovens da comunidade, utilizando o futebol como ferramenta de inclusão, cidadania e desenvolvimento."
+      - "Inclui escolinhas gratuitas, doação de materiais esportivos e atividades educativas, fortalecendo o vínculo do clube com a comunidade maranhense."

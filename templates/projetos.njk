@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ projetos.title }} — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'projetos' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ projetos.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      {%- for proj in projetos.items %}
+      <div class="project-block{% if proj.reverse %} reverse{% endif %}">
+        <div class="project-img"><img src="{{ proj.image }}" alt="{{ proj.image_alt }}"{% if proj.image_position %} style="object-position: {{ proj.image_position }};"{% endif %}></div>
+        <div class="project-info">
+          <h3>{{ proj.title }}</h3>
+          <p class="project-meta">{% for m in proj.meta %}<strong>{{ m.label }}:</strong> {{ m.value }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
+          {%- for p in proj.paragraphs %}
+          <p>{{ p }}</p>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

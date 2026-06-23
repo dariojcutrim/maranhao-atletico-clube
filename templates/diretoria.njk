@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ diretoria.title }} — Maranhão Atlético Clube</title>
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% set activeNav = 'diretoria' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ diretoria.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      <p class="board-intro">{{ diretoria.intro }}</p>
+      <div class="board-list">
+        {%- for m in diretoria.members %}
+        <div class="board-item"><h4>{{ m.role }}</h4><p>{{ m.name }}</p></div>
+        {%- endfor %}
+        <div class="board-item council"><h4>{{ diretoria.council.title }}</h4><p>{% for member in diretoria.council.members %}{{ member }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p></div>
+      </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
