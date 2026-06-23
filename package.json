@@ -1,0 +1,13 @@
+{
+  "name": "maranhao-atletico-clube",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site do Maranhão Atlético Clube — conteúdo editável via painel (CMS)",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "nunjucks": "^3.2.4"
+  }
+}

@@ -1,0 +1,10 @@
+# Patrocinadores (logos exibidos na home). A ordem aqui é a ordem no site.
+items:
+  - name: "River"
+    logo: "assets/img/patrocinadores/river.png"
+  - name: "Granorte S/A"
+    logo: "assets/img/patrocinadores/granorte.webp"
+  - name: "BETH Comunicação Visual e Malharia"
+    logo: "assets/img/patrocinadores/beth.webp"
+  - name: "Eletro Mateus"
+    logo: "assets/img/patrocinadores/eletromateus.png"

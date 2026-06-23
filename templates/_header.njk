@@ -1,0 +1,33 @@
+  <!-- ====================== HEADER ====================== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/img/escudo-mac.png" alt="Escudo do Maranhão Atlético Clube">
+        <span class="brand-text">
+          <strong>{{ site.brand.name }}</strong>
+          <span>{{ site.brand.subtitle }}</span>
+        </span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="historia.html"{% if activeNav == 'historia' %} class="active"{% endif %}>História</a></li>
+          <li><a href="projetos.html"{% if activeNav == 'projetos' %} class="active"{% endif %}>Projetos</a></li>
+          <li class="has-dropdown"><a href="#">Transparência</a>
+            <ul class="dropdown">
+              <li><a href="diretoria.html">Diretoria</a></li>
+              <li><a href="ouvidoria.html">Ouvidoria</a></li>
+              <li><a href="termos-cotacoes.html">Termos de Cotações</a></li>
+            </ul>
+          </li>
+          <li><a href="galeria.html"{% if activeNav == 'galeria' %} class="active"{% endif %}>Galeria</a></li>
+          <li><a href="faq.html"{% if activeNav == 'faq' %} class="active"{% endif %}>Perguntas Frequentes</a></li>
+          <li><a href="contato.html"{% if activeNav == 'contato' %} class="active"{% endif %}>Contatos</a></li>
+        </ul>
+      </nav>
+      <form class="header-search">
+        <input type="text" placeholder="Buscar">
+        <button type="submit" aria-label="Buscar">&#128269;</button>
+      </form>
+    </div>
+  </header>

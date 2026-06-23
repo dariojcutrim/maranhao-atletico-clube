@@ -1,0 +1,12 @@
+# Dados gerais do site (aparecem no cabeçalho e rodapé de todas as páginas)
+brand:
+  name: "Maranhão A.C."
+  subtitle: "Atlético Clube"
+  full_name: "Maranhão Atlético Clube"
+copyright_year: 2026
+footer:
+  text: "Promovendo o melhor do futebol maranhense com tradição, paixão e compromisso com a sua história."
+social:
+  whatsapp: "https://wa.me/5598000000000"
+  instagram: "#"
+  email: "#"

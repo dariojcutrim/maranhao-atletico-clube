@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ home.meta.title }}</title>
+  <meta name="description" content="{{ home.meta.description }}">
+  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+{% include "_header.njk" %}
+
+  <!-- ====================== HERO ====================== -->
+  <section class="hero hero-home">
+    <div class="hero-slides">
+      {%- for src in home.hero.slides %}
+      <img class="hero-slide{% if loop.first %} is-active{% endif %}" src="{{ src }}" alt="{% if loop.first %}Elenco do Maranhão Atlético Clube{% endif %}"{% if not loop.first %} loading="lazy"{% endif %}>
+      {%- endfor %}
+    </div>
+    <div class="hero-content">
+      <div class="container">
+        <h1>{{ home.hero.title_line1 }}<br>{{ home.hero.title_line2_prefix }} <span class="accent">{{ home.hero.title_accent }}</span></h1>
+        <p class="subtitle">{{ home.hero.subtitle }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== NÚMEROS / CONQUISTAS ====================== -->
+  <section class="stats-band">
+    <div class="container">
+      {%- for stat in home.stats %}
+      <div class="stat reveal" style="--i:{{ loop.index0 }}"><div class="num">{% if stat.count %}<span class="count" data-count="{{ stat.count }}"{% if stat.prefix %} data-prefix="{{ stat.prefix }}"{% endif %}>{{ stat.prefix }}{{ stat.number }}</span>{% else %}{{ stat.prefix }}{{ stat.number }}{% endif %}{% if stat.suffix %}<small>{{ stat.suffix }}</small>{% endif %}</div><div class="label">{{ stat.label }}</div></div>
+      {%- endfor %}
+    </div>
+  </section>
+
+  <!-- ====================== SOBRE ====================== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">{{ home.sobre.title }}</h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          {%- for p in home.sobre.paragraphs %}
+          <p>{{ p | safe }}</p>
+          {%- endfor %}
+        </div>
+        <div class="about-collage">
+          {%- for img in home.sobre.images %}
+          <img class="reveal" style="--i:{{ loop.index0 }}" src="{{ img.src }}" alt="{{ img.alt }}">
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== PATROCINADORES ====================== -->
+  <section class="section sponsors">
+    <div class="container">
+      <h2 class="section-title reveal">{{ home.sponsors.title }}</h2>
+      <div class="sponsor-grid">
+        {%- for s in sponsors.items %}
+        <div class="sponsor-card reveal" style="--i:{{ loop.index0 }}">
+          <div class="sponsor-logo"><img src="{{ s.logo }}" alt="{{ s.name }}"></div>
+        </div>
+        {%- endfor %}
+      </div>
+
+      <div class="reveal" style="text-align:center; margin-top:48px;">
+        <a href="contato.html" class="btn btn-primary">{{ home.sponsors.cta }}</a>
+      </div>
+
+      <div class="support-row reveal">
+        <h4>{{ home.apoio.title }}</h4>
+        <div class="support-logos">
+          {%- for item in home.apoio.items %}
+          <span>{{ item }}</span>{% if not loop.last %}<span>•</span>{% endif %}
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
