@@ -1,51 +1,55 @@
-# Conteúdo da página inicial (Home)
-meta:
-  title: "Maranhão Atlético Clube — Tradição, Paixão e Futebol"
-  description: "Site oficial do Maranhão Atlético Clube (MAC). Tradição, paixão e esporte no coração do Maranhão."
-
 hero:
-  title_line1: "História, tradição"
-  title_line2_prefix: "e"
-  title_accent: "conquistas"
-  subtitle: "Maranhão Atlético Clube — o Bode Gregório de São Luís. Desde 1932, raça, história e amor pelo quadricolor maranhense."
+  title_line1: História, tradição
+  title_line2_prefix: e
+  title_accent: conquistas
+  subtitle: Maranhão Atlético Clube — o Bode Gregório de São Luís. Desde 1932, raça, história e amor pelo quadricolor maranhense.
   slides:
-    - "Imagens MAC/IMG_3804.JPG"
-    - "Imagens MAC/IMG_5135.JPG"
-    - "Imagens MAC/IMG_4061.JPG"
-    - "Imagens MAC/IMG_5052.JPG"
-
+    - Imagens MAC/IMG_3804.JPG
+    - Imagens MAC/IMG_5135.JPG
+    - Imagens MAC/IMG_4061.JPG
+    - Imagens MAC/IMG_5052.JPG
 stats:
-  - number: "1932"
-    label: "Ano de fundação"
-  - number: "18"
-    label: "Títulos maranhenses"
+  - number: '1932'
+    label: Ano de fundação
+    count: null
+    prefix: ''
+    suffix: ''
+  - number: '18'
+    label: Títulos maranhenses
     count: 18
-  - number: "1979"
-    label: "Na elite do Brasil"
-  - number: "90"
-    prefix: "+"
-    suffix: "anos"
-    label: "De história"
+    prefix: ''
+    suffix: ''
+  - number: '1979'
+    label: Na elite do Brasil
+    count: null
+    prefix: ''
+    suffix: ''
+  - number: '90'
+    label: De história
     count: 90
-
+    prefix: +
+    suffix: anos
 sobre:
-  title: "Sobre"
+  title: Sobre
   paragraphs:
-    - 'Conhecido carinhosamente como <strong class="hl">Bode Gregório</strong>, o Maranhão Atlético Clube é o quadricolor de São Luís e um dos maiores símbolos do futebol maranhense. Fundado em <strong>24 de setembro de 1932</strong>, mostrou a que veio logo na estreia, goleando o ex-rival por 4 a 0 — o primeiro capítulo de uma história feita de tradição, raça e conquistas.'
-    - 'Do primeiro título estadual, em 1937, aos tricampeonatos e às taças mais recentes, o MAC ergueu um dos maiores acervos do estado — coroado pelo <strong class="hl">18º título maranhense em 2025</strong>. Pelo caminho, escreveu também páginas de protagonismo nacional, como a inesquecível campanha de 1979 na Primeira Divisão, quando superou gigantes como Fluminense, Bahia e Botafogo.'
+    - Conhecido carinhosamente como <strong class="hl">Bode Gregório</strong>, o Maranhão Atlético Clube é o quadricolor de São Luís e um dos maiores símbolos do futebol maranhense. Fundado em <strong>24 de setembro de 1932</strong>, mostrou a que veio logo na estreia, goleando o ex-rival por 4 a 0 — o primeiro capítulo de uma história feita de tradição, raça e conquistas.
+    - Do primeiro título estadual, em 1937, aos tricampeonatos e às taças mais recentes, o MAC ergueu um dos maiores acervos do estado — coroado pelo <strong class="hl">18º título maranhense em 2025</strong>. Pelo caminho, escreveu também páginas de protagonismo nacional, como a inesquecível campanha de 1979 na Primeira Divisão, quando superou gigantes como Fluminense, Bahia e Botafogo.
     - 'Mandante no Estádio Nhozinho Santos e no Castelão nos grandes jogos, o Maranhão é movido por uma das maiores torcidas do estado, que atravessa gerações e mantém viva a paixão pelo quadricolor. Tradição em campo, resistência na arquibancada e ambição para seguir crescendo: esse é o Bode Gregório.'
   images:
-    - { src: "Imagens MAC/IMG_3844.JPG", alt: "Time do MAC em campo" }
-    - { src: "Imagens MAC/IMG_4054.JPG", alt: "Jogadores do MAC" }
-    - { src: "Imagens MAC/IMG_5052.JPG", alt: "Partida do MAC" }
-
+    - src: Imagens MAC/IMG_3844.JPG
+      alt: Time do MAC em campo
+    - src: Imagens MAC/IMG_4054.JPG
+      alt: Jogadores do MAC
+    - src: Imagens MAC/IMG_5052.JPG
+      alt: Partida do MAC
 sponsors:
-  title: "Patrocinadores"
-  cta: "Quero ser um patrocinador"
-
+  title: Patrocinadores
+  cta: Quero ser um patrocinador
 apoio:
-  title: "Apoio:"
+  title: 'Apoio:'
   items:
-    - "Federação Maranhense de Futebol"
-    - "Secretaria de Esporte do Maranhão"
-    - "Governo do Estado"
+    - Federação Maranhense de Futebol
+    - Governo do Estado
+meta:
+  title: Maranhão Atlético Clube — Tradição, Paixão e Futebol
+  description: Site oficial do Maranhão Atlético Clube (MAC). Tradição, paixão e esporte no coração do Maranhão.
