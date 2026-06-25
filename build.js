@@ -8,6 +8,17 @@ const fs = require('fs');
 const path = require('path');
 const nunjucks = require('nunjucks');
 const yaml = require('js-yaml');
+const { marked } = require('marked');
+
+// Negrito (**texto**) vira destaque azul da marca (<strong class="hl">)
+marked.use({
+  renderer: {
+    strong(text) {
+      const t = (typeof text === 'object') ? (text.text ?? text.raw ?? '') : text;
+      return `<strong class="hl">${t}</strong>`;
+    }
+  }
+});
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
@@ -27,6 +38,9 @@ if (fs.existsSync(CONTENT_DIR)) {
 
 // 2) Configura o Nunjucks
 const env = nunjucks.configure(TEMPLATES_DIR, { autoescape: true, noCache: true });
+
+// Filtro "md": converte negrito/itálico/links (markdown em linha) para HTML
+env.addFilter('md', (s) => (s ? marked.parseInline(String(s)) : ''));
 
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });

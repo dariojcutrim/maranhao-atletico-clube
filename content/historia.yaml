@@ -5,7 +5,7 @@ hero:
   subtitle: "Mais de 90 anos de tradição, conquistas e paixão pelo quadricolor de São Luís."
   image: "Imagens MAC/IMG_5135.JPG"
 
-intro: 'O <strong>Maranhão Atlético Clube</strong> é o <strong>Bode Gregório</strong>, o quadricolor de São Luís. Fundado em <strong>24 de setembro de 1932</strong>, nasceu de uma dissidência do antigo Ciro e mostrou força desde o primeiro dia: na estreia, venceu o ex-rival por 4 a 0. Dali em diante, construiu uma das histórias mais vitoriosas do futebol maranhense.'
+intro: 'O **Maranhão Atlético Clube** é o **Bode Gregório**, o quadricolor de São Luís. Fundado em **24 de setembro de 1932**, nasceu de uma dissidência do antigo Ciro e mostrou força desde o primeiro dia: na estreia, venceu o ex-rival por 4 a 0. Dali em diante, construiu uma das histórias mais vitoriosas do futebol maranhense.'
 
 timeline_title: "Linha do Tempo"
 timeline:
@@ -61,7 +61,7 @@ timeline:
 feature:
   tag: "Auge nacional"
   title: "1979: o Maranhão na elite do Brasil"
-  text: 'Foi em 1979 que o clube alcançou a sua melhor campanha na história: disputou a Primeira Divisão do Campeonato Brasileiro e terminou em 26º entre quase 100 equipes, superando camisas pesadas como <strong>Fluminense, Bahia e Botafogo</strong>.'
+  text: 'Foi em 1979 que o clube alcançou a sua melhor campanha na história: disputou a Primeira Divisão do Campeonato Brasileiro e terminou em 26º entre quase 100 equipes, superando camisas pesadas como **Fluminense, Bahia e Botafogo**.'
   stats:
     - { number: "8", label: "Vitórias" }
     - { number: "3", label: "Empates" }
@@ -70,8 +70,8 @@ feature:
 
 blocks:
   - title: "Estádios"
-    text: 'O MAC manda a maior parte de seus jogos no <strong>Estádio Nhozinho Santos</strong> e utiliza o <strong>Castelão</strong> nas partidas de maior demanda — ambos em São Luís.'
+    text: 'O MAC manda a maior parte de seus jogos no **Estádio Nhozinho Santos** e utiliza o **Castelão** nas partidas de maior demanda — ambos em São Luís.'
   - title: "Torcida e Rivalidades"
-    text: 'O clube tem uma das maiores torcidas do estado e é apontado como o terceiro mais popular da capital, com rivalidades históricas contra <strong>Moto Club</strong> e <strong>Sampaio Corrêa</strong>.'
+    text: 'O clube tem uma das maiores torcidas do estado e é apontado como o terceiro mais popular da capital, com rivalidades históricas contra **Moto Club** e **Sampaio Corrêa**.'
   - title: "Quem somos hoje"
     text: 'Tradição, camisa quadricolor e presença constante nas decisões. O Maranhão Atlético Clube segue como pilar do futebol maranhense: competitivo no estadual, ativo no calendário nacional e sustentado por uma torcida que atravessa gerações. É o Bode Gregório em campo — resistência, paixão e resultado, com história para contar e ambição para seguir crescendo.'

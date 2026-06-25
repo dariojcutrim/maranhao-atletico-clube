@@ -27,7 +27,7 @@
           <h3>{{ proj.title }}</h3>
           <p class="project-meta">{% for m in proj.meta %}<strong>{{ m.label }}:</strong> {{ m.value }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p>
           {%- for p in proj.paragraphs %}
-          <p>{{ p }}</p>
+          <p>{{ p | md | safe }}</p>
           {%- endfor %}
         </div>
       </div>

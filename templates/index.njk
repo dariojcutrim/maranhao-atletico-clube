@@ -46,7 +46,7 @@
       <div class="about-grid">
         <div class="about-text reveal">
           {%- for p in home.sobre.paragraphs %}
-          <p>{{ p | safe }}</p>
+          <p>{{ p | md | safe }}</p>
           {%- endfor %}
         </div>
         <div class="about-collage">

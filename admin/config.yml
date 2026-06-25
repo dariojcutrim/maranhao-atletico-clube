@@ -55,7 +55,7 @@ collections:
             widget: object
             fields:
               - { label: "Título da seção", name: title, widget: string, hint: 'Título azul da seção. Ex.: Sobre' }
-              - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text }, hint: "Cada item é um parágrafo. Para deixar uma parte em destaque azul, envolva com <strong class=\"hl\">texto</strong>." }
+              - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }, hint: "Cada item é um parágrafo. Selecione um trecho e clique no N (negrito) para deixá-lo em DESTAQUE AZUL." }
               - { label: "Fotos da colagem (lado direito)", name: images, widget: list, summary: "{{fields.alt}}", fields: [ { label: "Foto", name: src, widget: image }, { label: "Descrição da foto", name: alt, widget: string, hint: "Texto que descreve a foto (acessibilidade)." } ], hint: "As 3 fotos sobrepostas ao lado do texto." }
           - label: "Seção Patrocinadores (textos)"
             name: sponsors
@@ -109,7 +109,7 @@ collections:
         file: "content/diretoria.yaml"
         fields:
           - { label: "Título da página", name: title, widget: string }
-          - { label: "Texto de introdução", name: intro, widget: text, hint: "Parágrafo no topo da página de diretoria." }
+          - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Parágrafo no topo. Pode usar negrito (N) para destacar trechos em azul." }
           - label: "Membros da diretoria"
             name: members
             widget: list
@@ -204,7 +204,7 @@ collections:
                 fields:
                   - { label: "Rótulo", name: label, widget: string, hint: "Ex.: Categorias" }
                   - { label: "Valor", name: value, widget: string, hint: "Ex.: Sub-15, Sub-17 e Sub-20" }
-              - { label: "Parágrafos", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text }, hint: "Cada item é um parágrafo da descrição." }
+              - { label: "Parágrafos", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }, hint: "Cada item é um parágrafo da descrição." }
 
   # ===================================================================== FAQ
   - name: faq
@@ -224,7 +224,7 @@ collections:
             summary: "{{fields.question}}"
             fields:
               - { label: "Pergunta", name: question, widget: string }
-              - { label: "Resposta", name: answer, widget: text }
+              - { label: "Resposta", name: answer, widget: markdown, minimal: true, buttons: [bold, italic, link], editor_components: [], hint: "Pode usar negrito (N) para destacar trechos em azul." }
 
   # ================================================================= HISTÓRIA
   - name: historia
@@ -244,7 +244,7 @@ collections:
               - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: História' }
               - { label: "Frase abaixo", name: subtitle, widget: text }
               - { label: "Foto de fundo", name: image, widget: image }
-          - { label: "Texto de introdução", name: intro, widget: text, hint: "Parágrafo de abertura. Use <strong>texto</strong> para negrito." }
+          - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Parágrafo de abertura. Selecione um trecho e clique no N (negrito) para destacar em azul." }
           - { label: "Título da linha do tempo", name: timeline_title, widget: string, hint: 'Ex.: Linha do Tempo' }
           - label: "Linha do tempo (conquistas)"
             name: timeline
@@ -254,14 +254,14 @@ collections:
             fields:
               - { label: "Ano", name: year, widget: string, hint: "Ex.: 1932 ou 93 · 94 · 95" }
               - { label: "Título do marco", name: title, widget: string }
-              - { label: "Descrição", name: text, widget: text }
+              - { label: "Descrição", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
           - label: "Destaque 1979 (faixa azul)"
             name: feature
             widget: object
             fields:
               - { label: "Etiqueta (em vermelho)", name: tag, widget: string, hint: 'Ex.: Auge nacional' }
               - { label: "Título", name: title, widget: string }
-              - { label: "Texto", name: text, widget: text, hint: "Use <strong>texto</strong> para negrito." }
+              - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Selecione um trecho e clique no N (negrito) para destacá-lo." }
               - label: "Mini-números"
                 name: stats
                 widget: list
@@ -276,7 +276,7 @@ collections:
             summary: "{{fields.title}}"
             fields:
               - { label: "Título do bloco", name: title, widget: string }
-              - { label: "Texto", name: text, widget: text, hint: "Use <strong>texto</strong> para negrito." }
+              - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Selecione um trecho e clique no N (negrito) para destacá-lo." }
 
   # ================================================================== GALERIA
   - name: galeria
@@ -310,7 +310,7 @@ collections:
         file: "content/ouvidoria.yaml"
         fields:
           - { label: "Título da página", name: title, widget: string }
-          - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: text } }
+          - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] } }
           - { label: "E-mail da ouvidoria", name: email, widget: string, hint: "Ex.: ouvidoria@seuclube.com.br" }
 
   # ==================================================================== TERMOS

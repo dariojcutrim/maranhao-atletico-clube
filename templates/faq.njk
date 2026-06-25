@@ -22,7 +22,7 @@
     <div class="container">
       <div class="faq-list">
         {%- for item in faq.items %}
-        <div class="faq-item"><button class="faq-q">{{ item.question }} <span class="chev">&#10095;</span></button><div class="faq-a"><p>{{ item.answer }}</p></div></div>
+        <div class="faq-item"><button class="faq-q">{{ item.question }} <span class="chev">&#10095;</span></button><div class="faq-a"><p>{{ item.answer | md | safe }}</p></div></div>
         {%- endfor %}
       </div>
     </div>

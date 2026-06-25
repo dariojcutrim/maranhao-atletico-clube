@@ -20,7 +20,7 @@
   </section>
   <section class="section-sm">
     <div class="container">
-      <p class="board-intro">{{ diretoria.intro }}</p>
+      <p class="board-intro">{{ diretoria.intro | md | safe }}</p>
       <div class="board-list">
         {%- for m in diretoria.members %}
         <div class="board-item"><h4>{{ m.role }}</h4><p>{{ m.name }}</p></div>

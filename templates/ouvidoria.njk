@@ -23,7 +23,7 @@
       <div class="form-grid">
         <div class="contact-info">
           {%- for p in ouvidoria.paragraphs %}
-          <p style="margin-bottom:16px;">{{ p }}</p>
+          <p style="margin-bottom:16px;">{{ p | md | safe }}</p>
           {%- endfor %}
           <p>O endereço eletrônico é: <a href="mailto:{{ ouvidoria.email }}">{{ ouvidoria.email }}</a></p>
         </div>
