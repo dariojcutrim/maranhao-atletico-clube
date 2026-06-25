@@ -138,16 +138,33 @@ document.addEventListener('DOMContentLoaded', function () {
     heroRotator.style.transition = 'opacity 0.35s ease';
   }
 
-  /* ---- Envio de formulários (demonstração — sem backend) ---- */
+  /* ---- Envio de formulários (Netlify Forms, via AJAX) ---- */
   document.querySelectorAll('.club-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const feedback = form.querySelector('.form-feedback');
-      if (feedback) {
-        feedback.classList.add('show');
-        feedback.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato. (Demonstração — conecte a um serviço de e-mail para envio real.)';
-      }
-      form.reset();
+      const btn = form.querySelector('button[type="submit"]');
+      if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Enviando...'; }
+      const body = new URLSearchParams(new FormData(form)).toString();
+      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+        .then((res) => {
+          if (!res.ok) throw new Error('falha');
+          if (feedback) {
+            feedback.classList.add('show');
+            feedback.classList.remove('error');
+            feedback.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+          }
+          form.reset();
+        })
+        .catch(() => {
+          if (feedback) {
+            feedback.classList.add('show', 'error');
+            feedback.textContent = 'Ops, não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.';
+          }
+        })
+        .finally(() => {
+          if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Enviar'; }
+        });
     });
   });
 

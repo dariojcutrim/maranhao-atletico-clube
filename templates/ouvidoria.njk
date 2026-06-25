@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ ouvidoria.title }} — Maranhão Atlético Clube</title>
-  <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Saira+Condensed:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+{% set page_title = ouvidoria.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Canal de ouvidoria do Maranhão Atlético Clube — reclamações, sugestões e elogios." %}
+{% include "_head.njk" %}
 </head>
 <body>
 
@@ -27,14 +22,17 @@
           {%- endfor %}
           <p>O endereço eletrônico é: <a href="mailto:{{ ouvidoria.email }}">{{ ouvidoria.email }}</a></p>
         </div>
-        <form class="club-form">
+        <form class="club-form" name="ouvidoria" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="ouvidoria">
+          <p hidden><label>Não preencha isto: <input name="bot-field"></label></p>
           <div class="form-feedback"></div>
-          <div class="field"><label>Nome: <span class="req">*</span></label><input type="text" placeholder="Digite seu nome completo" required></div>
-          <div class="field"><label>Celular/WhatsApp: <span class="req">*</span></label><input type="tel" placeholder="Digite seu número de celular/WhatsApp" required></div>
-          <div class="field"><label>Telefone Residencial:</label><input type="tel" placeholder="Digite seu telefone residencial"></div>
-          <div class="field"><label>E-mail: <span class="req">*</span></label><input type="email" placeholder="Digite seu e-mail" required></div>
-          <div class="field"><label>Matrícula:</label><input type="text" placeholder="Se for associado"></div>
-          <div class="field"><label>Mensagem <span class="req">*</span></label><textarea placeholder="Escreva sua dúvida, sugestão ou solicitação" required></textarea></div>
+          <div class="field"><label>Nome: <span class="req">*</span></label><input type="text" name="nome" placeholder="Digite seu nome completo" required></div>
+          <div class="field"><label>Celular/WhatsApp: <span class="req">*</span></label><input type="tel" name="celular" placeholder="Digite seu número de celular/WhatsApp" required></div>
+          <div class="field"><label>Telefone Residencial:</label><input type="tel" name="telefone_residencial" placeholder="Digite seu telefone residencial"></div>
+          <div class="field"><label>E-mail: <span class="req">*</span></label><input type="email" name="email" placeholder="Digite seu e-mail" required></div>
+          <div class="field"><label>Matrícula:</label><input type="text" name="matricula" placeholder="Se for associado"></div>
+          <div class="field"><label>Mensagem <span class="req">*</span></label><textarea name="mensagem" placeholder="Escreva sua dúvida, sugestão ou solicitação" required></textarea></div>
+          <p class="form-note">Ao enviar, você concorda com nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
           <div><button type="submit" class="btn btn-primary">Enviar</button></div>
         </form>
       </div>

@@ -47,13 +47,18 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 // 4) Renderiza os templates de página (templates/*.njk, ignorando _partials)
+const SITE_URL = 'https://maranhaoatleticoclube.netlify.app';
 const rendered = new Set();
+const sitemapUrls = [];
 if (fs.existsSync(TEMPLATES_DIR)) {
   for (const file of fs.readdirSync(TEMPLATES_DIR)) {
     if (file.endsWith('.njk') && !file.startsWith('_')) {
       const outName = file.replace(/\.njk$/, '.html');
-      fs.writeFileSync(path.join(OUT, outName), env.render(file, data));
+      const url = SITE_URL + (outName === 'index.html' ? '/' : '/' + outName);
+      const ctx = Object.assign({}, data, { site_url: SITE_URL, page: { name: outName, url } });
+      fs.writeFileSync(path.join(OUT, outName), env.render(file, ctx));
       rendered.add(outName);
+      if (outName !== '404.html') sitemapUrls.push(url);
     }
   }
 }
@@ -80,5 +85,13 @@ for (const dir of ['assets', 'Imagens MAC', 'admin']) {
   }
 })(OUT);
 
+// 8) Gera sitemap.xml e robots.txt
+const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
+  sitemapUrls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') +
+  '\n</urlset>\n';
+fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
+fs.writeFileSync(path.join(OUT, 'robots.txt'),
+  `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
 const totalPages = fs.readdirSync(OUT).filter(f => f.endsWith('.html')).length;
-console.log(`Build OK — ${rendered.size} página(s) gerada(s) de templates, ${totalPages} HTML no total em _site/`);
+console.log(`Build OK — ${rendered.size} página(s) gerada(s) de templates, ${totalPages} HTML no total em _site/ (+ sitemap.xml, robots.txt)`);

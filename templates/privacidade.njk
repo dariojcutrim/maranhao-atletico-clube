@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = privacidade.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Política de Privacidade do Maranhão Atlético Clube — como tratamos seus dados conforme a LGPD." %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ privacidade.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container history-block">
+      <p style="color: var(--text-muted); font-size: 0.85rem;">Última atualização: {{ privacidade.updated }}</p>
+      <p style="color: var(--text-muted);">{{ privacidade.intro | md | safe }}</p>
+      {%- for s in privacidade.sections %}
+      <h3>{{ s.heading }}</h3>
+      <p>{{ s.text | md | safe }}</p>
+      {%- endfor %}
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

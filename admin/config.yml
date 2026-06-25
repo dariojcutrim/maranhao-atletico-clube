@@ -332,3 +332,25 @@ collections:
             fields:
               - { label: "Texto do link", name: label, widget: string }
               - { label: "Endereço (URL)", name: url, widget: string, hint: "Para onde o link leva. Use # se ainda não tiver." }
+
+  # =========================================================== PRIVACIDADE
+  - name: privacidade
+    label: "🔒 Política de Privacidade"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Política de Privacidade"
+        file: "content/privacidade.yaml"
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Data de atualização", name: updated, widget: string, hint: "Ex.: Junho de 2026" }
+          - { label: "Introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+          - label: "Seções"
+            name: sections
+            widget: list
+            label_singular: "Seção"
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }

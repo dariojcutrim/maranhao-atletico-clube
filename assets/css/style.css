@@ -594,6 +594,9 @@ ul { list-style: none; }
   font-size: 0.9rem;
 }
 .form-feedback.show { display: block; }
+.form-feedback.error { background: #fdecea; color: #b3261e; }
+.form-note { font-size: 0.8rem; color: var(--text-muted); margin-top: -4px; }
+.form-note a { color: var(--mac-blue); text-decoration: underline; }
 
 /* ============================================== Galeria */
 .gallery-grid {
