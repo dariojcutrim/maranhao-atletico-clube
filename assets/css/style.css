@@ -387,8 +387,10 @@ ul { list-style: none; }
   align-items: center;
 }
 .about-text p { color: var(--text-muted); margin-bottom: 16px; }
-/* Destaque (negrito) na cor azul da marca — usado no conteúdo editável */
+/* Destaques (negrito) no conteúdo editável — azul (padrão), vermelho e preto */
 .hl { color: var(--mac-blue); font-weight: 700; }
+.hl-red { color: var(--mac-red); font-weight: 700; }
+.hl-black { color: #111; font-weight: 700; }
 .about-collage {
   position: relative;
   min-height: 540px;
@@ -747,7 +749,8 @@ ul { list-style: none; }
   line-height: 1;
 }
 .feature-1979 p { color: rgba(255,255,255,0.82); max-width: 720px; margin-bottom: 24px; }
-.feature-1979 .hl { color: #fff; }   /* negrito no bloco azul fica branco, não azul */
+.feature-1979 .hl,
+.feature-1979 .hl-black { color: #fff; }   /* negrito azul/preto no bloco azul fica branco p/ contraste */
 .feature-1979 .mini-stats {
   display: flex;
   flex-wrap: wrap;

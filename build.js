@@ -20,6 +20,16 @@ marked.use({
   }
 });
 
+// Destaques de cor por marcadores simples (fáceis para quem edita no painel):
+//   **azul**       -> negrito AZUL    (botão Negrito)
+//   ((vermelho))   -> negrito VERMELHO
+//   [[preto]]      -> negrito PRETO
+function applyHighlights(s) {
+  return String(s)
+    .replace(/\[\[(.+?)\]\]/g, '<strong class="hl-black">$1</strong>')
+    .replace(/\(\((.+?)\)\)/g, '<strong class="hl-red">$1</strong>');
+}
+
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
 const CONTENT_DIR = path.join(ROOT, 'content');
@@ -40,7 +50,7 @@ if (fs.existsSync(CONTENT_DIR)) {
 const env = nunjucks.configure(TEMPLATES_DIR, { autoescape: true, noCache: true });
 
 // Filtro "md": converte negrito/itálico/links (markdown em linha) para HTML
-env.addFilter('md', (s) => (s ? marked.parseInline(String(s)) : ''));
+env.addFilter('md', (s) => (s ? marked.parseInline(applyHighlights(String(s))) : ''));
 
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });
