@@ -169,11 +169,13 @@ collections:
           - label: "Redes sociais e WhatsApp"
             name: social
             widget: object
-            hint: "Afeta os ícones do rodapé e o botão verde flutuante."
+            hint: "Afeta os ícones do rodapé, o botão verde flutuante e o botão 'Loja' do menu."
             fields:
               - { label: "Link do WhatsApp", name: whatsapp, widget: string, hint: "Link completo. Ex.: https://wa.me/5598999999999 (55 + DDD + número). Muda o botão flutuante e o ícone do rodapé." }
               - { label: "Link do Instagram", name: instagram, widget: string, hint: "Ex.: https://instagram.com/seuperfil" }
+              - { label: "Link do YouTube", name: youtube, widget: string, hint: "Ex.: https://youtube.com/@seucanal" }
               - { label: "E-mail (link)", name: email, widget: string, hint: "Ex.: mailto:contato@seuclube.com.br" }
+              - { label: "Link da Loja", name: store, widget: string, hint: "Loja oficial. Aparece como botão 'Loja' no menu do topo. Ex.: https://minhaloja.com.br" }
 
   # ================================================================ PROJETOS
   - name: projetos
