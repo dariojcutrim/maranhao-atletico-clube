@@ -1,20 +1,12 @@
 # Página Diretoria
 title: "Diretoria"
-intro: "Todos os ocupantes de cargos estatutários (diretoria executiva) são voluntários e atuam em prol do desenvolvimento do clube e do futebol maranhense."
+intro: "Conheça quem está à frente do Maranhão Atlético Clube, trabalhando pelo crescimento do clube e do futebol maranhense."
 members:
   - role: "Presidente"
-    name: "Nome do Presidente"
-  - role: "Vice-Presidente"
-    name: "Nome do Vice-Presidente"
-  - role: "Diretor Financeiro"
-    name: "Nome do Diretor Financeiro"
-  - role: "Diretor de Patrimônio"
-    name: "Nome do Diretor de Patrimônio"
-  - role: "Diretor de Futebol"
-    name: "Nome do Diretor de Futebol"
-council:
-  title: "Conselho Fiscal"
-  members:
-    - "Membro do Conselho 1"
-    - "Membro do Conselho 2"
-    - "Membro do Conselho 3"
+    name: "Carlos Eduardo"
+    nationality: "Brasileiro"
+    photo: "assets/img/diretoria/carlos-eduardo.jpg"
+  - role: "Auxiliar Técnico"
+    name: "Lucas Guerreiro"
+    nationality: "Brasileiro"
+    photo: "assets/img/diretoria/lucas-guerreiro.jpg"

@@ -116,14 +116,48 @@ collections:
             label_singular: "Membro"
             summary: "{{fields.role}}: {{fields.name}}"
             fields:
-              - { label: "Cargo", name: role, widget: string, hint: "Ex.: Presidente" }
+              - { label: "Foto", name: photo, widget: image, required: false, hint: "Foto da pessoa (retrato vertical fica melhor). Pode ser arte promocional do clube." }
+              - { label: "Cargo", name: role, widget: string, hint: "Ex.: Presidente, Auxiliar Técnico" }
               - { label: "Nome da pessoa", name: name, widget: string, hint: "Nome completo de quem ocupa o cargo." }
-          - label: "Conselho Fiscal"
-            name: council
+              - { label: "Nacionalidade", name: nationality, widget: string, required: false, hint: "Ex.: Brasileiro" }
+
+  # ================================================================== ELENCO
+  - name: elenco
+    label: "⚽ Elenco"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Elenco"
+        file: "content/elenco.yaml"
+        description: "Jogadores agrupados por posição. Adicione/edite grupos (Goleiros, Defensores...) e, dentro de cada grupo, os jogadores."
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Parágrafo no topo. Destaques — AZUL: selecione e clique no N · VERMELHO: escreva ((palavra)) · PRETO: escreva [[palavra]]." }
+          - label: "Grupos por posição"
+            name: groups
+            widget: list
+            label_singular: "Posição"
+            summary: "{{fields.position}}"
+            fields:
+              - { label: "Posição (título do grupo)", name: position, widget: string, hint: "Ex.: Goleiros, Defensores, Meio-campistas, Atacantes" }
+              - label: "Jogadores"
+                name: players
+                widget: list
+                label_singular: "Jogador"
+                summary: "{{fields.name}}"
+                fields:
+                  - { label: "Foto", name: photo, widget: image, required: false, hint: "Foto do jogador (retrato vertical fica melhor). Pode ser arte do clube." }
+                  - { label: "Nome", name: name, widget: string, hint: "Ex.: Jefferson Henrique" }
+                  - { label: "Função (comissão técnica)", name: role, widget: string, required: false, hint: "Só para a comissão técnica. Ex.: Preparador Físico, Fisioterapeuta. Deixe vazio para jogadores." }
+                  - { label: "Número da camisa", name: number, widget: string, required: false, hint: "Ex.: 12 — deixe vazio se não tiver." }
+                  - { label: "Nacionalidade", name: nationality, widget: string, required: false, hint: "Ex.: Brasileiro" }
+          - label: "SEO (aba do navegador / compartilhamento)"
+            name: meta
             widget: object
             fields:
-              - { label: "Título do bloco", name: title, widget: string, hint: "Ex.: Conselho Fiscal" }
-              - { label: "Membros", name: members, widget: list, field: { label: "Nome", name: nome, widget: string }, hint: "Um nome por item." }
+              - { label: "Título da aba", name: title, widget: string }
+              - { label: "Descrição", name: description, widget: text }
 
   # ================================================================ CONTATO
   - name: contato

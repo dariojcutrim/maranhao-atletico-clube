@@ -16,12 +16,25 @@
   <section class="section-sm">
     <div class="container">
       <p class="board-intro">{{ diretoria.intro | md | safe }}</p>
-      <div class="board-list">
+      <div class="board-grid">
         {%- for m in diretoria.members %}
-        <div class="board-item"><h4>{{ m.role }}</h4><p>{{ m.name }}</p></div>
+        <article class="board-card">
+          {%- if m.photo %}
+          <div class="board-photo"><img src="{{ m.photo }}" alt="{{ m.name }} — {{ m.role }}" loading="lazy"></div>
+          {%- endif %}
+          <div class="board-info">
+            <span class="board-role">{{ m.role }}</span>
+            <h3 class="board-name">{{ m.name }}</h3>
+            {%- if m.nationality %}<span class="board-nat">{{ m.nationality }}</span>{% endif %}
+          </div>
+        </article>
         {%- endfor %}
+      </div>
+      {%- if diretoria.council and diretoria.council.members %}
+      <div class="board-list">
         <div class="board-item council"><h4>{{ diretoria.council.title }}</h4><p>{% for member in diretoria.council.members %}{{ member }}{% if not loop.last %}<br>{% endif %}{% endfor %}</p></div>
       </div>
+      {%- endif %}
     </div>
   </section>
 

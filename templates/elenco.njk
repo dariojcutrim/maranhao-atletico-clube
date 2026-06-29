@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = elenco.meta.title %}
+{% set page_desc = elenco.meta.description %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% set activeNav = 'elenco' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container"><h1 class="section-title">{{ elenco.title }}</h1></div>
+  </section>
+  <section class="section-sm">
+    <div class="container">
+      <p class="board-intro">{{ elenco.intro | md | safe }}</p>
+      {%- for g in elenco.groups %}
+      <div class="player-group">
+        <h2 class="player-group-title">{{ g.position }}</h2>
+        <div class="player-grid">
+          {%- for p in g.players %}
+          <article class="player-card">
+            <div class="player-photo">
+              {%- if p.photo %}<img src="{{ p.photo }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+              {%- if p.number %}<span class="player-number">{{ p.number }}</span>{% endif %}
+            </div>
+            <div class="player-info">
+              {%- if p.role %}<span class="player-role">{{ p.role }}</span>{% endif %}
+              <h3 class="player-name">{{ p.name }}</h3>
+              <span class="player-meta">{% if p.number %}Nº {{ p.number }} · {% endif %}{{ p.nationality }}</span>
+            </div>
+          </article>
+          {%- endfor %}
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
