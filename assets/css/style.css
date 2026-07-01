@@ -157,13 +157,16 @@ ul { list-style: none; }
 .nav-loja:hover { color: var(--mac-red-dark); }
 .nav-loja::after { display: none !important; }
 @media (min-width: 981px) {
-  .nav-loja {
+  .main-nav a.nav-loja {
     background: var(--mac-red);
     color: var(--white);
-    padding: 8px 16px;
+    padding: 9px 22px;
     border-radius: 999px;
+    margin-left: 6px;
+    transition: background 0.25s ease, color 0.25s ease;
   }
-  .nav-loja:hover { background: var(--mac-red-dark); color: var(--white); transform: translateY(-1px); }
+  /* Hover brinca com a paleta do MAC: o vermelho vira azul */
+  .main-nav a.nav-loja:hover { background: var(--mac-blue); color: var(--white); }
 }
 
 /* Dropdown */
