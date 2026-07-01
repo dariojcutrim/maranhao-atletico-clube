@@ -35,6 +35,17 @@ const OUT = path.join(ROOT, '_site');
 const CONTENT_DIR = path.join(ROOT, 'content');
 const TEMPLATES_DIR = path.join(ROOT, 'templates');
 
+// Cache-busting: gera uma "versão" do CSS/JS a partir do conteúdo do arquivo.
+// Assim, quando o arquivo muda, o link muda (?v=...) e o navegador busca o novo
+// na hora — sem o visitante precisar limpar cache / dar hard refresh.
+const crypto = require('crypto');
+function assetVersion(rel) {
+  try { return crypto.createHash('sha1').update(fs.readFileSync(path.join(ROOT, rel))).digest('hex').slice(0, 8); }
+  catch (e) { return Date.now().toString(36); }
+}
+const CSS_V = assetVersion('assets/css/style.css');
+const JS_V = assetVersion('assets/js/main.js');
+
 // 1) Carrega todo o conteúdo editável (content/<nome>.yaml -> data.<nome>)
 const data = {};
 if (fs.existsSync(CONTENT_DIR)) {
@@ -66,7 +77,11 @@ if (fs.existsSync(TEMPLATES_DIR)) {
       const outName = file.replace(/\.njk$/, '.html');
       const url = SITE_URL + (outName === 'index.html' ? '/' : '/' + outName);
       const ctx = Object.assign({}, data, { site_url: SITE_URL, page: { name: outName, url } });
-      fs.writeFileSync(path.join(OUT, outName), env.render(file, ctx));
+      let html = env.render(file, ctx);
+      html = html
+        .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
+        .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`);
+      fs.writeFileSync(path.join(OUT, outName), html);
       rendered.add(outName);
       if (outName !== '404.html') sitemapUrls.push(url);
     }
