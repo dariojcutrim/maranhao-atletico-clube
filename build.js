@@ -45,6 +45,7 @@ function assetVersion(rel) {
 }
 const CSS_V = assetVersion('assets/css/style.css');
 const JS_V = assetVersion('assets/js/main.js');
+const OG_V = assetVersion('assets/img/og-image.jpg');
 
 // 1) Carrega todo o conteúdo editável (content/<nome>.yaml -> data.<nome>)
 const data = {};
@@ -68,7 +69,7 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 // 4) Renderiza os templates de página (templates/*.njk, ignorando _partials)
-const SITE_URL = 'https://maranhaoatleticoclube.netlify.app';
+const SITE_URL = 'https://maranhaoatleticoclubebr.com.br';
 const rendered = new Set();
 const sitemapUrls = [];
 if (fs.existsSync(TEMPLATES_DIR)) {
@@ -80,7 +81,8 @@ if (fs.existsSync(TEMPLATES_DIR)) {
       let html = env.render(file, ctx);
       html = html
         .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
-        .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`);
+        .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`)
+        .replace(/assets\/img\/og-image\.jpg/g, `assets/img/og-image.jpg?v=${OG_V}`);
       fs.writeFileSync(path.join(OUT, outName), html);
       rendered.add(outName);
       if (outName !== '404.html') sitemapUrls.push(url);
