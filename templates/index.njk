@@ -5,11 +5,12 @@
 {% set page_desc = home.meta.description %}
 {% include "_head.njk" %}
 </head>
-<body>
+<body class="home">
 
 {% include "_header.njk" %}
 
   <!-- ====================== HERO ====================== -->
+  <div class="hero-backer">
   <section class="hero hero-home">
     <div class="hero-slides">
       {%- for src in home.hero.slides %}
@@ -23,6 +24,7 @@
       </div>
     </div>
   </section>
+  </div>
 
   <!-- ====================== NÚMEROS / CONQUISTAS ====================== -->
   <section class="stats-band">

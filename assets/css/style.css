@@ -89,6 +89,8 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--line);
   box-shadow: 0 2px 12px rgba(16, 30, 70, 0.05);
 }
+/* Na home, o menu fica sobre o banner: sem borda/sombra p/ fundir o branco */
+body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
 .header-inner {
   display: flex;
   align-items: center;
@@ -253,6 +255,8 @@ ul { list-style: none; }
 }
 
 /* =============================================================== Hero */
+/* Fundo branco atrás do banner: preenche o canto que a curva revela */
+.hero-backer { background: var(--white); }
 .hero {
   position: relative;
   min-height: 560px;
