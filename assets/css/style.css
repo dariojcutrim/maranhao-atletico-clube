@@ -179,6 +179,12 @@ body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
   margin-left: 5px;
   vertical-align: middle;
 }
+/* O submenu também é um <ul> dentro de .main-nav, então ele herda o
+   "display: flex" horizontal de .main-nav ul (que tem especificidade maior
+   que .dropdown). Sem isto, os itens do submenu ficam lado a lado numa tira
+   larguíssima em vez de empilhados. */
+.main-nav ul.dropdown { display: block; }
+
 .dropdown {
   position: absolute;
   top: 100%;
@@ -194,10 +200,16 @@ body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
   transition: all 0.18s ease;
   border: 1px solid var(--line);
 }
-.has-dropdown:hover .dropdown {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(4px);
+/* Abrir por hover é comportamento SÓ de desktop — no mobile o menu abre por
+   clique (.has-dropdown.open). Sem esta media query, o toque no celular
+   ativava o :hover e o translateX(-50%) jogava metade do submenu para fora
+   da tela (os itens sumiam). */
+@media (min-width: 981px) {
+  .has-dropdown:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(4px);
+  }
 }
 .dropdown li a {
   display: block;
@@ -1035,12 +1047,17 @@ body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
     visibility: visible;
     box-shadow: none;
     border: none;
+    border-radius: 0;
+    min-width: 0;
     max-height: 0;
     overflow: hidden;
     padding: 0;
     background: var(--bg);
+    transition: max-height 0.25s ease;
   }
-  .has-dropdown.open .dropdown { max-height: 300px; padding: 4px 0; }
+  /* Folgado de propósito: o submenu cresce quando entram itens novos. */
+  .has-dropdown.open .dropdown { max-height: 600px; padding: 4px 0; }
+  .dropdown li a { white-space: normal; }
   .has-dropdown > a::before { float: right; }
 
   .about-grid, .form-grid, .project-block, .project-block.reverse .project-img { grid-template-columns: 1fr; }
