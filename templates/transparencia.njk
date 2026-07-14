@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = transparencia.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Transparência financeira do Maranhão Atlético Clube: demonstrações financeiras auditadas, receitas e despesas, com acesso livre e gratuito." %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container">
+      <h1 class="section-title">{{ transparencia.title }}</h1>
+      <p class="doc-subtitle">{{ transparencia.subtitle }}</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+     <div class="doc">
+
+      <p class="doc-updated">Última atualização: {{ transparencia.updated }}</p>
+      <p class="doc-intro">{{ transparencia.intro | md | safe }}</p>
+      <div class="doc-basis">{{ transparencia.basis | md | safe }}</div>
+
+      <!-- ================================= DEMONSTRAÇÕES FINANCEIRAS -->
+      <section class="doc-section" id="demonstracoes">
+        <h2>{{ transparencia.documents_heading }}</h2>
+
+        {%- if transparencia.documents and transparencia.documents.length %}
+        <div class="docs-list">
+          {%- for d in transparencia.documents %}
+          <a class="doc-file" href="{{ d.file }}" target="_blank" rel="noopener">
+            <span class="doc-file-year">{{ d.year }}</span>
+            <span class="doc-file-info">
+              <strong>{{ d.title }}</strong>
+              <span>{% if d.note %}{{ d.note }}{% else %}Demonstrações financeiras auditadas{% endif %}</span>
+            </span>
+            <svg class="doc-file-icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+          {%- endfor %}
+        </div>
+        {%- else %}
+        <div class="doc-empty">{{ transparencia.documents_empty | md | safe }}</div>
+        {%- endif %}
+      </section>
+
+      <!-- ============================================ SEÇÕES DE TEXTO -->
+      {%- for s in transparencia.sections %}
+      <section class="doc-section">
+        <h2>{{ s.heading }}</h2>
+        <p>{{ s.text | md | safe }}</p>
+      </section>
+      {%- endfor %}
+
+      <p><a href="torcedor.html" class="btn btn-primary">Relacionamento com o Torcedor</a></p>
+
+     </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

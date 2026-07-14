@@ -369,6 +369,157 @@ collections:
               - { label: "Texto do link", name: label, widget: string }
               - { label: "Endereço (URL)", name: url, widget: string, hint: "Para onde o link leva. Use # se ainda não tiver." }
 
+  # ================================================= TORCEDOR-CONSUMIDOR
+  - name: torcedor
+    label: "🎟️ Relacionamento com o Torcedor"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Relacionamento com o Torcedor-Consumidor"
+        file: "content/torcedor.yaml"
+        description: "Documento com as diretrizes de relacionamento com o público (estádio, ingressos, atendimento, redes, endereços e transparência). Os canais de atendimento, as redes sociais e o endereço da sede são puxados AUTOMATICAMENTE das abas 📞 Contato, 📨 Ouvidoria e ⚙️ Geral — não precisa digitar de novo aqui."
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Subtítulo", name: subtitle, widget: string, hint: "Frase logo abaixo do título." }
+          - { label: "Data de atualização", name: updated, widget: string, hint: "Ex.: Julho de 2026 — atualize sempre que mudar algo importante." }
+          - { label: "Introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Destaques — AZUL: selecione e clique no N · VERMELHO: escreva ((palavra)) · PRETO: escreva [[palavra]]." }
+          - { label: "Fundamento legal (caixa azul)", name: basis, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "⚠️ Texto jurídico. Só altere com orientação do advogado do clube." }
+
+          - label: "1. Acesso ao estádio"
+            name: estadio
+            widget: object
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto de abertura", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+              - label: "Informações do estádio"
+                name: facts
+                widget: list
+                label_singular: "Informação"
+                summary: "{{fields.label}}: {{fields.value}}"
+                hint: "Cada linha da tabela de informações (estádio, localização, capacidade, horários...)."
+                fields:
+                  - { label: "Rótulo", name: label, widget: string, hint: "Ex.: Capacidade" }
+                  - { label: "Valor", name: value, widget: markdown, minimal: true, buttons: [bold], editor_components: [] }
+              - { label: "Aviso (caixa vermelha)", name: note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
+          - label: "2. Ingressos"
+            name: ingressos
+            widget: object
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto de abertura", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+              - { label: "Onde comprar", name: where, widget: list, field: { label: "Local", name: item, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }, hint: "Cada item vira um tópico da lista." }
+              - { label: "Título dos valores", name: prices_heading, widget: string }
+              - { label: "Texto antes da tabela", name: prices_intro, widget: string }
+              - label: "Tabela de valores"
+                name: prices
+                widget: list
+                label_singular: "Setor"
+                summary: "{{fields.sector}}"
+                hint: "Cada item é uma linha da tabela de preços."
+                fields:
+                  - { label: "Setor", name: sector, widget: string, hint: "Ex.: Cadeira Coberta (MAC / Mista)" }
+                  - { label: "Venda antecipada (secretaria)", name: advance, widget: string, hint: "Ex.: Inteira R$ 40 · Meia R$ 20" }
+                  - { label: "No dia do jogo", name: matchday, widget: string, hint: "Ex.: Inteira R$ 60 · Meia R$ 30" }
+              - { label: "Aviso sobre os valores (caixa vermelha)", name: prices_note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "⚠️ IMPORTANTE: deve deixar claro que são valores de REFERÊNCIA e que mudam a cada jogo. Não remova este aviso." }
+              - { label: "Título dos horários", name: hours_heading, widget: string }
+              - label: "Horários de venda na secretaria"
+                name: hours
+                widget: list
+                label_singular: "Horário"
+                summary: "{{fields.day}}: {{fields.time}}"
+                fields:
+                  - { label: "Dia", name: day, widget: string, hint: "Ex.: Quinta e sexta-feira" }
+                  - { label: "Horário", name: time, widget: string, hint: "Ex.: Manhã: 9h30 às 11h30 · Tarde: 15h às 17h30" }
+              - { label: "Texto sobre meia-entrada", name: meia_note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
+          - label: "3. Canais de atendimento"
+            name: atendimento
+            widget: object
+            hint: "Telefone, e-mail, horário e Ouvidoria aparecem sozinhos (vêm das abas 📞 Contato e 📨 Ouvidoria). Aqui só os textos."
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto de abertura", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+              - { label: "Aviso (caixa vermelha)", name: note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
+          - label: "4. Redes sociais"
+            name: redes
+            widget: object
+            hint: "Os links aparecem sozinhos (vêm da aba ⚙️ Geral). Aqui só os textos."
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto de abertura", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+
+          - label: "5. Endereços físicos"
+            name: enderecos
+            widget: object
+            hint: "O endereço da sede aparece sozinho (vem da aba 📞 Contato)."
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto de abertura", name: intro, widget: string }
+              - { label: "Rótulo da sede", name: sede_label, widget: string, hint: "Ex.: Sede / Secretaria do MAC" }
+              - { label: "Observação da sede", name: sede_note, widget: string, required: false }
+              - label: "Outros endereços"
+                name: items
+                widget: list
+                label_singular: "Endereço"
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Rótulo", name: label, widget: string, hint: "Ex.: Estádio (mandante)" }
+                  - { label: "Endereço", name: value, widget: markdown, minimal: true, buttons: [bold], editor_components: [] }
+                  - { label: "Observação", name: note, widget: string, required: false }
+
+          - label: "6. Transparência financeira"
+            name: transparencia
+            widget: object
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+              - { label: "Texto do botão", name: cta_label, widget: string }
+              - { label: "Link do botão", name: cta_url, widget: string, hint: "Deixe como transparencia.html" }
+
+          - { label: "Observação final", name: footer_note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
+  # ============================================ TRANSPARÊNCIA FINANCEIRA
+  - name: transparencia
+    label: "📊 Transparência Financeira"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Transparência Financeira"
+        file: "content/transparencia.yaml"
+        description: "Página onde ficam publicadas as demonstrações financeiras (balanços) do clube. Para publicar um balanço: adicione um item em 'Demonstrações financeiras', preencha o ano e o nome, e envie o PDF."
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Subtítulo", name: subtitle, widget: string }
+          - { label: "Data de atualização", name: updated, widget: string, hint: "Ex.: Julho de 2026" }
+          - { label: "Introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+          - { label: "Fundamento legal (caixa azul)", name: basis, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "⚠️ Texto jurídico. Só altere com orientação do advogado do clube." }
+          - { label: "Título da lista", name: documents_heading, widget: string, hint: 'Ex.: Demonstrações financeiras' }
+          - label: "Demonstrações financeiras (PDFs)"
+            name: documents
+            widget: list
+            label_singular: "Documento"
+            summary: "{{fields.year}} — {{fields.title}}"
+            required: false
+            hint: "Cada item vira um cartão com botão de download. Enquanto esta lista estiver vazia, o site mostra o aviso de 'em elaboração'."
+            fields:
+              - { label: "Ano (exercício)", name: year, widget: string, hint: "Ex.: 2024" }
+              - { label: "Nome do documento", name: title, widget: string, hint: "Ex.: Demonstrações Financeiras — Exercício de 2024" }
+              - { label: "Arquivo (PDF)", name: file, widget: file, hint: "Envie o PDF do balanço já auditado." }
+              - { label: "Observação", name: note, widget: string, required: false, hint: "Linha pequena abaixo do nome. Ex.: Auditado por [empresa]. Deixe vazio para o texto padrão." }
+          - { label: "Aviso quando não há documentos", name: documents_empty, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Aparece SÓ enquanto a lista acima estiver vazia." }
+          - label: "Seções de texto"
+            name: sections
+            widget: list
+            label_singular: "Seção"
+            summary: "{{fields.heading}}"
+            fields:
+              - { label: "Título da seção", name: heading, widget: string }
+              - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+
   # =========================================================== PRIVACIDADE
   - name: privacidade
     label: "🔒 Política de Privacidade"

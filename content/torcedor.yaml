@@ -1,0 +1,94 @@
+# =====================================================================
+# Página "Relacionamento com o Torcedor-Consumidor"
+# Documento de diretrizes básicas de relacionamento do clube com o público.
+# Reúne os 6 itens exigidos: acesso ao estádio, ingressos (locais e valores),
+# canais de atendimento, redes sociais, endereços físicos e transparência
+# financeira.
+#
+# OBS.: os canais de atendimento, as redes sociais e o endereço da sede são
+# puxados automaticamente das abas 📞 Contato, 📨 Ouvidoria e ⚙️ Geral —
+# não precisam ser digitados de novo aqui.
+# =====================================================================
+title: "Relacionamento com o Torcedor-Consumidor"
+subtitle: "Diretrizes básicas de relacionamento do Maranhão Atlético Clube com o público"
+updated: "Julho de 2026"
+
+intro: "Este documento reúne, em um só lugar, as informações básicas de relacionamento do **Maranhão Atlético Clube** com torcedores, sócios, fornecedores e demais interessados: como acessar o estádio, onde comprar ingressos e quanto custam, por quais canais falar com o clube, onde ficam nossos endereços físicos e como acompanhar a nossa transparência financeira."
+
+basis: "O MAC reconhece o torcedor e o espectador de evento esportivo como **consumidor**, nos termos da **Lei Geral do Esporte** e do **Código de Defesa do Consumidor** (art. 6º, III, da Lei nº 8.078/1990), que asseguram o direito à informação clara, adequada e transparente sobre os serviços prestados pelo clube."
+
+# ------------------------------------------------------------ 1. ESTÁDIO
+estadio:
+  heading: "Acesso ao estádio"
+  intro: "O Maranhão Atlético Clube manda seus jogos no **Estádio Governador João Castelo**, conhecido como **Castelão**, em São Luís."
+  facts:
+    - label: "Estádio mandante"
+      value: "Estádio Governador João Castelo — o **Castelão**"
+    - label: "Localização"
+      value: "Complexo Esportivo Castelão (Complexo Esportivo Canhoteiro) — Travessa Guaxenduba, bairro Outeiro da Cruz, São Luís / MA"
+    - label: "Capacidade"
+      value: "Cerca de 40.000 lugares (máximo de 40.179 pessoas na configuração atual, de três anéis)"
+    - label: "Bilheterias em dia de jogo"
+      value: "Abrem a partir das **10h** e funcionam até o horário da partida"
+    - label: "Visitação (fora de dias de jogo)"
+      value: "Diariamente, das **9h às 18h**"
+  note: "As informações específicas de cada partida — data, horário, portões de acesso e setores abertos — são divulgadas nos canais oficiais do clube antes de cada jogo."
+
+# ---------------------------------------------------------- 2. INGRESSOS
+ingressos:
+  heading: "Ingressos — onde comprar e valores"
+  intro: "Os ingressos do MAC podem ser adquiridos nos seguintes locais:"
+  where:
+    - "**Secretaria do MAC** — venda antecipada durante a semana. Comprar antecipado costuma sair mais barato."
+    - "**Bilheterias do Estádio Castelão** — no dia do jogo, a partir das 10h até o horário da partida."
+    - "**Pontos de venda na cidade** — em alguns jogos há pontos de venda espalhados por São Luís, divulgados nos canais oficiais."
+
+  prices_heading: "Valores de referência"
+  prices_intro: "Referência com base em partidas anteriores:"
+  prices:
+    - sector: "Cadeira Coberta (MAC / Mista)"
+      advance: "Inteira R$ 40 · Meia R$ 20"
+      matchday: "Inteira R$ 60 · Meia R$ 30"
+  prices_note: "Estes são ((valores de referência de partidas anteriores)). O preço varia de jogo para jogo, conforme a importância da partida. Os valores oficiais de cada jogo — e os setores disponíveis — são sempre divulgados nos canais oficiais do clube antes da partida."
+
+  hours_heading: "Horários de venda na secretaria"
+  hours:
+    - day: "Quinta e sexta-feira"
+      time: "Manhã: 9h30 às 11h30 · Tarde: 15h às 17h30"
+    - day: "Sábado (dia de jogo)"
+      time: "Manhã: 9h30 às 11h30 · Tarde: 14h às 16h"
+    - day: "Domingo"
+      time: "Sem venda na secretaria — apenas nas bilheterias do Castelão, a partir das 10h até o horário da partida"
+
+  meia_note: "A **meia-entrada** é assegurada nas hipóteses previstas em lei (estudantes, idosos, pessoas com deficiência, jovens de baixa renda e demais casos legais), mediante apresentação do documento comprobatório na compra e na entrada do estádio."
+
+# ------------------------------------------------------- 3. ATENDIMENTO
+atendimento:
+  heading: "Canais de atendimento"
+  intro: "Torcedores, sócios, fornecedores e qualquer interessado podem falar com o clube pelos canais abaixo. Reclamações, sugestões, críticas e elogios têm um canal próprio: a **Ouvidoria**."
+  note: "As mensagens enviadas pelos formulários do site são recebidas pelo clube e encaminhadas ao setor responsável."
+
+# ------------------------------------------------------------ 4. REDES
+redes:
+  heading: "Redes sociais e canais oficiais"
+  intro: "Estes são os canais **oficiais** do clube — e os únicos em que divulgamos informações de jogos, ingressos e comunicados. Desconfie de qualquer perfil ou site que não esteja nesta lista."
+
+# -------------------------------------------------------- 5. ENDEREÇOS
+enderecos:
+  heading: "Endereços físicos"
+  intro: "Onde o clube pode ser encontrado presencialmente:"
+  sede_label: "Sede / Secretaria do MAC"
+  sede_note: "Atendimento presencial e venda antecipada de ingressos durante a semana."
+  items:
+    - label: "Estádio (mandante)"
+      value: "Estádio Governador João Castelo (Castelão) — Complexo Esportivo Castelão, Travessa Guaxenduba, Outeiro da Cruz, São Luís / MA"
+      note: "Local dos jogos e das bilheterias em dia de partida."
+
+# --------------------------------------------------- 6. TRANSPARÊNCIA
+transparencia:
+  heading: "Transparência financeira"
+  text: "O MAC publica suas demonstrações financeiras, elaboradas nos termos do **art. 46-A da Lei Pelé** e submetidas a **auditoria independente**, em página própria de transparência — com acesso livre e gratuito a qualquer interessado."
+  cta_label: "Ver Transparência Financeira"
+  cta_url: "transparencia.html"
+
+footer_note: "Este documento é revisado e atualizado periodicamente. Dúvidas sobre qualquer um dos itens acima podem ser encaminhadas pela **Ouvidoria** do clube."

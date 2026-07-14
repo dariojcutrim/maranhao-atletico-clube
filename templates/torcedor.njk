@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = torcedor.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Diretrizes básicas de relacionamento do Maranhão Atlético Clube com o torcedor-consumidor: acesso ao estádio, ingressos, canais de atendimento, redes sociais, endereços físicos e transparência financeira." %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container">
+      <h1 class="section-title">{{ torcedor.title }}</h1>
+      <p class="doc-subtitle">{{ torcedor.subtitle }}</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+     <div class="doc">
+
+      <p class="doc-updated">Última atualização: {{ torcedor.updated }}</p>
+      <p class="doc-intro">{{ torcedor.intro | md | safe }}</p>
+      <div class="doc-basis">{{ torcedor.basis | md | safe }}</div>
+
+      <!-- ÍNDICE -->
+      <nav class="doc-toc" aria-label="Índice do documento">
+        <a href="#estadio"><span>1</span>{{ torcedor.estadio.heading }}</a>
+        <a href="#ingressos"><span>2</span>{{ torcedor.ingressos.heading }}</a>
+        <a href="#atendimento"><span>3</span>{{ torcedor.atendimento.heading }}</a>
+        <a href="#redes"><span>4</span>{{ torcedor.redes.heading }}</a>
+        <a href="#enderecos"><span>5</span>{{ torcedor.enderecos.heading }}</a>
+        <a href="#transparencia"><span>6</span>{{ torcedor.transparencia.heading }}</a>
+      </nav>
+
+      <!-- ============================================ 1. ACESSO AO ESTÁDIO -->
+      <section class="doc-section" id="estadio">
+        <h2><span class="doc-num">1</span>{{ torcedor.estadio.heading }}</h2>
+        <p>{{ torcedor.estadio.intro | md | safe }}</p>
+        <dl class="fact-list">
+          {%- for f in torcedor.estadio.facts %}
+          <div>
+            <dt>{{ f.label }}</dt>
+            <dd>{{ f.value | md | safe }}</dd>
+          </div>
+          {%- endfor %}
+        </dl>
+        {%- if torcedor.estadio.note %}
+        <p class="doc-note">{{ torcedor.estadio.note | md | safe }}</p>
+        {%- endif %}
+      </section>
+
+      <!-- ================================================== 2. INGRESSOS -->
+      <section class="doc-section" id="ingressos">
+        <h2><span class="doc-num">2</span>{{ torcedor.ingressos.heading }}</h2>
+        <p>{{ torcedor.ingressos.intro | md | safe }}</p>
+
+        <ul class="doc-list">
+          {%- for w in torcedor.ingressos.where %}
+          <li>{{ w | md | safe }}</li>
+          {%- endfor %}
+        </ul>
+
+        <h3>{{ torcedor.ingressos.prices_heading }}</h3>
+        <p>{{ torcedor.ingressos.prices_intro | md | safe }}</p>
+        <div class="table-wrap">
+          <table class="doc-table">
+            <thead>
+              <tr>
+                <th>Setor</th>
+                <th>Venda antecipada (secretaria)</th>
+                <th>No dia do jogo</th>
+              </tr>
+            </thead>
+            <tbody>
+              {%- for p in torcedor.ingressos.prices %}
+              <tr>
+                <td>{{ p.sector }}</td>
+                <td>{{ p.advance }}</td>
+                <td>{{ p.matchday }}</td>
+              </tr>
+              {%- endfor %}
+            </tbody>
+          </table>
+        </div>
+        {%- if torcedor.ingressos.prices_note %}
+        <p class="doc-note">{{ torcedor.ingressos.prices_note | md | safe }}</p>
+        {%- endif %}
+
+        <h3>{{ torcedor.ingressos.hours_heading }}</h3>
+        <dl class="fact-list">
+          {%- for h in torcedor.ingressos.hours %}
+          <div>
+            <dt>{{ h.day }}</dt>
+            <dd>{{ h.time | md | safe }}</dd>
+          </div>
+          {%- endfor %}
+        </dl>
+
+        {%- if torcedor.ingressos.meia_note %}
+        <p>{{ torcedor.ingressos.meia_note | md | safe }}</p>
+        {%- endif %}
+      </section>
+
+      <!-- ========================================= 3. CANAIS DE ATENDIMENTO -->
+      <section class="doc-section" id="atendimento">
+        <h2><span class="doc-num">3</span>{{ torcedor.atendimento.heading }}</h2>
+        <p>{{ torcedor.atendimento.intro | md | safe }}</p>
+
+        <div class="channel-grid">
+          <div class="channel-card">
+            <h4>Telefone / WhatsApp</h4>
+            <p>{{ contato.phone }}</p>
+            <p><a href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">Falar no WhatsApp</a></p>
+          </div>
+          <div class="channel-card">
+            <h4>E-mail</h4>
+            <p><a href="mailto:{{ contato.email }}">{{ contato.email }}</a></p>
+            <p>Horário: {{ contato.hours }}</p>
+          </div>
+          <div class="channel-card">
+            <h4>Fale Conosco</h4>
+            <p>Formulário de contato para dúvidas, parcerias e assuntos gerais.</p>
+            <p><a href="contato.html">Abrir Fale Conosco</a></p>
+          </div>
+          <div class="channel-card">
+            <h4>Ouvidoria</h4>
+            <p>Canal para reclamações, sugestões, críticas e elogios.</p>
+            <p><a href="ouvidoria.html">Abrir a Ouvidoria</a> · <a href="mailto:{{ ouvidoria.email }}">{{ ouvidoria.email }}</a></p>
+          </div>
+        </div>
+
+        {%- if torcedor.atendimento.note %}
+        <p class="doc-note">{{ torcedor.atendimento.note | md | safe }}</p>
+        {%- endif %}
+      </section>
+
+      <!-- ============================================== 4. REDES SOCIAIS -->
+      <section class="doc-section" id="redes">
+        <h2><span class="doc-num">4</span>{{ torcedor.redes.heading }}</h2>
+        <p>{{ torcedor.redes.intro | md | safe }}</p>
+        <dl class="fact-list">
+          <div>
+            <dt>Site oficial</dt>
+            <dd><a href="{{ site_url }}">{{ site_url | replace("https://", "") }}</a></dd>
+          </div>
+          <div>
+            <dt>Instagram</dt>
+            <dd><a href="{{ site.social.instagram }}" target="_blank" rel="noopener">{{ site.social.instagram | replace("https://www.", "") | replace("https://", "") }}</a></dd>
+          </div>
+          <div>
+            <dt>YouTube</dt>
+            <dd><a href="{{ site.social.youtube }}" target="_blank" rel="noopener">{{ site.social.youtube | replace("https://www.", "") | replace("https://", "") }}</a></dd>
+          </div>
+          <div>
+            <dt>WhatsApp</dt>
+            <dd><a href="{{ site.social.whatsapp }}" target="_blank" rel="noopener">{{ contato.phone | replace(" — WhatsApp", "") }}</a></dd>
+          </div>
+          <div>
+            <dt>Loja oficial</dt>
+            <dd><a href="{{ site.social.store }}" target="_blank" rel="noopener">{{ site.social.store | replace("https://", "") }}</a></dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ========================================== 5. ENDEREÇOS FÍSICOS -->
+      <section class="doc-section" id="enderecos">
+        <h2><span class="doc-num">5</span>{{ torcedor.enderecos.heading }}</h2>
+        <p>{{ torcedor.enderecos.intro | md | safe }}</p>
+        <dl class="fact-list">
+          <div>
+            <dt>{{ torcedor.enderecos.sede_label }}</dt>
+            <dd>{{ contato.address }}{% if torcedor.enderecos.sede_note %}<br><small>{{ torcedor.enderecos.sede_note }}</small>{% endif %}</dd>
+          </div>
+          {%- for e in torcedor.enderecos.items %}
+          <div>
+            <dt>{{ e.label }}</dt>
+            <dd>{{ e.value | md | safe }}{% if e.note %}<br><small>{{ e.note }}</small>{% endif %}</dd>
+          </div>
+          {%- endfor %}
+        </dl>
+      </section>
+
+      <!-- ==================================== 6. TRANSPARÊNCIA FINANCEIRA -->
+      <section class="doc-section" id="transparencia">
+        <h2><span class="doc-num">6</span>{{ torcedor.transparencia.heading }}</h2>
+        <p>{{ torcedor.transparencia.text | md | safe }}</p>
+        <p><a href="{{ torcedor.transparencia.cta_url }}" class="btn btn-primary">{{ torcedor.transparencia.cta_label }}</a></p>
+      </section>
+
+      {%- if torcedor.footer_note %}
+      <p class="doc-updated">{{ torcedor.footer_note | md | safe }}</p>
+      {%- endif %}
+
+     </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
