@@ -7,7 +7,22 @@
   <title>Painel de Edição — Maranhão Atlético Clube</title>
 </head>
 <body>
-  <!-- Painel de edição (Sveltia CMS — gratuito, código aberto) -->
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <!--
+    Painel de edição (Sveltia CMS — gratuito, código aberto).
+
+    O arquivo sveltia-cms.js fica GUARDADO AQUI NO PROJETO, de propósito
+    (versão 0.172.4). Antes ele era carregado de unpkg.com sem versão fixa,
+    o que trazia dois riscos: se o unpkg saísse do ar, o painel parava; e cada
+    nova versão do Sveltia (são várias por semana, e ele ainda está em beta)
+    entrava sozinha e podia quebrar o painel do cliente sem aviso.
+
+    Guardando o arquivo aqui, o painel só depende da própria Netlify:
+    se o site está no ar, o painel está no ar.
+
+    PARA ATUALIZAR NO FUTURO (opcional, só quando você quiser):
+      curl -L -o admin/sveltia-cms.js https://unpkg.com/@sveltia/cms@VERSAO/dist/sveltia-cms.js
+    Teste o painel ANTES de publicar.
+  -->
+  <script src="sveltia-cms.js"></script>
 </body>
 </html>

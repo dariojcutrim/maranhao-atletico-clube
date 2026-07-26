@@ -13,8 +13,8 @@
   <div class="hero-backer">
   <section class="hero hero-home">
     <div class="hero-slides">
-      {%- for src in home.hero.slides %}
-      <img class="hero-slide{% if loop.first %} is-active{% endif %}" src="{{ src }}" alt="{% if loop.first %}Elenco do Maranhão Atlético Clube{% endif %}"{% if not loop.first %} loading="lazy"{% endif %}>
+      {%- for s in home.hero.slides %}
+      <img class="hero-slide{% if loop.first %} is-active{% endif %}" src="{{ s.src }}" alt="{% if loop.first %}Elenco do Maranhão Atlético Clube{% endif %}"{% if not loop.first %} loading="lazy"{% endif %}>
       {%- endfor %}
     </div>
     <div class="hero-content">

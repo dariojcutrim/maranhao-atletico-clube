@@ -4,27 +4,27 @@ hero:
   title_accent: conquistas
   subtitle: Maranhão Atlético Clube — o Bode Gregório de São Luís. Desde 1932, raça, história e amor pelo quadricolor maranhense.
   slides:
-    - Imagens MAC/IMG_3804.JPG
-    - Imagens MAC/IMG_5135.JPG
-    - Imagens MAC/IMG_4061.JPG
-    - Imagens MAC/IMG_5052.JPG
+    - src: Imagens MAC/IMG_3804.JPG
+    - src: Imagens MAC/IMG_5135.JPG
+    - src: Imagens MAC/IMG_4061.JPG
+    - src: Imagens MAC/IMG_5052.JPG
 stats:
-  - number: '1932'
+  - number: "1932"
     label: Ano de fundação
     count: null
-    prefix: ''
-    suffix: ''
-  - number: '18'
+    prefix: ""
+    suffix: ""
+  - number: "18"
     label: Títulos maranhenses
     count: 18
-    prefix: ''
-    suffix: ''
-  - number: '1979'
+    prefix: ""
+    suffix: ""
+  - number: "1979"
     label: Na elite do Brasil
     count: null
-    prefix: ''
-    suffix: ''
-  - number: '90'
+    prefix: ""
+    suffix: ""
+  - number: "90"
     label: De história
     count: 90
     prefix: +
@@ -34,7 +34,7 @@ sobre:
   paragraphs:
     - Conhecido carinhosamente como **Bode Gregório**, o Maranhão Atlético Clube é o quadricolor de São Luís e um dos maiores símbolos do futebol maranhense. Fundado em **24 de setembro de 1932**, mostrou a que veio logo na estreia, goleando o ex-rival por 4 a 0 — o primeiro capítulo de uma história feita de tradição, raça e conquistas.
     - Do primeiro título estadual, em 1937, aos tricampeonatos e às taças mais recentes, o MAC ergueu um dos maiores acervos do estado — coroado pelo **18º título maranhense em 2025**. Pelo caminho, escreveu também páginas de protagonismo nacional, como a inesquecível campanha de 1979 na Primeira Divisão, quando superou gigantes como Fluminense, Bahia e Botafogo.
-    - 'Mandante no Estádio Nhozinho Santos e no Castelão nos grandes jogos, o Maranhão é movido por uma das maiores torcidas do estado, que atravessa gerações e mantém viva a paixão pelo quadricolor. Tradição em campo, resistência na arquibancada e ambição para seguir crescendo: esse é o **Machão da Ilha**.'
+    - "Mandante no Estádio Nhozinho Santos e no Castelão nos grandes jogos, o Maranhão é movido por uma das maiores torcidas do estado, que atravessa gerações e mantém viva a paixão pelo quadricolor. Tradição em campo, resistência na arquibancada e ambição para seguir crescendo: esse é o **Machão da Ilha**."
   images:
     - src: Imagens MAC/IMG_3844.JPG
       alt: Time do MAC em campo
@@ -46,7 +46,7 @@ sponsors:
   title: Patrocinadores
   cta: Quero ser um patrocinador
 apoio:
-  title: 'Apoio:'
+  title: "Apoio:"
   items:
     - Federação Maranhense de Futebol
     - Governo do Estado

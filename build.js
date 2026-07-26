@@ -64,6 +64,12 @@ const env = nunjucks.configure(TEMPLATES_DIR, { autoescape: true, noCache: true 
 // Filtro "md": converte negrito/itálico/links (markdown em linha) para HTML
 env.addFilter('md', (s) => (s ? marked.parseInline(applyHighlights(String(s))) : ''));
 
+// Filtro "pluck": [{src:'a'},{src:'b'}] -> ['a','b'].
+// As listas de fotos são guardadas como objetos ({ src: ... }) para que o
+// painel mostre a MINIATURA de cada foto; o carrossel precisa da lista simples.
+env.addFilter('pluck', (arr, key) =>
+  Array.isArray(arr) ? arr.map((it) => (it && typeof it === 'object' ? it[key] : it)) : []);
+
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });

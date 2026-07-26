@@ -14,7 +14,7 @@ media_folder: "assets/img/uploads"
 public_folder: "/assets/img/uploads"
 
 # Mensagens dos commits (histórico de alterações)
-site_url: "https://maranhaoatleticoclube.netlify.app"
+site_url: "https://maranhaoatleticoclubebr.com.br"
 locale: "pt"
 
 collections:
@@ -37,7 +37,15 @@ collections:
               - { label: "Título — ligação", name: title_line2_prefix, widget: string, hint: "Palavrinha de ligação no começo da 2ª linha. Ex.: e" }
               - { label: "Título — palavra em vermelho", name: title_accent, widget: string, hint: "Última palavra do título, que aparece em VERMELHO. Ex.: conquistas" }
               - { label: "Frase abaixo do título", name: subtitle, widget: text, hint: "Frase de apresentação logo abaixo do título grande." }
-              - { label: "Fotos que passam no fundo (carrossel)", name: slides, widget: list, field: { label: "Foto", name: img, widget: image }, hint: "As fotos que vão trocando sozinhas no fundo do topo. Adicione, remova ou reordene." }
+              - label: "Fotos que passam no fundo (carrossel)"
+                name: slides
+                widget: list
+                label_singular: "Foto"
+                summary: "{{fields.src}}"
+                thumbnail: "src"
+                hint: "As fotos que vão trocando sozinhas no fundo do topo. Cada item mostra a MINIATURA da foto atual. Adicione, remova ou arraste para reordenar."
+                fields:
+                  - { label: "Foto", name: src, widget: image }
           - label: "Faixa de números (conquistas)"
             name: stats
             widget: list
@@ -56,7 +64,7 @@ collections:
             fields:
               - { label: "Título da seção", name: title, widget: string, hint: 'Título azul da seção. Ex.: Sobre' }
               - { label: "Parágrafos do texto", name: paragraphs, widget: list, field: { label: "Parágrafo", name: p, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }, hint: "Cada item é um parágrafo. Destaques — AZUL: selecione e clique no N · VERMELHO: escreva ((palavra)) · PRETO: escreva [[palavra]]." }
-              - { label: "Fotos da colagem (lado direito)", name: images, widget: list, summary: "{{fields.alt}}", fields: [ { label: "Foto", name: src, widget: image }, { label: "Descrição da foto", name: alt, widget: string, hint: "Texto que descreve a foto (acessibilidade)." } ], hint: "As 3 fotos sobrepostas ao lado do texto." }
+              - { label: "Fotos da colagem (lado direito)", name: images, widget: list, summary: "{{fields.alt}}", thumbnail: "src", fields: [ { label: "Foto", name: src, widget: image }, { label: "Descrição da foto", name: alt, widget: string, hint: "Texto que descreve a foto (acessibilidade)." } ], hint: "As 3 fotos sobrepostas ao lado do texto." }
           - label: "Seção Patrocinadores (textos)"
             name: sponsors
             widget: object
@@ -93,6 +101,7 @@ collections:
             widget: list
             label_singular: "Patrocinador"
             summary: "{{fields.name}}"
+            thumbnail: "logo"
             hint: "A ordem aqui é a ordem no site. Arraste para reordenar."
             fields:
               - { label: "Nome", name: name, widget: string, hint: "Nome da empresa (usado para acessibilidade)." }
@@ -115,6 +124,7 @@ collections:
             widget: list
             label_singular: "Membro"
             summary: "{{fields.role}}: {{fields.name}}"
+            thumbnail: "photo"
             fields:
               - { label: "Foto", name: photo, widget: image, required: false, hint: "Foto da pessoa (retrato vertical fica melhor). Pode ser arte promocional do clube." }
               - { label: "Cargo", name: role, widget: string, hint: "Ex.: Presidente, Auxiliar Técnico" }
@@ -146,6 +156,7 @@ collections:
                 widget: list
                 label_singular: "Jogador"
                 summary: "{{fields.name}}"
+                thumbnail: "photo"
                 fields:
                   - { label: "Foto", name: photo, widget: image, required: false, hint: "Foto do jogador (retrato vertical fica melhor). Pode ser arte do clube." }
                   - { label: "Nome", name: name, widget: string, hint: "Ex.: Jefferson Henrique" }
@@ -227,6 +238,7 @@ collections:
             widget: list
             label_singular: "Projeto"
             summary: "{{fields.title}}"
+            thumbnail: "image"
             fields:
               - { label: "Nome do projeto", name: title, widget: string }
               - { label: "Foto", name: image, widget: image }
@@ -331,9 +343,26 @@ collections:
               - { label: "Título", name: title, widget: string, hint: 'Ex.: Galeria' }
               - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: MAC' }
               - { label: "Frase abaixo", name: subtitle, widget: text }
-              - { label: "Fotos que passam no topo", name: slides, widget: list, field: { label: "Foto", name: img, widget: image } }
+              - label: "Fotos que passam no topo"
+                name: slides
+                widget: list
+                label_singular: "Foto"
+                summary: "{{fields.src}}"
+                thumbnail: "src"
+                hint: "Cada item mostra a MINIATURA da foto atual."
+                fields:
+                  - { label: "Foto", name: src, widget: image }
           - { label: "Título da galeria", name: section_title, widget: string, hint: 'Ex.: Momentos' }
-          - { label: "Fotos da galeria", name: images, widget: list, field: { label: "Foto", name: img, widget: image }, hint: "Todas as fotos da grade. Adicione, remova ou reordene." }
+          - label: "Fotos da galeria"
+            name: images
+            widget: list
+            label_singular: "Foto"
+            summary: "{{fields.src}}"
+            thumbnail: "src"
+            hint: "Todas as fotos da grade. Cada item mostra a MINIATURA da foto atual — assim você vê exatamente qual está trocando. Arraste para reordenar."
+            fields:
+              - { label: "Foto", name: src, widget: image, hint: "Troque aqui: a miniatura ao lado é atualizada com a foto nova." }
+              - { label: "Descrição da foto (opcional)", name: alt, widget: string, required: false, hint: "Ajuda a identificar a foto no painel e melhora a acessibilidade. Ex.: Comemoração do título de 2025." }
 
   # ================================================================ OUVIDORIA
   - name: ouvidoria
