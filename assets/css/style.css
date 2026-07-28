@@ -89,8 +89,10 @@ ul { list-style: none; }
   border-bottom: 1px solid var(--line);
   box-shadow: 0 2px 12px rgba(16, 30, 70, 0.05);
 }
-/* Na home, o menu fica sobre o banner: sem borda/sombra p/ fundir o branco */
-body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
+/* Nas páginas com banner curvo (home, galeria, história) o menu encosta no
+   branco que preenche a curva: sem borda/sombra, para virar uma peça só. */
+body.home .site-header,
+body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none; }
 .header-inner {
   display: flex;
   align-items: center;
@@ -1030,13 +1032,19 @@ body.home .site-header { border-bottom-color: transparent; box-shadow: none; }
     position: fixed;
     top: 84px; left: 0; right: 0;
     background: var(--white);
-    border-bottom: 1px solid var(--line);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
+  }
+  /* A borda e a sombra ficam SÓ com o menu aberto. Com o menu fechado a
+     altura é zero, mas a borda/sombra continuavam sendo desenhadas e
+     apareciam como um risco atravessando a tela abaixo do cabeçalho. */
+  .main-nav.open {
+    max-height: 80vh;
+    overflow-y: auto;
+    border-bottom: 1px solid var(--line);
     box-shadow: var(--shadow);
   }
-  .main-nav.open { max-height: 80vh; overflow-y: auto; }
   .main-nav ul { flex-direction: column; align-items: stretch; gap: 0; padding: 8px 0; }
   .main-nav li { border-bottom: 1px solid var(--line); }
   .main-nav a { padding: 14px 24px; display: block; }

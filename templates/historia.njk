@@ -5,11 +5,12 @@
 {% set page_desc = "Mais de 90 anos de história, títulos e conquistas do Maranhão Atlético Clube, o Bode Gregório de São Luís." %}
 {% include "_head.njk" %}
 </head>
-<body>
+<body class="hero-page">
 
 {% set activeNav = 'historia' %}
 {% include "_header.njk" %}
 
+  <div class="hero-backer">
   <section class="hero" style="min-height:420px;">
     <img class="hero-bg" src="{{ historia.hero.image }}" alt="Maranhão Atlético Clube em campo">
     <div class="hero-content"><div class="container">
@@ -17,6 +18,7 @@
       <p class="subtitle">{{ historia.hero.subtitle | md | safe }}</p>
     </div></div>
   </section>
+  </div>
 
   <section class="section">
     <div class="container">

@@ -5,11 +5,12 @@
 {% set page_desc = "Os melhores momentos do Maranhão Atlético Clube em fotos, dentro e fora de campo." %}
 {% include "_head.njk" %}
 </head>
-<body>
+<body class="hero-page">
 
 {% set activeNav = 'galeria' %}
 {% include "_header.njk" %}
 
+  <div class="hero-backer">
   <section class="hero" style="min-height:420px;">
     <img class="hero-bg" data-rotate='{{ galeria.hero.slides | pluck("src") | dump | safe }}' src="{{ galeria.hero.slides[0].src }}" alt="Momentos do MAC">
     <div class="hero-content"><div class="container">
@@ -17,6 +18,7 @@
       <p class="subtitle">{{ galeria.hero.subtitle | md | safe }}</p>
     </div></div>
   </section>
+  </div>
   <section class="section">
     <div class="container">
       <h2 class="section-title">{{ galeria.section_title }}</h2>
