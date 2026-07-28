@@ -1,6 +1,6 @@
 hero:
-  title: Galeria
-  title_accent: MAC
+  title: Galeria MAC
+  title_accent: Galeria
   subtitle: Os melhores momentos do Maranhão Atlético Clube dentro e fora de campo.
   slides:
     - src: Imagens MAC/IMG_3804.JPG
