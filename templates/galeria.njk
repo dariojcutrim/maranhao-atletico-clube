@@ -13,8 +13,8 @@
   <section class="hero" style="min-height:420px;">
     <img class="hero-bg" data-rotate='{{ galeria.hero.slides | pluck("src") | dump | safe }}' src="{{ galeria.hero.slides[0].src }}" alt="Momentos do MAC">
     <div class="hero-content"><div class="container">
-      <h1>{{ galeria.hero.title }} <span class="accent">{{ galeria.hero.title_accent }}</span></h1>
-      <p class="subtitle">{{ galeria.hero.subtitle }}</p>
+      <h1>{{ galeria.hero.title | md | safe }}</h1>
+      <p class="subtitle">{{ galeria.hero.subtitle | md | safe }}</p>
     </div></div>
   </section>
   <section class="section">

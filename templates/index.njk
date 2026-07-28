@@ -19,8 +19,8 @@
     </div>
     <div class="hero-content">
       <div class="container">
-        <h1>{{ home.hero.title_line1 }}<br>{{ home.hero.title_line2_prefix }} <span class="accent">{{ home.hero.title_accent }}</span></h1>
-        <p class="subtitle">{{ home.hero.subtitle }}</p>
+        <h1>{{ home.hero.title_line1 | md | safe }}<br>{{ home.hero.title_line2 | md | safe }}</h1>
+        <p class="subtitle">{{ home.hero.subtitle | md | safe }}</p>
       </div>
     </div>
   </section>

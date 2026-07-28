@@ -37,10 +37,9 @@ collections:
             name: hero
             widget: object
             fields:
-              - { label: "Título — linha 1", name: title_line1, widget: string, hint: "Primeira linha do título grande sobre a foto. Ex.: História, tradição" }
-              - { label: "Título — ligação", name: title_line2_prefix, widget: string, hint: "Palavrinha de ligação no começo da 2ª linha. Ex.: e" }
-              - { label: "Título — palavra em vermelho", name: title_accent, widget: string, hint: "Última palavra do título, que aparece em VERMELHO. Ex.: conquistas" }
-              - { label: "Frase abaixo do título", name: subtitle, widget: text, hint: "Frase de apresentação logo abaixo do título grande." }
+              - { label: "Título — linha 1", name: title_line1, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Primeira linha do título grande sobre a foto. Ex.: História, tradição — para colorir uma palavra, selecione e clique no A azul ou no A vermelho." }
+              - { label: "Título — linha 2", name: title_line2, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Segunda linha do título. Ex.: e conquistas — selecione a palavra e clique no A vermelho para deixá-la em vermelho." }
+              - { label: "Frase abaixo do título", name: subtitle, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Frase de apresentação logo abaixo do título grande." }
               - label: "Fotos que passam no fundo (carrossel)"
                 name: slides
                 widget: list
@@ -312,9 +311,8 @@ collections:
             name: hero
             widget: object
             fields:
-              - { label: "Título", name: title, widget: string, hint: 'Ex.: Nossa' }
-              - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: História' }
-              - { label: "Frase abaixo", name: subtitle, widget: text }
+              - { label: "Título", name: title, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: 'Título grande sobre a foto. Ex.: Nossa História — para deixar uma palavra em vermelho, selecione ela e clique no A vermelho.' }
+              - { label: "Frase abaixo", name: subtitle, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
               - { label: "Foto de fundo", name: image, widget: image }
           - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Parágrafo de abertura. Para destacar: selecione a palavra e clique no botão — N (negrito), A azul ou A vermelho." }
           - { label: "Título da linha do tempo", name: timeline_title, widget: string, hint: 'Ex.: Linha do Tempo' }
@@ -368,9 +366,8 @@ collections:
             name: hero
             widget: object
             fields:
-              - { label: "Título", name: title, widget: string, hint: 'Ex.: Galeria' }
-              - { label: "Palavra em vermelho", name: title_accent, widget: string, hint: 'Ex.: MAC' }
-              - { label: "Frase abaixo", name: subtitle, widget: text }
+              - { label: "Título", name: title, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: 'Título grande sobre a foto. Ex.: Galeria MAC — para deixar uma palavra em vermelho, selecione ela e clique no A vermelho.' }
+              - { label: "Frase abaixo", name: subtitle, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
               - label: "Fotos que passam no topo"
                 name: slides
                 widget: list

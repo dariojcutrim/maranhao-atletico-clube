@@ -13,8 +13,8 @@
   <section class="hero" style="min-height:420px;">
     <img class="hero-bg" src="{{ historia.hero.image }}" alt="Maranhão Atlético Clube em campo">
     <div class="hero-content"><div class="container">
-      <h1>{{ historia.hero.title }} <span class="accent">{{ historia.hero.title_accent }}</span></h1>
-      <p class="subtitle">{{ historia.hero.subtitle }}</p>
+      <h1>{{ historia.hero.title | md | safe }}</h1>
+      <p class="subtitle">{{ historia.hero.subtitle | md | safe }}</p>
     </div></div>
   </section>
 

@@ -1,13 +1,12 @@
 hero:
   title_line1: História, tradição
-  title_line2_prefix: e
-  title_accent: conquistas
   subtitle: Maranhão Atlético Clube — o Bode Gregório de São Luís. Desde 1932, raça, história e amor pelo quadricolor maranhense.
   slides:
     - src: Imagens MAC/IMG_3804.JPG
     - src: Imagens MAC/IMG_5135.JPG
     - src: Imagens MAC/IMG_4061.JPG
     - src: Imagens MAC/IMG_5052.JPG
+  title_line2: e ((conquistas))
 stats:
   - number: "1932"
     label: Ano de fundação

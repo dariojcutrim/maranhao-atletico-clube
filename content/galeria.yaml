@@ -1,6 +1,6 @@
+# Página Galeria
 hero:
-  title: Galeria
-  title_accent: MAC
+  title: Galeria ((MAC))
   subtitle: Os melhores momentos do Maranhão Atlético Clube dentro e fora de campo.
   slides:
     - src: Imagens MAC/IMG_3804.JPG
@@ -11,53 +11,53 @@ hero:
 section_title: Momentos
 images:
   - src: Imagens MAC/IMG_3770.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_3775.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_3804.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_3844.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_3848.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_3867.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4000.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4020.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4038.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4054.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4061.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4096.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_4097.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5006.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5012.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5052.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5055.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5060.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5084.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5111.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5135.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5137.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5138.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5145.JPG
-    alt: ''
+    alt: ""
   - src: Imagens MAC/IMG_5201.JPG
     alt: ''
   - src: Imagens MAC/IMG_5277.JPG

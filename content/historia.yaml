@@ -1,72 +1,71 @@
 hero:
-  title: Nossa
-  title_accent: História
+  title: Nossa ((História))
   subtitle: Mais de 90 anos de tradição, conquistas e paixão pelo quadricolor de São Luís.
   image: Imagens MAC/IMG_5135.JPG
-intro: 'O [[Maranhão Atlético Clube]] é o [[Machão da Ilha]], o quadricolor de São Luís. Fundado em [[24 de setembro de 1932]], nasceu de uma dissidência do antigo Ciro e mostrou força desde o primeiro dia: na estreia, venceu o ex-rival por 4 a 0. Dali em diante, construiu uma das histórias mais vitoriosas do futebol maranhense.'
+intro: "O [[Maranhão Atlético Clube]] é o [[Machão da Ilha]], o quadricolor de São Luís. Fundado em [[24 de setembro de 1932]], nasceu de uma dissidência do antigo Ciro e mostrou força desde o primeiro dia: na estreia, venceu o ex-rival por 4 a 0. Dali em diante, construiu uma das histórias mais vitoriosas do futebol maranhense."
 timeline_title: Linha do Tempo
 timeline:
-  - year: '1932'
+  - year: "1932"
     title: Nasce o Bode Gregório
     text: Fundado em 24 de setembro, o MAC estreia goleando o ex-rival por 4 a 0 — o primeiro capítulo de uma trajetória de sucesso.
-  - year: '1937'
+  - year: "1937"
     title: O primeiro título estadual
     text: O Maranhão conquista o Campeonato Maranhense pela primeira vez e inaugura sua era de protagonismo.
   - year: 38 · 39 · 41 · 43
     title: Sequência vitoriosa
     text: Logo após o primeiro título, o clube emenda novas conquistas estaduais em 1938, 1939, 1941 e 1943, consolidando-se entre os grandes do estado.
-  - year: '1951'
+  - year: "1951"
     title: Campeão na década de 50
     text: Em meio a um período mais modesto, o MAC levanta mais uma taça maranhense.
-  - year: '1963'
+  - year: "1963"
     title: De volta ao topo
     text: O clube retoma a hegemonia estadual e reafirma sua tradição vencedora.
   - year: 69 · 70
     title: Bicampeão maranhense
     text: No fim da década, o Maranhão volta a levantar a taça estadual em 1969 e 1970, em títulos consecutivos.
-  - year: '1979'
+  - year: "1979"
     title: A melhor campanha nacional
     text: Na elite do futebol brasileiro, o Maranhão fez história superando gigantes do país. (veja o destaque abaixo)
-  - year: '1986'
+  - year: "1986"
     title: Vice da Série B
     text: O MAC chega à decisão do Campeonato Brasileiro da Série B, mostrando força no cenário nacional.
   - year: 93 · 94 · 95
     title: Tricampeão maranhense
-    text: 'Uma nova era de domínio: três títulos estaduais seguidos entre 1993 e 1995.'
-  - year: '1999'
+    text: "Uma nova era de domínio: três títulos estaduais seguidos entre 1993 e 1995."
+  - year: "1999"
     title: Mais um estadual
     text: O quadricolor encerra a década com nova conquista maranhense.
-  - year: '2000'
+  - year: "2000"
     title: Vice da Copa Norte e Copa do Brasil
-    text: 'Vice-campeão da Copa Norte, garante vaga na Copa dos Campeões. Na Copa do Brasil, alcança sua melhor campanha: a terceira fase.'
-  - year: '2007'
+    text: "Vice-campeão da Copa Norte, garante vaga na Copa dos Campeões. Na Copa do Brasil, alcança sua melhor campanha: a terceira fase."
+  - year: "2007"
     title: Campeão maranhense
     text: O MAC volta a erguer a taça estadual no novo século.
-  - year: '2013'
+  - year: "2013"
     title: Mais um título estadual
     text: Nova conquista reafirma a tradição vencedora do clube.
-  - year: '2015'
+  - year: "2015"
     title: Reação imediata
     text: Após o rebaixamento em 2014, o Maranhão conquista a Série B estadual e retorna à elite.
-  - year: '2022'
+  - year: "2022"
     title: De volta à elite
     text: Mais uma vez resiliente, o clube é campeão da Série B estadual e volta à primeira divisão.
-  - year: '2023'
+  - year: "2023"
     title: Campeão maranhense
     text: O Bode Gregório volta a erguer o Campeonato Maranhense.
-  - year: '2025'
+  - year: "2025"
     title: O 18º título maranhense
-    text: 'A tradição confirmada: o MAC conquista seu 18º Campeonato Maranhense.'
+    text: "A tradição confirmada: o MAC conquista seu 18º Campeonato Maranhense."
 feature:
   tag: Auge nacional
-  title: '1979: o Maranhão na elite do Brasil'
-  text: 'Foi em 1979 que o clube alcançou a sua melhor campanha na história: disputou a Primeira Divisão do Campeonato Brasileiro e terminou em 26º entre quase 100 equipes, superando camisas pesadas como [[Fluminense, Bahia e Botafogo]].'
+  title: "1979: o Maranhão na elite do Brasil"
+  text: "Foi em 1979 que o clube alcançou a sua melhor campanha na história: disputou a Primeira Divisão do Campeonato Brasileiro e terminou em 26º entre quase 100 equipes, superando camisas pesadas como [[Fluminense, Bahia e Botafogo]]."
   stats:
-    - number: '8'
+    - number: "8"
       label: Vitórias
-    - number: '3'
+    - number: "3"
       label: Empates
-    - number: '5'
+    - number: "5"
       label: Derrotas
     - number: 26º
       label: Entre ~100 clubes
@@ -76,4 +75,4 @@ blocks:
   - title: Torcida e Rivalidades
     text: O clube tem uma das maiores torcidas do estado e é apontado como o terceiro mais popular da capital, com rivalidades históricas contra [[Moto Club]] e [[Sampaio Corrêa]].
   - title: Quem somos hoje
-    text: 'Tradição, camisa quadricolor e presença constante nas decisões. O Maranhão Atlético Clube segue como pilar do futebol maranhense: competitivo no estadual, ativo no calendário nacional e sustentado por uma torcida que atravessa gerações. É o MAC em campo — resistência, paixão e resultado, com história para contar e ambição para seguir crescendo.'
+    text: "Tradição, camisa quadricolor e presença constante nas decisões. O Maranhão Atlético Clube segue como pilar do futebol maranhense: competitivo no estadual, ativo no calendário nacional e sustentado por uma torcida que atravessa gerações. É o MAC em campo — resistência, paixão e resultado, com história para contar e ambição para seguir crescendo."
