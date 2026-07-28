@@ -10,23 +10,17 @@ const nunjucks = require('nunjucks');
 const yaml = require('js-yaml');
 const { marked } = require('marked');
 
-// Negrito (**texto**) vira destaque azul da marca (<strong class="hl">)
-marked.use({
-  renderer: {
-    strong(text) {
-      const t = (typeof text === 'object') ? (text.text ?? text.raw ?? '') : text;
-      return `<strong class="hl">${t}</strong>`;
-    }
-  }
-});
-
-// Destaques de cor por marcadores simples (fáceis para quem edita no painel):
-//   **azul**       -> negrito AZUL    (botão Negrito)
-//   ((vermelho))   -> negrito VERMELHO
-//   [[preto]]      -> negrito PRETO
+// Destaques do painel. Cada um tem um BOTÃO próprio na barra do editor —
+// o cliente seleciona a palavra e clica; ele nunca digita estes marcadores.
+//   **texto**   -> negrito comum   (botão N, nativo do editor)
+//   [[texto]]   -> negrito AZUL    (botão A, adicionado por assets/js/admin-cores.js)
+//   ((texto))   -> negrito VERMELHO(botão V, idem)
+// Obs.: "**" continua sendo negrito de verdade (antes ele virava azul, o que
+// impedia ter negrito comum). Os 42 destaques azuis antigos foram migrados
+// para [[ ]] na mesma leva, então a aparência do site não mudou.
 function applyHighlights(s) {
   return String(s)
-    .replace(/\[\[(.+?)\]\]/g, '<strong class="hl-black">$1</strong>')
+    .replace(/\[\[(.+?)\]\]/g, '<strong class="hl">$1</strong>')
     .replace(/\(\((.+?)\)\)/g, '<strong class="hl-red">$1</strong>');
 }
 
