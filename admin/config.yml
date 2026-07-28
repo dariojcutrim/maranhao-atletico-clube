@@ -27,6 +27,10 @@ collections:
       - name: conteudo
         label: "Conteúdo da Página Inicial"
         file: "content/home.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/Imagens MAC"
+        public_folder: "Imagens MAC"
         description: "Tudo o que aparece na primeira página do site."
         fields:
           - label: "Destaque principal (topo com a foto)"
@@ -94,6 +98,10 @@ collections:
       - name: lista
         label: "Logos dos Patrocinadores"
         file: "content/sponsors.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/assets/img/patrocinadores"
+        public_folder: "assets/img/patrocinadores"
         description: "Os logos que aparecem na faixa de patrocinadores da home."
         fields:
           - label: "Patrocinadores"
@@ -116,6 +124,10 @@ collections:
       - name: conteudo
         label: "Diretoria"
         file: "content/diretoria.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/assets/img/diretoria"
+        public_folder: "assets/img/diretoria"
         fields:
           - { label: "Título da página", name: title, widget: string }
           - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Parágrafo no topo. Destaques — AZUL: selecione e clique no N · VERMELHO: escreva ((palavra)) · PRETO: escreva [[palavra]]." }
@@ -140,6 +152,10 @@ collections:
       - name: conteudo
         label: "Elenco"
         file: "content/elenco.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/assets/img/elenco"
+        public_folder: "assets/img/elenco"
         description: "Jogadores agrupados por posição. Adicione/edite grupos (Goleiros, Defensores...) e, dentro de cada grupo, os jogadores."
         fields:
           - { label: "Título da página", name: title, widget: string }
@@ -231,6 +247,10 @@ collections:
       - name: conteudo
         label: "Projetos"
         file: "content/projetos.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/Imagens MAC"
+        public_folder: "Imagens MAC"
         fields:
           - { label: "Título da página", name: title, widget: string }
           - label: "Projetos"
@@ -283,6 +303,10 @@ collections:
       - name: conteudo
         label: "Nossa História"
         file: "content/historia.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/Imagens MAC"
+        public_folder: "Imagens MAC"
         fields:
           - label: "Topo da página (hero)"
             name: hero
@@ -335,6 +359,10 @@ collections:
       - name: conteudo
         label: "Galeria de Fotos"
         file: "content/galeria.yaml"
+        # Onde ficam as fotos desta seção — faz o painel MOSTRAR a miniatura
+        # da foto atual e abrir o seletor já nesta pasta.
+        media_folder: "/Imagens MAC"
+        public_folder: "Imagens MAC"
         fields:
           - label: "Topo da página (hero)"
             name: hero
