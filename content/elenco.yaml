@@ -127,59 +127,71 @@ groups:
         role: ''
         number: ''
         nationality: Brasileiro
-      - photo: assets/img/elenco/pedro-lucas.jpg
+      - photo: /assets/img/elenco/IMG_4847.jpg
         name: Pedro Lucas
         role: ''
         number: ''
         nationality: Brasileiro
   - position: Atacantes
     players:
-      - photo: assets/img/elenco/ryan-lima.jpg
-        name: Ryan Lima
-        number: '7'
+      - photo: /assets/img/elenco/IMG_4983.jpg
+        name: Will Viana
+        role: ''
+        number: '17'
         nationality: Brasileiro
-      - photo: assets/img/elenco/clessione.jpg
-        name: Clessione
-        number: '9'
+      - photo: /assets/img/elenco/IMG_4264.JPG
+        name: Felipe Cruz
+        role: ''
+        number: '29'
         nationality: Brasileiro
-      - photo: assets/img/elenco/romarinho.jpg
-        name: Romarinho
+      - photo: /assets/img/elenco/IMG_5193.jpg
+        name: Pimentinha
+        role: ''
         number: '11'
         nationality: Brasileiro
       - photo: assets/img/elenco/guilherme-capote.jpg
         name: Guilherme Capote
+        role: ''
         number: '17'
         nationality: Brasileiro
-      - photo: assets/img/elenco/kessinho.jpg
+      - photo: /assets/img/elenco/IMG_5252.jpg
         name: Kessinho
+        role: ''
         number: '18'
         nationality: Brasileiro
-      - photo: assets/img/elenco/rafael.jpg
+      - photo: /assets/img/elenco/IMG_4871.jpg
         name: Rafael
+        role: ''
         number: '19'
         nationality: Brasileiro
-      - photo: assets/img/elenco/vagalume.jpg
+      - photo: /assets/img/elenco/IMG_4892.jpg
         name: Vagalume
+        role: ''
         number: '20'
         nationality: Brasileiro
       - photo: assets/img/elenco/mikeias-lima.jpg
         name: Mikeias Lima
+        role: ''
         number: '22'
         nationality: Brasileiro
       - photo: assets/img/elenco/willian-anicete.jpg
         name: Willian Anicete
+        role: ''
         number: '25'
         nationality: Brasileiro
       - photo: assets/img/elenco/alexandre.jpg
         name: Alexandre
+        role: ''
         number: ''
         nationality: Brasileiro
       - photo: assets/img/elenco/mario-sergio.jpg
         name: Mario Sergio
+        role: ''
         number: ''
         nationality: Brasileiro
       - photo: assets/img/elenco/pedro.jpg
         name: Pedro
+        role: ''
         number: ''
         nationality: Brasileiro
   - position: Comissão Técnica
@@ -187,14 +199,17 @@ groups:
       - photo: assets/img/elenco/otavio-everton.jpg
         name: Otavio Everton
         role: Preparador Físico
+        number: ''
         nationality: Brasileiro
       - photo: assets/img/elenco/rodrigo-loureiro.jpg
         name: Rodrigo Loureiro
         role: Fisioterapeuta
+        number: ''
         nationality: Brasileiro
       - photo: assets/img/elenco/gabriela-duarte.jpg
         name: Gabriela Ariel Duarte Mendes
         role: Fisioterapeuta
+        number: ''
         nationality: Brasileiro
 meta:
   title: Elenco — Maranhão Atlético Clube
