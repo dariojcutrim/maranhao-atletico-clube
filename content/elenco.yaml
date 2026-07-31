@@ -102,31 +102,6 @@ groups:
         role: ''
         number: ''
         nationality: Brasileiro
-      - photo: assets/img/elenco/breno.jpg
-        name: Breno
-        role: ''
-        number: '19'
-        nationality: Brasileiro
-      - photo: assets/img/elenco/diego-cantanhede.jpg
-        name: Diego Cantanhede
-        role: ''
-        number: '20'
-        nationality: Brasileiro
-      - photo: assets/img/elenco/bedeu.jpg
-        name: Bedeu
-        role: ''
-        number: '21'
-        nationality: Brasileiro
-      - photo: assets/img/elenco/pedro-guilherme.jpg
-        name: Pedro Guilherme
-        role: ''
-        number: ''
-        nationality: Brasileiro
-      - photo: assets/img/elenco/vinicius-torres.jpg
-        name: Vinicius Torres
-        role: ''
-        number: ''
-        nationality: Brasileiro
       - photo: /assets/img/elenco/IMG_4847.jpg
         name: Pedro Lucas
         role: ''
