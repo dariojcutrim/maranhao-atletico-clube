@@ -1,0 +1,65 @@
+{#- Página de UMA matéria. Não é gerada sozinha (por isso o "_"):
+    o build.js renderiza este arquivo uma vez para cada matéria. -#}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = noticia.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = noticia.summary if noticia.summary else (noticia.corpo | resumo(160)) %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% set activeNav = 'noticias' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container">
+      <p class="artigo-volta"><a href="noticias.html">← Voltar para as notícias</a></p>
+      <div class="artigo-meta">
+        {%- if noticia.category %}<span class="materia-tag">{{ noticia.category }}</span>{% endif %}
+        {%- if noticia.date %}<span class="artigo-data">{{ noticia.date | data }}</span>{% endif %}
+      </div>
+      <h1 class="section-title">{{ noticia.title }}</h1>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+     <div class="doc artigo">
+
+      {%- if noticia.image %}
+      <img class="artigo-foto" src="{{ noticia.image }}" alt="{{ noticia.image_alt if noticia.image_alt else noticia.title }}">
+      {%- endif %}
+
+      {%- if noticia.summary %}
+      <p class="artigo-resumo">{{ noticia.summary }}</p>
+      {%- endif %}
+
+      <div class="artigo-corpo">{{ noticia.corpo | markdown | safe }}</div>
+
+      {#- Outras matérias, exceto esta -#}
+      {%- set outras = [] %}
+      {%- for n in noticias %}
+        {%- if n.slug != noticia.slug and outras.length < 3 %}{% set outras = (outras.push(n), outras) %}{% endif %}
+      {%- endfor %}
+
+      {%- if outras.length %}
+      <section class="doc-section" style="margin-top:48px;">
+        <h2>Leia também</h2>
+        <div class="materia-grid">
+          {%- for n in outras %}
+          {% include "_materia-card.njk" %}
+          {%- endfor %}
+        </div>
+      </section>
+      {%- endif %}
+
+     </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

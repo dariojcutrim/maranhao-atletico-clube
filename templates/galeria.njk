@@ -22,11 +22,29 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">{{ galeria.section_title }}</h2>
-      <div class="gallery-grid">
-        {%- for img in galeria.images %}
-        <img src="{{ img.src }}" alt="{{ img.alt if img.alt else 'Foto do Maranhão Atlético Clube' }}" loading="lazy">
+
+      {#- Anos presentes nas fotos, do mais recente para o mais antigo -#}
+      {%- set anos = [] %}
+      {%- for img in galeria.images %}
+        {%- if img.year and img.year not in anos %}{% set anos = (anos.push(img.year), anos) %}{% endif %}
+      {%- endfor %}
+      {%- set anos = anos | sort(true) %}
+
+      {%- if anos.length %}
+      <div class="gallery-filtros" role="group" aria-label="Filtrar fotos por ano">
+        <button type="button" class="gallery-filtro is-active" data-ano="">{{ galeria.filter_all if galeria.filter_all else 'Todas' }}</button>
+        {%- for ano in anos %}
+        <button type="button" class="gallery-filtro" data-ano="{{ ano }}">{{ ano }}</button>
         {%- endfor %}
       </div>
+      {%- endif %}
+
+      <div class="gallery-grid">
+        {%- for img in galeria.images %}
+        <img src="{{ img.src }}" alt="{{ img.alt if img.alt else 'Foto do Maranhão Atlético Clube' }}" loading="lazy"{% if img.year %} data-ano="{{ img.year }}"{% endif %}>
+        {%- endfor %}
+      </div>
+      <p class="gallery-vazio" hidden>Nenhuma foto neste ano ainda.</p>
     </div>
   </section>
   <div class="lightbox"><span class="close">&times;</span><img src="" alt="Foto ampliada"></div>

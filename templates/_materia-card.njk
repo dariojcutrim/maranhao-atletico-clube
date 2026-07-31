@@ -1,0 +1,17 @@
+{#- Cartão de uma matéria. Espera a variável "n".
+    Usado na página de notícias, na home e em "Leia também". -#}
+<a class="materia-card" href="{{ n.url }}"{% if n.category %} data-categoria="{{ n.category }}"{% endif %}>
+  <div class="materia-foto">
+    {%- if n.image %}
+    <img src="{{ n.image }}" alt="{{ n.image_alt if n.image_alt else n.title }}" loading="lazy">
+    {%- else %}
+    <img src="assets/img/escudo-mac.png" alt="Escudo do Maranhão Atlético Clube" class="materia-sem-foto" loading="lazy">
+    {%- endif %}
+    {%- if n.category %}<span class="materia-tag">{{ n.category }}</span>{% endif %}
+  </div>
+  <div class="materia-info">
+    {%- if n.date %}<span class="materia-data">{{ n.date | data }}</span>{% endif %}
+    <h3>{{ n.title }}</h3>
+    <p>{{ n.summary if n.summary else (n.corpo | resumo(120)) }}</p>
+  </div>
+</a>

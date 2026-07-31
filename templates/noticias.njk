@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = "Notícias — Maranhão Atlético Clube" %}
+{% set page_desc = "Notícias do Maranhão Atlético Clube: próximos jogos, preparação, boletim de treino, venda de ingressos e resultados." %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% set activeNav = 'noticias' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container">
+      <h1 class="section-title">Notícias</h1>
+      <p class="doc-subtitle">Próximos jogos, preparação, boletim de treino, ingressos e resultados do quadricolor.</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+
+      {%- if noticias.length %}
+
+      {#- Categorias presentes nas matérias -#}
+      {%- set cats = [] %}
+      {%- for n in noticias %}
+        {%- if n.category and n.category not in cats %}{% set cats = (cats.push(n.category), cats) %}{% endif %}
+      {%- endfor %}
+
+      {%- if cats.length > 1 %}
+      <div class="gallery-filtros" role="group" aria-label="Filtrar notícias por assunto">
+        <button type="button" class="gallery-filtro materia-filtro is-active" data-categoria="">Todas</button>
+        {%- for c in cats %}
+        <button type="button" class="gallery-filtro materia-filtro" data-categoria="{{ c }}">{{ c }}</button>
+        {%- endfor %}
+      </div>
+      {%- endif %}
+
+      <div class="materia-grid">
+        {%- for n in noticias %}
+        {% include "_materia-card.njk" %}
+        {%- endfor %}
+      </div>
+      <p class="gallery-vazio" hidden>Nenhuma notícia neste assunto ainda.</p>
+
+      {%- else %}
+      <div class="doc-empty">Ainda não há notícias publicadas. Assim que o clube publicar a primeira, ela aparece aqui.</div>
+      {%- endif %}
+
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

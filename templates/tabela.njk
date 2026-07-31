@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = tabela.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Classificação das competições disputadas pelo Maranhão Atlético Clube." %}
+{% include "_head.njk" %}
+</head>
+<body>
+
+{% set activeNav = 'tabela' %}
+{% include "_header.njk" %}
+
+  <section class="page-head">
+    <div class="container">
+      <h1 class="section-title">{{ tabela.title }}</h1>
+      <p class="doc-subtitle">{{ tabela.subtitle }}</p>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+     <div class="doc">
+
+      {%- for c in tabela.competitions %}
+      <section class="doc-section">
+        <h2>{{ c.name }}</h2>
+
+        {%- if c.image %}
+        {%- if c.updated %}<p class="doc-updated">Atualizada em {{ c.updated | data }}</p>{% endif %}
+        <a class="tabela-foto" href="{{ c.image }}" target="_blank" rel="noopener" title="Abrir a tabela em tamanho maior">
+          <img src="{{ c.image }}" alt="Classificação do {{ c.name }}" loading="lazy">
+        </a>
+        {%- if c.note %}<p class="doc-note">{{ c.note | md | safe }}</p>{% endif %}
+        {%- else %}
+        <div class="doc-empty">{{ tabela.empty | md | safe }}</div>
+        {%- endif %}
+      </section>
+      {%- endfor %}
+
+      {%- if tabela.footer_note %}
+      <p class="doc-updated">{{ tabela.footer_note | md | safe }}</p>
+      {%- endif %}
+
+     </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+# =====================================================================
+# Página "Tabela do Campeonato"
+#
+# Por enquanto a classificação é publicada como IMAGEM (print da tabela).
+# Para atualizar: troque a foto no painel e ajuste a data da última
+# atualização. Se um dia houver uma fonte automática, a página já está
+# pronta para receber.
+# =====================================================================
+title: "Tabela do Campeonato"
+subtitle: "Classificação atualizada das competições que o Maranhão Atlético Clube disputa"
+
+competitions:
+  - name: "Campeonato Maranhense"
+    image: ""
+    updated: ""
+    note: ""
+
+empty: "A tabela da competição será publicada aqui assim que divulgada."
+
+footer_note: "A classificação segue a tabela oficial divulgada pela entidade organizadora da competição. Em caso de divergência, vale sempre o boletim oficial."

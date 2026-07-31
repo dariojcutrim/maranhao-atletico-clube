@@ -11,8 +11,10 @@
       <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
       <nav class="main-nav">
         <ul>
+          <li><a href="noticias.html"{% if activeNav == 'noticias' %} class="active"{% endif %}>Notícias</a></li>
           <li><a href="historia.html"{% if activeNav == 'historia' %} class="active"{% endif %}>História</a></li>
           <li><a href="elenco.html"{% if activeNav == 'elenco' %} class="active"{% endif %}>Elenco</a></li>
+          <li><a href="tabela.html"{% if activeNav == 'tabela' %} class="active"{% endif %}>Tabela</a></li>
           <li><a href="projetos.html"{% if activeNav == 'projetos' %} class="active"{% endif %}>Projetos</a></li>
           <li class="has-dropdown"><a href="#">Transparência</a>
             <ul class="dropdown">

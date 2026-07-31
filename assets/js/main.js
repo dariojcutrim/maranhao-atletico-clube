@@ -177,6 +177,52 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---- Galeria: filtrar fotos por ano ---- */
+  (function () {
+    const filtros = document.querySelectorAll('.gallery-filtro');
+    if (!filtros.length) return;
+    const grade = document.querySelector('.gallery-grid');
+    const aviso = document.querySelector('.gallery-vazio');
+
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const ano = btn.dataset.ano;
+        filtros.forEach(b => b.classList.toggle('is-active', b === btn));
+
+        let visiveis = 0;
+        grade.querySelectorAll('img').forEach(img => {
+          const mostra = !ano || img.dataset.ano === ano;
+          img.hidden = !mostra;
+          if (mostra) visiveis++;
+        });
+        if (aviso) aviso.hidden = visiveis > 0;
+      });
+    });
+  })();
+
+  /* ---- Notícias: filtrar matérias por assunto ---- */
+  (function () {
+    const filtros = document.querySelectorAll('.materia-filtro');
+    if (!filtros.length) return;
+    const grade = document.querySelector('.materia-grid');
+    const aviso = document.querySelector('.gallery-vazio');
+
+    filtros.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.categoria;
+        filtros.forEach(b => b.classList.toggle('is-active', b === btn));
+
+        let visiveis = 0;
+        grade.querySelectorAll('.materia-card').forEach(card => {
+          const mostra = !cat || card.dataset.categoria === cat;
+          card.hidden = !mostra;
+          if (mostra) visiveis++;
+        });
+        if (aviso) aviso.hidden = visiveis > 0;
+      });
+    });
+  })();
+
   /* ---- Borderôs: botão "+ INFO" abre os números da partida ---- */
   document.querySelectorAll('.bordero-btn-info').forEach(btn => {
     btn.addEventListener('click', () => {

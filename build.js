@@ -52,6 +52,44 @@ if (fs.existsSync(CONTENT_DIR)) {
   }
 }
 
+// 1.1) Carrega as MATÉRIAS (content/noticias/*.md).
+//
+// Cada matéria é um arquivo próprio, criado pelo painel, com um cabeçalho
+// entre "---" (título, data, categoria...) e o texto em markdown embaixo.
+// Diferente do resto do site, aqui o número de páginas varia: o build gera
+// uma página por matéria.
+const NOTICIAS_DIR = path.join(CONTENT_DIR, 'noticias');
+
+function lerCabecalho(texto) {
+  const m = texto.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
+  if (!m) return { dados: {}, corpo: texto };
+  return { dados: yaml.load(m[1]) || {}, corpo: m[2] };
+}
+
+function dataISO(v) {
+  if (!v) return '';
+  return (v instanceof Date) ? v.toISOString().slice(0, 10) : String(v).trim().slice(0, 10);
+}
+
+const noticias = [];
+if (fs.existsSync(NOTICIAS_DIR)) {
+  for (const file of fs.readdirSync(NOTICIAS_DIR)) {
+    if (!/\.md$/i.test(file)) continue;
+    const { dados, corpo } = lerCabecalho(fs.readFileSync(path.join(NOTICIAS_DIR, file), 'utf8'));
+    if (dados.draft) continue; // rascunho não vai para o site
+    const slug = file.replace(/\.md$/i, '');
+    noticias.push({
+      ...dados,
+      slug,
+      url: `noticia-${slug}.html`,
+      date: dataISO(dados.date),
+      corpo,
+    });
+  }
+  // Mais recentes primeiro
+  noticias.sort((a, b) => String(b.date).localeCompare(String(a.date)));
+}
+
 // 2) Configura o Nunjucks
 const env = nunjucks.configure(TEMPLATES_DIR, { autoescape: true, noCache: true });
 
@@ -73,6 +111,27 @@ env.addFilter('data', (v) => {
   return m ? `${m[3]}/${m[2]}/${m[1]}` : String(v);
 });
 
+// Filtro "markdown": texto longo (corpo das matérias) com parágrafos e listas.
+// O filtro "md" é só para uma linha; este converte o texto inteiro.
+env.addFilter('markdown', (s) => (s ? marked.parse(applyHighlights(String(s))) : ''));
+
+// Filtro "resumo": corta o texto para a prévia dos cartões, sem cortar palavra.
+// Tira também os marcadores de destaque ([[azul]] e ((vermelho))) e a
+// marcação de markdown — no cartão vale só o texto limpo.
+env.addFilter('resumo', (s, n) => {
+  const limpo = String(s || '')
+    .replace(/\[\[(.+?)\]\]/g, '$1')     // [[azul]] -> azul
+    .replace(/\(\((.+?)\)\)/g, '$1')     // ((vermelho)) -> vermelho
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // links e imagens -> só o texto
+    .replace(/[#*_>`]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const max = n || 150;
+  if (limpo.length <= max) return limpo;
+  const corte = limpo.lastIndexOf(' ', max);
+  return limpo.slice(0, corte > 0 ? corte : max) + '…';
+});
+
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
@@ -81,21 +140,45 @@ fs.mkdirSync(OUT, { recursive: true });
 const SITE_URL = 'https://maranhaoatleticoclubebr.com.br';
 const rendered = new Set();
 const sitemapUrls = [];
+// Aplica o cache-busting e grava a página.
+function gravar(outName, html, { noSitemap } = {}) {
+  html = html
+    .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
+    .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`)
+    .replace(/assets\/img\/og-image\.jpg/g, `assets/img/og-image.jpg?v=${OG_V}`);
+  fs.writeFileSync(path.join(OUT, outName), html);
+  rendered.add(outName);
+  if (!noSitemap && outName !== '404.html') {
+    sitemapUrls.push(SITE_URL + (outName === 'index.html' ? '/' : '/' + outName));
+  }
+}
+
 if (fs.existsSync(TEMPLATES_DIR)) {
   for (const file of fs.readdirSync(TEMPLATES_DIR)) {
     if (file.endsWith('.njk') && !file.startsWith('_')) {
       const outName = file.replace(/\.njk$/, '.html');
       const url = SITE_URL + (outName === 'index.html' ? '/' : '/' + outName);
-      const ctx = Object.assign({}, data, { site_url: SITE_URL, page: { name: outName, url } });
-      let html = env.render(file, ctx);
-      html = html
-        .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
-        .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`)
-        .replace(/assets\/img\/og-image\.jpg/g, `assets/img/og-image.jpg?v=${OG_V}`);
-      fs.writeFileSync(path.join(OUT, outName), html);
-      rendered.add(outName);
-      if (outName !== '404.html') sitemapUrls.push(url);
+      const ctx = Object.assign({}, data, { noticias, site_url: SITE_URL, page: { name: outName, url } });
+      gravar(outName, env.render(file, ctx));
     }
+  }
+}
+
+// 4.1) Uma página para cada matéria (templates/_artigo.njk).
+//
+// As páginas ficam na RAIZ, como "noticia-<slug>.html", de propósito: o
+// cabeçalho e o rodapé usam caminhos relativos (assets/…, index.html), que
+// quebrariam dentro de uma subpasta. Assim nenhuma página existente precisa
+// ser mexida.
+if (noticias.length && fs.existsSync(path.join(TEMPLATES_DIR, '_artigo.njk'))) {
+  for (const n of noticias) {
+    const ctx = Object.assign({}, data, {
+      noticias,
+      noticia: n,
+      site_url: SITE_URL,
+      page: { name: n.url, url: SITE_URL + '/' + n.url },
+    });
+    gravar(n.url, env.render('_artigo.njk', ctx));
   }
 }
 

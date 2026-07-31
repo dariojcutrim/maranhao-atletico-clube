@@ -128,8 +128,11 @@ body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none
 .main-nav ul {
   display: flex;
   align-items: center;
-  gap: 30px;
+  gap: 22px;
 }
+/* Com o menu já em 10 itens, um rótulo longo ("Perguntas Frequentes")
+   quebrava em duas linhas e desalinhava o resto. */
+.main-nav > ul > li > a { white-space: nowrap; }
 .main-nav a {
   font-family: var(--font-body);
   font-weight: 500;
@@ -1089,6 +1092,155 @@ body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none
   .hero { min-height: 460px; border-radius: 90px 0 0 0; }
   .section { padding: 52px 0; }
 }
+
+/* =================================================== Matérias / Notícias */
+.materia-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin-top: 8px;
+}
+@media (min-width: 700px) { .materia-grid { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 1000px) { .materia-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.materia-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+.materia-card:hover {
+  border-color: var(--mac-red);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+.materia-card[hidden] { display: none; }
+
+.materia-foto { position: relative; background: var(--bg); }
+.materia-foto img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+/* Matéria sem foto: mostra o escudo centralizado, sem esticar */
+.materia-foto img.materia-sem-foto {
+  object-fit: contain;
+  padding: 34px;
+  background: var(--bg);
+}
+
+.materia-tag {
+  position: absolute;
+  top: 12px; left: 12px;
+  background: var(--mac-red);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.materia-info { padding: 18px 20px 22px; display: flex; flex-direction: column; gap: 8px; }
+.materia-data { color: var(--text-muted); font-size: 0.8rem; font-weight: 600; }
+.materia-info h3 { color: var(--mac-blue); font-size: 1.05rem; line-height: 1.35; }
+.materia-info p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.55; }
+
+/* ------------------------------------------------ Página de uma matéria */
+.artigo-volta { margin-bottom: 14px; }
+.artigo-volta a { color: var(--mac-red); font-weight: 600; font-size: 0.9rem; }
+.artigo-volta a:hover { color: var(--mac-blue); }
+
+.artigo-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.artigo-meta .materia-tag { position: static; }
+.artigo-data { color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+
+.artigo-foto {
+  width: 100%;
+  max-height: 460px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 26px;
+}
+.artigo-resumo {
+  font-size: 1.1rem;
+  color: var(--text);
+  font-weight: 500;
+  line-height: 1.6;
+  padding-left: 16px;
+  border-left: 4px solid var(--mac-red);
+  margin-bottom: 26px;
+}
+.artigo-corpo { color: var(--text-muted); font-size: 1.02rem; line-height: 1.75; }
+.artigo-corpo p { margin-bottom: 18px; }
+.artigo-corpo h2, .artigo-corpo h3 {
+  color: var(--mac-blue);
+  font-family: var(--font-display);
+  margin: 32px 0 12px;
+}
+.artigo-corpo h2 { font-size: 1.5rem; }
+.artigo-corpo h3 { font-size: 1.2rem; }
+.artigo-corpo ul, .artigo-corpo ol { margin: 0 0 18px 22px; }
+.artigo-corpo li { margin-bottom: 8px; }
+.artigo-corpo img { max-width: 100%; border-radius: var(--radius); margin: 10px 0 20px; }
+.artigo-corpo a { color: var(--mac-red); text-decoration: underline; }
+.artigo-corpo blockquote {
+  border-left: 4px solid var(--line);
+  padding-left: 18px;
+  margin: 0 0 18px;
+  font-style: italic;
+}
+
+/* ------------------------------------------- Tabela do campeonato (foto) */
+.tabela-foto { display: block; margin: 8px 0 6px; }
+.tabela-foto img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  display: block;
+}
+
+/* ============================================ Galeria: filtro por ano */
+.gallery-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 6px 0 26px;
+}
+.gallery-filtro {
+  border: 1px solid var(--line);
+  background: var(--white);
+  color: var(--mac-blue);
+  border-radius: 999px;
+  padding: 8px 20px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.gallery-filtro:hover { border-color: var(--mac-red); color: var(--mac-red); }
+.gallery-filtro.is-active {
+  background: var(--mac-blue);
+  border-color: var(--mac-blue);
+  color: var(--white);
+}
+.gallery-vazio {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 40px 0;
+}
+.gallery-vazio[hidden] { display: none; }
+/* .gallery-grid img tem display definido; sem isto o [hidden] do filtro
+   não teria efeito e as fotos escondidas continuariam aparecendo. */
+.gallery-grid img[hidden] { display: none; }
 
 /* ===================================================================
    Página: Borderôs

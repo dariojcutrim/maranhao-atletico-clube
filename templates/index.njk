@@ -35,6 +35,25 @@
     </div>
   </section>
 
+  <!-- ====================== ÚLTIMAS NOTÍCIAS ====================== -->
+  {%- if noticias.length %}
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">Últimas notícias</h2>
+      <div class="materia-grid">
+        {%- for n in noticias %}
+          {%- if loop.index <= 3 %}
+          {% include "_materia-card.njk" %}
+          {%- endif %}
+        {%- endfor %}
+      </div>
+      <div class="reveal" style="text-align:center; margin-top:36px;">
+        <a href="noticias.html" class="btn btn-primary">Ver todas as notícias</a>
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+
   <!-- ====================== SOBRE ====================== -->
   <section class="section">
     <div class="container">

@@ -18,6 +18,74 @@ site_url: "https://maranhaoatleticoclubebr.com.br"
 locale: "pt"
 
 collections:
+  # ============================================================== NOTÍCIAS
+  # Única seção em que o cliente CRIA e APAGA itens: cada matéria é um
+  # arquivo próprio e vira uma página no site.
+  - name: noticias
+    label: "📰 Notícias"
+    label_singular: "Matéria"
+    folder: "content/noticias"
+    create: true
+    delete: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "yaml-frontmatter"
+    editor: { preview: false }
+    media_folder: "/assets/img/noticias"
+    public_folder: "assets/img/noticias"
+    summary: "{{date}} · {{title}}"
+    sortable_fields: ["date", "title"]
+    description: "Cada matéria vira uma página no site e aparece na listagem de Notícias. As 3 mais recentes também aparecem na página inicial."
+    fields:
+      - { label: "Título", name: title, widget: string, hint: "O título da matéria. Ex.: MAC vence o Moto Club por 2 a 0" }
+      - { label: "Data", name: date, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD", hint: "As matérias aparecem da mais recente para a mais antiga." }
+      - label: "Assunto"
+        name: category
+        widget: select
+        options:
+          - "Jogos em breve"
+          - "Preparação"
+          - "Boletim de treino"
+          - "Venda de ingressos"
+          - "Resultados"
+          - "Notícias do clube"
+        hint: "Aparece como etiqueta vermelha na foto e serve para o torcedor filtrar as notícias."
+      - { label: "Foto de capa", name: image, widget: image, required: false, hint: "Aparece no cartão e no topo da matéria. Se ficar vazio, entra o escudo do clube." }
+      - { label: "Descrição da foto", name: image_alt, widget: string, required: false, hint: "Texto de acessibilidade da foto de capa." }
+      - { label: "Resumo (opcional)", name: summary, widget: text, required: false, hint: "Uma ou duas frases que aparecem no cartão e no começo da matéria. Se deixar vazio, o site usa o início do texto." }
+      - { label: "Texto da matéria", name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list], hint: "O corpo da notícia. Para destacar: selecione a palavra e clique no botão — N (negrito), A azul ou A vermelho." }
+      - { label: "Rascunho (não publicar ainda)", name: draft, widget: boolean, required: false, default: false, hint: "Ligado = a matéria fica guardada mas NÃO aparece no site. Desligue quando quiser publicar." }
+
+  # ==================================================== TABELA DO CAMPEONATO
+  - name: tabela
+    label: "🏆 Tabela do Campeonato"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Tabela do Campeonato"
+        file: "content/tabela.yaml"
+        media_folder: "/assets/img/tabela"
+        public_folder: "assets/img/tabela"
+        description: "A classificação é publicada como imagem (print da tabela). Troque a foto e a data sempre que a classificação mudar."
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Subtítulo", name: subtitle, widget: string }
+          - label: "Competições"
+            name: competitions
+            widget: list
+            label_singular: "Competição"
+            summary: "{{fields.name}}"
+            thumbnail: "image"
+            hint: "Uma entrada por competição que o clube disputa."
+            fields:
+              - { label: "Nome da competição", name: name, widget: string, hint: "Ex.: Campeonato Maranhense" }
+              - { label: "Foto da tabela", name: image, widget: image, required: false, hint: "Print da classificação. Deixe vazio enquanto não houver tabela divulgada." }
+              - { label: "Atualizada em", name: updated, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD", required: false, hint: "Data da classificação mostrada na foto." }
+              - { label: "Observação", name: note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+          - { label: "Aviso quando não há tabela", name: empty, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
+          - { label: "Observação final", name: footer_note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
   # ================================================================ HOME
   - name: home
     label: "🏠 Página Inicial"
@@ -378,15 +446,29 @@ collections:
                 fields:
                   - { label: "Foto", name: src, widget: image }
           - { label: "Título da galeria", name: section_title, widget: string, hint: 'Ex.: Momentos' }
+          - { label: "Texto do botão que mostra tudo", name: filter_all, widget: string, required: false, hint: 'O primeiro botão do filtro por ano. Ex.: Todas' }
           - label: "Fotos da galeria"
             name: images
             widget: list
             label_singular: "Foto"
-            summary: "{{fields.src}}"
+            summary: "{{fields.year}} · {{fields.src}}"
             thumbnail: "src"
-            hint: "Todas as fotos da grade. Cada item mostra a MINIATURA da foto atual — assim você vê exatamente qual está trocando. Arraste para reordenar."
+            hint: "Todas as fotos da grade. Cada item mostra a MINIATURA da foto atual. Use o campo ANO para separar as fotos por temporada no site — e arraste para reordenar."
             fields:
               - { label: "Foto", name: src, widget: image, hint: "Troque aqui: a miniatura ao lado é atualizada com a foto nova." }
+              - label: "Ano"
+                name: year
+                widget: select
+                required: false
+                default: ""
+                options:
+                  - { label: "Sem ano definido", value: "" }
+                  - { label: "2022", value: "2022" }
+                  - { label: "2023", value: "2023" }
+                  - { label: "2024", value: "2024" }
+                  - { label: "2025", value: "2025" }
+                  - { label: "2026", value: "2026" }
+                hint: "Em que ano a foto foi tirada. É só escolher aqui para mover a foto de ano — ela passa a aparecer no botão daquele ano. Sem ano definido, ela aparece só em 'Todas'."
               - { label: "Descrição da foto (opcional)", name: alt, widget: string, required: false, hint: "Ajuda a identificar a foto no painel e melhora a acessibilidade. Ex.: Comemoração do título de 2025." }
 
   # ================================================================ OUVIDORIA
