@@ -87,40 +87,40 @@ groups:
         role: ''
         number: '10'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_9035.JPG.jpeg
+      - photo: /assets/img/elenco/PEU.jpg
         name: Peu
         role: ''
         number: '27'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5223.jpg
+      - photo: /assets/img/elenco/ROSIVAN.jpg
         name: Rosivan
         role: ''
         number: '15'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4847.jpg
+      - photo: /assets/img/elenco/PEDRO-LUCAS.jpg
         name: Pedro Lucas
         role: ''
         number: ''
         nationality: Brasileiro
   - position: Atacantes
     players:
-      - photo: /assets/img/elenco/IMG_4983.jpg
+      - photo: /assets/img/elenco/WILL.jpg
         name: Will Viana
         role: ''
         number: '17'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4264.JPG
+      - photo: /assets/img/elenco/FELIPE-CRUZ.jpg
         name: Felipe Cruz
         role: ''
         number: '29'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5193.jpg
+      - photo: /assets/img/elenco/PIMENTINHA.jpg
         name: Pimentinha
         role: ''
         number: '11'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4821.jpg
-        name: Luis Gustavo
+      - photo: /assets/img/elenco/LUÍS-GUSTAVI.jpg
+        name: Luís Gustavo
         role: ''
         number: '26'
         nationality: Brasileiro
