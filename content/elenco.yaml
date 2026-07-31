@@ -33,7 +33,7 @@ groups:
       - photo: /assets/img/elenco/IMG_4729.jpg
         name: Luis Felipe Almeida
         role: ''
-        number: ''
+        number: '4'
         nationality: Brasileiro
       - photo: /assets/img/elenco/IMG_4685.jpg
         name: Edson Fernando Diniz
