@@ -7,64 +7,64 @@ groups:
         name: Jean Pereira
         role: ''
         number: '1'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/VITÃO.jpg
         name: Victor Guilherme
         role: ''
         number: '12'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/CAUÊ.jpg
         name: Cauê
         role: ''
         number: '23'
-        nationality: Brasileiro
+        nationality: ''
   - position: Defensores
     players:
       - photo: /assets/img/elenco/NEGUEBA.jpg
         name: Rodrigo Negueba
         role: ''
         number: ''
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/TIBURCIO.jpg
         name: Marcos Tibúrcio
         role: ''
         number: '14'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/ALMEIDA.jpg
         name: Luis Felipe Almeida
         role: ''
         number: '4'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/FERNANDO.jpg
         name: Edson Fernando Diniz
         role: ''
         number: '3'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/LUCAS-SANTOS.jpg
         name: Lucas Santos
         role: ''
         number: '6'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/LUCÃO.jpg
         name: Lucão
         role: ''
         number: '13'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/RADIJA.jpg
         name: André Radija
         role: ''
         number: '16'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/KEVEN.jpg
         name: Keven
         role: ''
         number: '18'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/MAURICIO.jpg
         name: Maurício
         role: ''
         number: '2'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/BALL.jpg
         name: Ball
         role: ''
@@ -76,91 +76,91 @@ groups:
         name: Vander
         role: ''
         number: '8'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/RAILSON.jpg
         name: Railson Carvalho
         role: ''
         number: '5'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/JORGE.jpg
         name: Jorge Rocha
         role: ''
         number: '10'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/PEU.jpg
         name: Peu
         role: ''
         number: '27'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/ROSIVAN.jpg
         name: Rosivan
         role: ''
         number: '15'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/PEDRO-LUCAS.jpg
         name: Pedro Lucas
         role: ''
         number: ''
-        nationality: Brasileiro
+        nationality: ''
   - position: Atacantes
     players:
       - photo: /assets/img/elenco/WILL.jpg
         name: Will Viana
         role: ''
         number: '17'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/FELIPE-CRUZ.jpg
         name: Felipe Cruz
         role: ''
         number: '29'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/PIMENTINHA.jpg
         name: Pimentinha
         role: ''
         number: '11'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/LUÍS-GUSTAVI.jpg
         name: Luís Gustavo
         role: ''
         number: '26'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/KESSINHO.jpg
         name: Kessinho
         role: ''
         number: '7'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/RAFAEL.jpg
         name: Rafael
         role: ''
         number: '19'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/VAGALUME.jpg
         name: Vagalume
         role: ''
         number: '20'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/ERVERSON.jpg
         name: Erverson
         role: ''
         number: '9'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/RICHARLES.jpg
         name: Richarles
         role: ''
         number: '21'
-        nationality: Brasileiro
+        nationality: ''
       - photo: /assets/img/elenco/RONALD.jpg
         name: Ronald
         role: ''
         number: '22'
-        nationality: Brasileiro
+        nationality: ''
   - position: Comissão Técnica
     players:
       - photo: /assets/img/elenco/IMG_6460.jpeg
         name: Jerson Testoni
         role: Técnico
         number: ''
-        nationality: Brasileiro
+        nationality: ''
 meta:
   title: Elenco — Maranhão Atlético Clube
   description: Conheça o elenco do Maranhão Atlético Clube — goleiros, defensores, meio-campistas e atacantes.
