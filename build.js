@@ -112,6 +112,67 @@ for (const dir of ['assets', 'Imagens MAC', 'admin']) {
   if (fs.existsSync(src)) fs.cpSync(src, path.join(OUT, dir), { recursive: true });
 }
 
+// 6.1) Encolhe fotos grandes ANTES de publicar.
+//
+// Quem edita o site sobe foto direto do celular/câmera — imagens de 6000px e
+// 6 MB para aparecer num card de poucos centímetros. Isso já estourou a cota
+// da Netlify uma vez (a página do Elenco chegou a baixar 50 MB por visita) e
+// deixa o site impraticável no 4G. Aqui, qualquer foto acima do limite é
+// reduzida na hora de gerar o site.
+//
+// IMPORTANTE: mexe só no que vai para _site/. Os arquivos originais do
+// projeto ficam intactos — dá para voltar atrás a qualquer momento.
+const LIMITES = [
+  { pasta: 'assets/img/elenco', lado: 900 },     // cards de jogador
+  { pasta: 'assets/img/diretoria', lado: 900 },  // cards da diretoria
+  { pasta: '', lado: 1600 },                     // demais (galeria, banners)
+];
+const MIN_BYTES = 400 * 1024; // abaixo disso não compensa mexer
+
+function limiteDe(rel) {
+  const r = rel.split(path.sep).join('/');
+  return (LIMITES.find((l) => l.pasta && r.startsWith(l.pasta)) || LIMITES[LIMITES.length - 1]).lado;
+}
+
+let sharp = null;
+try { sharp = require('sharp'); } catch (e) {
+  console.warn('AVISO: sharp indisponível — as fotos vão para o site no tamanho original.');
+}
+
+async function encolherFotos() {
+  if (!sharp) return;
+  const fotos = [];
+  (function varre(dir) {
+    for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+      const p = path.join(dir, e.name);
+      if (e.isDirectory()) varre(p);
+      else if (/\.(jpe?g|png)$/i.test(e.name) && fs.statSync(p).size > MIN_BYTES) fotos.push(p);
+    }
+  })(OUT);
+
+  let ganho = 0, n = 0;
+  for (const p of fotos) {
+    const rel = path.relative(OUT, p);
+    try {
+      const antes = fs.statSync(p).size;
+      const buf = await sharp(p)
+        .rotate() // respeita a orientação da câmera
+        .resize({ width: limiteDe(rel), height: limiteDe(rel), fit: 'inside', withoutEnlargement: true })
+        .jpeg({ quality: 82, mozjpeg: true })
+        .toBuffer();
+      if (buf.length < antes) {
+        fs.writeFileSync(p, buf);
+        ganho += antes - buf.length;
+        n++;
+      }
+    } catch (e) {
+      // Uma foto problemática não pode derrubar o build: segue com a original.
+      console.warn(`AVISO: não consegui encolher ${rel} — ${e.message}`);
+    }
+  }
+  if (n) console.log(`Fotos otimizadas: ${n} (${(ganho / 1048576).toFixed(1)} MB a menos para o visitante baixar)`);
+}
+
 // 7) Remove .DS_Store que tenha entrado
 (function clean(dir) {
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -129,5 +190,10 @@ fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
 fs.writeFileSync(path.join(OUT, 'robots.txt'),
   `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
-const totalPages = fs.readdirSync(OUT).filter(f => f.endsWith('.html')).length;
-console.log(`Build OK — ${rendered.size} página(s) gerada(s) de templates, ${totalPages} HTML no total em _site/ (+ sitemap.xml, robots.txt)`);
+// 9) Encolhe as fotos grandes e encerra
+encolherFotos()
+  .catch((e) => console.warn('AVISO: otimização de fotos falhou —', e.message))
+  .then(() => {
+    const totalPages = fs.readdirSync(OUT).filter(f => f.endsWith('.html')).length;
+    console.log(`Build OK — ${rendered.size} página(s) gerada(s) de templates, ${totalPages} HTML no total em _site/ (+ sitemap.xml, robots.txt)`);
+  });
