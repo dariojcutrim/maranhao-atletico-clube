@@ -50,39 +50,39 @@ groups:
         role: ''
         number: '13'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5063.jpg
+      - photo: /assets/img/elenco/RADIJA.jpg
         name: André Radija
         role: ''
         number: '16'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4591.jpg
+      - photo: /assets/img/elenco/KEVEN.jpg
         name: Keven
         role: ''
         number: '18'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_3791.JPG
+      - photo: /assets/img/elenco/MAURICIO.jpg
         name: Maurício
         role: ''
         number: '2'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4353.JPG
+      - photo: /assets/img/elenco/BALL.jpg
         name: Ball
         role: ''
         number: ''
         nationality: ''
   - position: Meio-campistas
     players:
-      - photo: /assets/img/elenco/IMG_4636.jpg
+      - photo: /assets/img/elenco/VANDER.jpg
         name: Vander
         role: ''
         number: '8'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4798.jpg
+      - photo: /assets/img/elenco/RAILSON.jpg
         name: Railson Carvalho
         role: ''
         number: '5'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5280.jpg
+      - photo: /assets/img/elenco/JORGE.jpg
         name: Jorge Rocha
         role: ''
         number: '10'
