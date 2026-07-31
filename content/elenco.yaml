@@ -3,50 +3,50 @@ intro: Conheça os atletas que defendem o quadricolor maranhense em campo.
 groups:
   - position: Goleiros
     players:
-      - photo: /assets/img/elenco/MEDIA DAY_GOLEIROS_JEAN_IMG_5355.jpg
+      - photo: /assets/img/elenco/JENA.jpg
         name: Jean
         role: ''
         number: '1'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5337.jpg
+      - photo: /assets/img/elenco/VITÃO.jpg
         name: Victor Guilherme
         role: ''
         number: '12'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5347.jpg
+      - photo: /assets/img/elenco/CAUÊ.jpg
         name: Cauê
         role: ''
         number: '23'
         nationality: Brasileiro
   - position: Defensores
     players:
-      - photo: /assets/img/elenco/IMG_4614.jpg
+      - photo: /assets/img/elenco/NEGUEBA.jpg
         name: Rodrigo Negueba
         role: ''
         number: ''
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_3735.JPG
+      - photo: /assets/img/elenco/TIBURCIO.jpg
         name: Marcos Tibúrcio
         role: ''
         number: '14'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4729.jpg
+      - photo: /assets/img/elenco/ALMEIDA.jpg
         name: Luis Felipe Almeida
         role: ''
         number: '4'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_4685.jpg
+      - photo: /assets/img/elenco/FERNANDO.jpg
         name: Edson Fernando Diniz
         role: ''
         number: '3'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5036.jpg
+      - photo: /assets/img/elenco/LUCAS-SANTOS.jpg
         name: Lucas Santos
         role: ''
         number: '6'
         nationality: Brasileiro
-      - photo: /assets/img/elenco/IMG_5009.jpg
-        name: Lucas Gomes
+      - photo: /assets/img/elenco/LUCÃO.jpg
+        name: Lucão
         role: ''
         number: '13'
         nationality: Brasileiro
