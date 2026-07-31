@@ -156,19 +156,9 @@ groups:
         nationality: Brasileiro
   - position: Comissão Técnica
     players:
-      - photo: assets/img/elenco/otavio-everton.jpg
-        name: Otavio Everton
-        role: Preparador Físico
-        number: ''
-        nationality: Brasileiro
-      - photo: assets/img/elenco/rodrigo-loureiro.jpg
-        name: Rodrigo Loureiro
-        role: Fisioterapeuta
-        number: ''
-        nationality: Brasileiro
-      - photo: assets/img/elenco/gabriela-duarte.jpg
-        name: Gabriela Ariel Duarte Mendes
-        role: Fisioterapeuta
+      - photo: /assets/img/elenco/Gemini_Generated_Image_g285z9g285z9g285.png
+        name: Jerson Testoni
+        role: Técnico
         number: ''
         nationality: Brasileiro
 meta:
