@@ -177,4 +177,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
+  /* ---- Borderôs: botão "+ INFO" abre os números da partida ---- */
+  document.querySelectorAll('.bordero-btn-info').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const detalhes = btn.closest('.bordero-card').querySelector('.bordero-details');
+      if (!detalhes) return;
+      const aberto = detalhes.hasAttribute('hidden');
+      if (aberto) detalhes.removeAttribute('hidden'); else detalhes.setAttribute('hidden', '');
+      btn.setAttribute('aria-expanded', String(aberto));
+      btn.textContent = aberto ? '− INFO' : '+ INFO';
+    });
+  });
+
 });

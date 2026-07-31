@@ -1091,6 +1091,119 @@ body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none
 }
 
 /* ===================================================================
+   Página: Borderôs
+   =================================================================== */
+
+/* Topo com a foto desfocada por trás da cor do clube.
+   O scale evita que o desfoque deixe as bordas transparentes. */
+.hero-blur { min-height: 340px; }
+.hero-blur .hero-bg {
+  filter: blur(7px) saturate(0.85);
+  transform: scale(1.08);
+}
+.hero-blur::before {
+  background: linear-gradient(180deg, rgba(22, 53, 125, 0.86) 0%, rgba(14, 36, 84, 0.92) 100%);
+}
+.hero-blur h1 { font-size: clamp(2.2rem, 5vw, 3.6rem); }
+.hero-blur .subtitle { max-width: 620px; }
+
+/* Grade de partidas */
+.bordero-grid { display: grid; gap: 18px; margin: 22px 0 8px; }
+
+.bordero-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 20px 22px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.bordero-card:hover { border-color: var(--mac-red); transform: translateY(-2px); }
+
+.bordero-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+.bordero-head h3 {
+  color: var(--mac-blue);
+  font-size: 1.08rem;
+  line-height: 1.3;
+}
+.bordero-head h3 span { color: var(--text-muted); font-weight: 500; font-size: 0.92rem; }
+
+.bordero-date {
+  flex: 0 0 auto;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.bordero-venue { color: var(--text-muted); font-size: 0.88rem; margin-top: 6px; }
+
+/* Botões do cartão */
+.bordero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+.bordero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.bordero-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+.bordero-btn-download { background: var(--mac-blue); color: var(--white); }
+.bordero-btn-download:hover { background: var(--mac-red); color: var(--white); }
+
+.bordero-btn-info { background: var(--bg); color: var(--mac-blue); border: 1px solid var(--line); }
+.bordero-btn-info:hover { background: var(--mac-blue); color: var(--white); border-color: var(--mac-blue); }
+.bordero-btn-info[aria-expanded="true"] { background: var(--mac-blue); color: var(--white); border-color: var(--mac-blue); }
+
+/* Números da partida (abrem no "+ INFO") */
+.bordero-details {
+  display: grid;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-top: 16px;
+}
+.bordero-details[hidden] { display: none; }
+.bordero-details > div {
+  background: var(--white);
+  padding: 11px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+.bordero-details dt { font-size: 0.88rem; color: var(--text-muted); }
+.bordero-details dd { font-size: 0.92rem; font-weight: 700; color: var(--mac-blue); text-align: right; }
+
+@media (min-width: 760px) {
+  .bordero-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ===================================================================
    Páginas de documento — Relacionamento com o Torcedor / Transparência
    =================================================================== */
 .doc { max-width: 900px; }

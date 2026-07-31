@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% set page_title = borderos.title + " — Maranhão Atlético Clube" %}
+{% set page_desc = "Borderôs do Maranhão Atlético Clube: demonstrativo financeiro de cada partida, com público, receita de bilheteria e despesas." %}
+{% include "_head.njk" %}
+</head>
+<body class="hero-page">
+
+{% include "_header.njk" %}
+
+  <!-- Topo com foto do clube desfocada sob a cor do MAC -->
+  <div class="hero-backer">
+  <section class="hero hero-blur">
+    <img class="hero-bg" src="{{ borderos.hero_image }}" alt="" aria-hidden="true">
+    <div class="hero-content"><div class="container">
+      <h1>{{ borderos.title | md | safe }}</h1>
+      <p class="subtitle">{{ borderos.subtitle | md | safe }}</p>
+    </div></div>
+  </section>
+  </div>
+
+  <section class="section-sm">
+    <div class="container">
+     <div class="doc">
+
+      <p class="doc-intro">{{ borderos.intro | md | safe }}</p>
+
+      <section class="doc-section">
+        <h2>{{ borderos.list_heading }}</h2>
+
+        {%- if borderos.items and borderos.items.length %}
+        <div class="bordero-grid">
+          {%- for b in borderos.items %}
+          <article class="bordero-card">
+            <div class="bordero-head">
+              <h3>{{ b.match }}{% if b.competition %} <span>({{ b.competition }})</span>{% endif %}</h3>
+              {%- if b.date %}<span class="bordero-date">{{ b.date | data }}</span>{% endif %}
+            </div>
+
+            {%- if b.venue %}<p class="bordero-venue">{{ b.venue }}</p>{% endif %}
+
+            <div class="bordero-actions">
+              {%- if b.file %}
+              <a class="bordero-btn bordero-btn-download" href="{{ b.file }}" target="_blank" rel="noopener" aria-label="Baixar o borderô de {{ b.match }}">
+                <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <span>Baixar</span>
+              </a>
+              {%- endif %}
+              {%- if b.data and b.data.length %}
+              <button type="button" class="bordero-btn bordero-btn-info" aria-expanded="false">+ INFO</button>
+              {%- endif %}
+            </div>
+
+            {%- if b.data and b.data.length %}
+            <dl class="bordero-details" hidden>
+              {%- for d in b.data %}
+              <div>
+                <dt>{{ d.label }}</dt>
+                <dd>{{ d.value }}</dd>
+              </div>
+              {%- endfor %}
+            </dl>
+            {%- endif %}
+          </article>
+          {%- endfor %}
+        </div>
+        {%- else %}
+        <div class="doc-empty">{{ borderos.empty | md | safe }}</div>
+        {%- endif %}
+      </section>
+
+      {%- if borderos.note %}
+      <p class="doc-note">{{ borderos.note | md | safe }}</p>
+      {%- endif %}
+
+      <p><a href="transparencia.html" class="btn btn-primary">Ver Transparência Financeira</a></p>
+
+     </div>
+    </div>
+  </section>
+
+{% include "_footer.njk" %}
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

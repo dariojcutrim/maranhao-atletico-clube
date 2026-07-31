@@ -574,6 +574,48 @@ collections:
               - { label: "Título da seção", name: heading, widget: string }
               - { label: "Texto", name: text, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [] }
 
+  # ================================================================ BORDERÔS
+  - name: borderos
+    label: "🎫 Borderôs"
+    delete: false
+    editor: { preview: false }
+    files:
+      - name: conteudo
+        label: "Borderôs das partidas"
+        file: "content/borderos.yaml"
+        description: "O borderô é o demonstrativo financeiro de cada jogo. Para publicar um: clique em 'Add Partida', preencha o jogo e a data, envie o PDF e (se quiser) os números que abrem no botão '+ INFO'."
+        fields:
+          - { label: "Título da página", name: title, widget: string }
+          - { label: "Subtítulo", name: subtitle, widget: string, hint: "Frase que aparece embaixo do título, no topo colorido." }
+          - { label: "Foto do topo (fica desfocada)", name: hero_image, widget: image, hint: "Foto de fundo do topo da página. Ela aparece desfocada, atrás do azul do clube." }
+          - { label: "Texto de introdução", name: intro, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Para destacar: selecione a palavra e clique no botão — N (negrito), A azul ou A vermelho." }
+          - { label: "Título da lista", name: list_heading, widget: string, hint: "Ex.: Partidas" }
+          - label: "Partidas"
+            name: items
+            widget: list
+            label_singular: "Partida"
+            summary: "{{fields.date}} — {{fields.match}}"
+            required: false
+            hint: "Cada item vira um cartão na página. Enquanto a lista estiver vazia, o site mostra o aviso de 'nenhum borderô publicado'."
+            fields:
+              - { label: "Jogo", name: match, widget: string, hint: "Ex.: Maranhão x Sampaio Corrêa" }
+              - { label: "Competição", name: competition, widget: string, required: false, hint: "Ex.: Campeonato Maranhense. Aparece entre parênteses ao lado do jogo." }
+              - { label: "Data da partida", name: date, widget: datetime, date_format: "DD/MM/YYYY", time_format: false, format: "YYYY-MM-DD", hint: "Aparece na etiqueta do cartão." }
+              - { label: "Estádio", name: venue, widget: string, required: false, hint: "Ex.: Estádio Nhozinho Santos" }
+              - { label: "Arquivo do borderô (PDF)", name: file, widget: file, required: false, hint: "O PDF oficial da partida. Vira o botão 'Baixar'." }
+              - label: "Números da partida (botão + INFO)"
+                name: data
+                widget: list
+                label_singular: "Número"
+                summary: "{{fields.label}}: {{fields.value}}"
+                required: false
+                hint: "Opcional. Se preencher, o cartão ganha o botão '+ INFO' que abre estes números. Ex.: Público pagante / Receita bruta / Despesas."
+                fields:
+                  - { label: "Nome", name: label, widget: string, hint: "Ex.: Público pagante" }
+                  - { label: "Valor", name: value, widget: string, hint: "Ex.: 4.312 ou R$ 128.450,00" }
+          - { label: "Aviso quando não há borderôs", name: empty, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], hint: "Aparece SÓ enquanto a lista de partidas estiver vazia." }
+          - { label: "Observação final", name: note, widget: markdown, minimal: true, buttons: [bold, italic], editor_components: [], required: false }
+
   # =========================================================== PRIVACIDADE
   - name: privacidade
     label: "🔒 Política de Privacidade"

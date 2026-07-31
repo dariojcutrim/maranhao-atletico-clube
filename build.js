@@ -64,6 +64,15 @@ env.addFilter('md', (s) => (s ? marked.parseInline(applyHighlights(String(s))) :
 env.addFilter('pluck', (arr, key) =>
   Array.isArray(arr) ? arr.map((it) => (it && typeof it === 'object' ? it[key] : it)) : []);
 
+// Filtro "data": o painel grava a data como 2026-03-15; o site mostra 15/03/2026.
+// (Aceita também Date, que é como o js-yaml lê datas sem aspas.)
+env.addFilter('data', (v) => {
+  if (!v) return '';
+  const iso = (v instanceof Date) ? v.toISOString().slice(0, 10) : String(v).trim();
+  const m = iso.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  return m ? `${m[3]}/${m[2]}/${m[1]}` : String(v);
+});
+
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
