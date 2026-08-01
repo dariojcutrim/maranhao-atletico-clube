@@ -8,6 +8,10 @@ backend:
   name: github
   repo: dariojcutrim/maranhao-atletico-clube
   branch: main
+  # Quem confere o login do GitHub. Sem esta linha o painel usa o servidor da
+  # Netlify por padrão — que deixa de valer quando o site sai de lá. Este
+  # endereço é um serviço próprio do clube, na conta Cloudflare dele.
+  base_url: https://sveltia-cms-auth.maranhaoatleticoclubesite.workers.dev
 
 # Onde as novas imagens enviadas pelo painel ficam guardadas
 media_folder: "assets/img/uploads"
