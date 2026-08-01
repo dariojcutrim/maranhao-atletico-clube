@@ -1,7 +1,7 @@
   <!-- ====================== HEADER ====================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <a href="index.html" class="brand">
+      <a href="/" class="brand">
         <img src="assets/img/escudo-mac.png" alt="Escudo do Maranhão Atlético Clube">
         <span class="brand-text">
           <strong>{{ site.brand.name }}</strong>
@@ -11,25 +11,25 @@
       <button class="menu-toggle" aria-label="Abrir menu"><span></span><span></span><span></span></button>
       <nav class="main-nav">
         <ul>
-          <li><a href="noticias.html"{% if activeNav == 'noticias' %} class="active"{% endif %}>Notícias</a></li>
-          <li><a href="historia.html"{% if activeNav == 'historia' %} class="active"{% endif %}>História</a></li>
-          <li><a href="elenco.html"{% if activeNav == 'elenco' %} class="active"{% endif %}>Elenco</a></li>
-          <li><a href="tabela.html"{% if activeNav == 'tabela' %} class="active"{% endif %}>Tabela</a></li>
-          <li><a href="projetos.html"{% if activeNav == 'projetos' %} class="active"{% endif %}>Projetos</a></li>
+          <li><a href="noticias"{% if activeNav == 'noticias' %} class="active"{% endif %}>Notícias</a></li>
+          <li><a href="historia"{% if activeNav == 'historia' %} class="active"{% endif %}>História</a></li>
+          <li><a href="elenco"{% if activeNav == 'elenco' %} class="active"{% endif %}>Elenco</a></li>
+          <li><a href="tabela"{% if activeNav == 'tabela' %} class="active"{% endif %}>Tabela</a></li>
+          <li><a href="projetos"{% if activeNav == 'projetos' %} class="active"{% endif %}>Projetos</a></li>
           <li class="has-dropdown"><a href="#">Transparência</a>
             <ul class="dropdown">
-              <li><a href="diretoria.html">Diretoria</a></li>
-              <li><a href="transparencia.html">Transparência Financeira</a></li>
-              <li><a href="borderos.html">Borderôs</a></li>
-              <li><a href="torcedor.html">Relacionamento com o Torcedor</a></li>
-              <li><a href="torcedor.html#ingressos">Ingressos</a></li>
-              <li><a href="ouvidoria.html">Ouvidoria</a></li>
-              <li><a href="termos-cotacoes.html">Termos de Cotações</a></li>
+              <li><a href="diretoria">Diretoria</a></li>
+              <li><a href="transparencia">Transparência Financeira</a></li>
+              <li><a href="borderos">Borderôs</a></li>
+              <li><a href="torcedor">Relacionamento com o Torcedor</a></li>
+              <li><a href="torcedor#ingressos">Ingressos</a></li>
+              <li><a href="ouvidoria">Ouvidoria</a></li>
+              <li><a href="termos-cotacoes">Termos de Cotações</a></li>
             </ul>
           </li>
-          <li><a href="galeria.html"{% if activeNav == 'galeria' %} class="active"{% endif %}>Galeria</a></li>
-          <li><a href="faq.html"{% if activeNav == 'faq' %} class="active"{% endif %}>Perguntas Frequentes</a></li>
-          <li><a href="contato.html"{% if activeNav == 'contato' %} class="active"{% endif %}>Contatos</a></li>
+          <li><a href="galeria"{% if activeNav == 'galeria' %} class="active"{% endif %}>Galeria</a></li>
+          <li><a href="faq"{% if activeNav == 'faq' %} class="active"{% endif %}>Perguntas Frequentes</a></li>
+          <li><a href="contato"{% if activeNav == 'contato' %} class="active"{% endif %}>Contatos</a></li>
           <li><a href="{{ site.social.store }}" class="nav-loja" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><span>Loja</span></a></li>
         </ul>
       </nav>

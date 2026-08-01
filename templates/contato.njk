@@ -26,7 +26,7 @@
           <h3>E-mail:</h3>
           <p><a href="mailto:{{ contato.email }}">{{ contato.email }}</a></p>
         </div>
-        <form class="club-form" name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <form class="club-form" name="contato" method="POST" action="/api/enviar" data-email-alternativo="{{ contato.email }}">
           <input type="hidden" name="form-name" value="contato">
           <p hidden><label>Não preencha isto: <input name="bot-field"></label></p>
           <div class="form-feedback"></div>
@@ -34,7 +34,7 @@
           <div class="field"><label>E-mail: <span class="req">*</span></label><input type="email" name="email" placeholder="Digite seu e-mail" required></div>
           <div class="field"><label>Telefone: <span class="req">*</span></label><input type="tel" name="telefone" placeholder="Digite seu telefone" required></div>
           <div class="field"><label>Mensagem: <span class="req">*</span></label><textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea></div>
-          <p class="form-note">Ao enviar, você concorda com nossa <a href="privacidade.html">Política de Privacidade</a>.</p>
+          <p class="form-note">Ao enviar, você concorda com nossa <a href="privacidade">Política de Privacidade</a>.</p>
           <div><button type="submit" class="btn btn-primary">Enviar</button></div>
         </form>
       </div>

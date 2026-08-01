@@ -138,17 +138,31 @@ document.addEventListener('DOMContentLoaded', function () {
     heroRotator.style.transition = 'opacity 0.35s ease';
   }
 
-  /* ---- Envio de formulários (Netlify Forms, via AJAX) ---- */
+  /* ---- Envio de formulários (via /api/enviar, na Cloudflare) ----
+     Se o envio falhar, a mensagem de erro mostra o e-mail direto da página.
+     A Ouvidoria é canal exigido por decisão judicial: quem escreveu precisa
+     sair daqui sabendo por onde insistir, nunca achando que foi enviado. */
   document.querySelectorAll('.club-form').forEach(form => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const feedback = form.querySelector('.form-feedback');
       const btn = form.querySelector('button[type="submit"]');
       if (btn) { btn.disabled = true; btn.dataset.label = btn.textContent; btn.textContent = 'Enviando...'; }
+
+      const mostrarErro = (msg) => {
+        if (!feedback) return;
+        const alt = form.dataset.emailAlternativo;
+        feedback.classList.add('show', 'error');
+        feedback.textContent = alt
+          ? `${msg} Você também pode escrever direto para ${alt}.`
+          : `${msg} Tente novamente ou fale pelo WhatsApp.`;
+      };
+
       const body = new URLSearchParams(new FormData(form)).toString();
-      fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
-        .then((res) => {
-          if (!res.ok) throw new Error('falha');
+      fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body })
+        .then(async (res) => {
+          const dados = await res.json().catch(() => ({}));
+          if (!res.ok || !dados.ok) throw new Error(dados.erro || 'Não conseguimos enviar sua mensagem agora.');
           if (feedback) {
             feedback.classList.add('show');
             feedback.classList.remove('error');
@@ -156,12 +170,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
           form.reset();
         })
-        .catch(() => {
-          if (feedback) {
-            feedback.classList.add('show', 'error');
-            feedback.textContent = 'Ops, não conseguimos enviar agora. Tente novamente ou fale pelo WhatsApp.';
-          }
-        })
+        .catch((err) => mostrarErro(err.message || 'Não conseguimos enviar sua mensagem agora.'))
         .finally(() => {
           if (btn) { btn.disabled = false; btn.textContent = btn.dataset.label || 'Enviar'; }
         });

@@ -1,6 +1,6 @@
 {#- Cartão de uma matéria. Espera a variável "n".
     Usado na página de notícias, na home e em "Leia também". -#}
-<a class="materia-card" href="{{ n.url }}"{% if n.category %} data-categoria="{{ n.category }}"{% endif %}>
+<a class="materia-card" href="{{ n.link }}"{% if n.category %} data-categoria="{{ n.category }}"{% endif %}>
   <div class="materia-foto">
     {%- if n.image %}
     <img src="{{ n.image }}" alt="{{ n.image_alt if n.image_alt else n.title }}" loading="lazy">

@@ -6,7 +6,9 @@ node_modules/
 dist/
 _site/
 .netlify/
+.wrangler/
 *.log
+.dev.vars
 
 # Ferramentas de desenvolvimento (Claude Code / preview local)
 .claude/

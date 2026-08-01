@@ -81,7 +81,8 @@ if (fs.existsSync(NOTICIAS_DIR)) {
     noticias.push({
       ...dados,
       slug,
-      url: `noticia-${slug}.html`,
+      url: `noticia-${slug}.html`,  // nome do arquivo gerado
+      link: `noticia-${slug}`,      // endereço usado nos links (ver urlPublica)
       date: dataISO(dados.date),
       corpo,
     });
@@ -141,6 +142,23 @@ const SITE_URL = 'https://maranhaoatleticoclubebr.com.br';
 const rendered = new Set();
 const sitemapUrls = [];
 // Aplica o cache-busting e grava a página.
+/**
+ * Endereço público de uma página, a partir do nome do arquivo.
+ *
+ * A Cloudflare Pages atende "contato.html" em "/contato" e redireciona quem
+ * pede com .html (308). Por isso o canonical, o sitemap e os links do site
+ * usam a forma sem .html: se o canonical apontasse para /contato.html, a
+ * página estaria declarando como canônica uma URL que redireciona, e o Google
+ * receberia dois sinais brigando entre si.
+ *
+ * A forma sem .html também responde 200 na Netlify, então isto não impede
+ * voltar para lá se precisar.
+ */
+function urlPublica(outName) {
+  if (outName === 'index.html') return '/';
+  return '/' + outName.replace(/\.html$/, '');
+}
+
 function gravar(outName, html, { noSitemap } = {}) {
   html = html
     .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
@@ -149,7 +167,7 @@ function gravar(outName, html, { noSitemap } = {}) {
   fs.writeFileSync(path.join(OUT, outName), html);
   rendered.add(outName);
   if (!noSitemap && outName !== '404.html') {
-    sitemapUrls.push(SITE_URL + (outName === 'index.html' ? '/' : '/' + outName));
+    sitemapUrls.push(SITE_URL + urlPublica(outName));
   }
 }
 
@@ -157,7 +175,7 @@ if (fs.existsSync(TEMPLATES_DIR)) {
   for (const file of fs.readdirSync(TEMPLATES_DIR)) {
     if (file.endsWith('.njk') && !file.startsWith('_')) {
       const outName = file.replace(/\.njk$/, '.html');
-      const url = SITE_URL + (outName === 'index.html' ? '/' : '/' + outName);
+      const url = SITE_URL + urlPublica(outName);
       const ctx = Object.assign({}, data, { noticias, site_url: SITE_URL, page: { name: outName, url } });
       gravar(outName, env.render(file, ctx));
     }
@@ -176,7 +194,7 @@ if (noticias.length && fs.existsSync(path.join(TEMPLATES_DIR, '_artigo.njk'))) {
       noticias,
       noticia: n,
       site_url: SITE_URL,
-      page: { name: n.url, url: SITE_URL + '/' + n.url },
+      page: { name: n.url, url: SITE_URL + urlPublica(n.url) },
     });
     gravar(n.url, env.render('_artigo.njk', ctx));
   }
@@ -272,6 +290,40 @@ const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
 fs.writeFileSync(path.join(OUT, 'robots.txt'),
   `User-agent: *\nAllow: /\nDisallow: /admin/\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
+
+// 8.1) Arquivos que a Cloudflare Pages lê do site pronto
+//
+// _routes.json diz em quais endereços a função de formulário deve rodar.
+// Sem ele a Cloudflare gera um automático que roda a função em tudo, e aí
+// cada foto e cada CSS vira "requisição dinâmica" (limitada) em vez de
+// "requisição estática" (ilimitada e grátis). Só /api/ precisa de função.
+fs.writeFileSync(path.join(OUT, '_routes.json'), JSON.stringify({
+  version: 1,
+  include: ['/api/*'],
+  exclude: [],
+}, null, 2) + '\n');
+
+// _headers: cache eterno SÓ para CSS e JS, que saem daqui com impressão
+// digital no endereço (style.css?v=05214f94) — trocou o arquivo, troca o
+// endereço, o navegador busca de novo.
+//
+// As fotos ficam de fora de propósito. Elas não têm versão no nome, e o
+// cliente troca foto pelo painel mantendo o mesmo arquivo: com cache longo,
+// o torcedor continuaria vendo a foto antiga por meses. Aqui a banda é
+// ilimitada e grátis, então não vale trocar acerto por economia.
+fs.writeFileSync(path.join(OUT, '_headers'),
+  [
+    '/assets/css/*',
+    '  Cache-Control: public, max-age=31536000, immutable',
+    '',
+    '/assets/js/*',
+    '  Cache-Control: public, max-age=31536000, immutable',
+    '',
+    '/*',
+    '  X-Content-Type-Options: nosniff',
+    '  Referrer-Policy: strict-origin-when-cross-origin',
+    '',
+  ].join('\n'));
 
 // 9) Encolhe as fotos grandes e encerra
 encolherFotos()
