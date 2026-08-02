@@ -81,7 +81,7 @@ collections:
             label_singular: "Competição"
             summary: "{{fields.name}}"
             thumbnail: "image"
-            hint: "Uma entrada por competição que o clube disputa."
+            hint: "Uma entrada por competição. Use o botão Adicionar Competição para incluir outras, e o ✕ para remover as que o clube não estiver disputando na temporada."
             fields:
               - { label: "Nome da competição", name: name, widget: string, hint: "Ex.: Campeonato Maranhense" }
               - { label: "Foto da tabela", name: image, widget: image, required: false, hint: "Print da classificação. Deixe vazio enquanto não houver tabela divulgada." }

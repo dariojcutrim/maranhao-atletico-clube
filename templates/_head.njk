@@ -4,18 +4,33 @@
   <meta name="description" content="{{ page_desc }}">
   <link rel="canonical" href="{{ page.url }}">
 
+  {#- A imagem de compartilhamento é a da própria página quando existe (a foto
+      de capa da matéria, por exemplo). Sem isso, toda notícia apareceria no
+      WhatsApp com a mesma arte genérica. -#}
+  {%- set og_img = page_image if page_image else (site_url + "/assets/img/og-image.jpg") %}
+
   <!-- Open Graph (preview ao compartilhar no WhatsApp, Instagram, etc.) -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="{{ page_type if page_type else 'website' }}">
   <meta property="og:site_name" content="Maranhão Atlético Clube">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ page_desc }}">
   <meta property="og:url" content="{{ page.url }}">
-  <meta property="og:image" content="{{ site_url }}/assets/img/og-image.jpg">
+  <meta property="og:image" content="{{ og_img }}">
   <meta property="og:locale" content="pt_BR">
+  {%- if page_published %}
+  <meta property="article:published_time" content="{{ page_published }}">
+  <meta property="article:section" content="{{ page_section }}">
+  {%- endif %}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ page_title }}">
   <meta name="twitter:description" content="{{ page_desc }}">
-  <meta name="twitter:image" content="{{ site_url }}/assets/img/og-image.jpg">
+  <meta name="twitter:image" content="{{ og_img }}">
+
+  {#- Dados estruturados: é como o Google entende QUEM é o dono do site e o que
+      cada página é. Serve para o clube ser reconhecido como a fonte oficial. -#}
+  {%- if page_jsonld %}
+  <script type="application/ld+json">{{ page_jsonld | jsonld | safe }}</script>
+  {%- endif %}
 
   <link rel="icon" type="image/png" href="assets/img/escudo-mac.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">

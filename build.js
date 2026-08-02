@@ -26,6 +26,10 @@ function applyHighlights(s) {
 
 const ROOT = __dirname;
 const OUT = path.join(ROOT, '_site');
+// Endereço público do site. Fica aqui em cima porque as matérias precisam dele
+// para montar o endereço absoluto da foto de capa (o WhatsApp e o Google não
+// aceitam caminho relativo na hora de mostrar a prévia).
+const SITE_URL = 'https://maranhaoatleticoclubebr.com.br';
 const CONTENT_DIR = path.join(ROOT, 'content');
 const TEMPLATES_DIR = path.join(ROOT, 'templates');
 
@@ -83,6 +87,9 @@ if (fs.existsSync(NOTICIAS_DIR)) {
       slug,
       url: `noticia-${slug}.html`,  // nome do arquivo gerado
       link: `noticia-${slug}`,      // endereço usado nos links (ver urlPublica)
+      // Endereço completo da foto de capa. O painel grava caminho relativo,
+      // mas prévia de WhatsApp e dado estruturado do Google exigem absoluto.
+      image_url: dados.image ? `${SITE_URL}/${String(dados.image).replace(/^\/+/, '')}` : '',
       date: dataISO(dados.date),
       corpo,
     });
@@ -133,12 +140,40 @@ env.addFilter('resumo', (s, n) => {
   return limpo.slice(0, corte > 0 ? corte : max) + '…';
 });
 
+// Filtro "jsonld": transforma um objeto em dados estruturados para o Google.
+//
+// Não usa o `dump` do Nunjucks porque ele não protege contra um "</script>"
+// dentro de um título de matéria — bastaria isso para o navegador achar que o
+// bloco acabou e o resto da página virar texto solto. Escapar o "<" resolve, e
+// continua sendo JSON válido.
+//
+// Chaves vazias são removidas: schema com campo em branco atrapalha mais do
+// que ajuda, e o cliente vai deixar campo vazio de vez em quando.
+env.addFilter('jsonld', (obj) => {
+  const limpar = (v) => {
+    if (Array.isArray(v)) {
+      const arr = v.map(limpar).filter((x) => x !== undefined);
+      return arr.length ? arr : undefined;
+    }
+    if (v && typeof v === 'object') {
+      const o = {};
+      for (const [k, val] of Object.entries(v)) {
+        const lv = limpar(val);
+        if (lv !== undefined) o[k] = lv;
+      }
+      return Object.keys(o).length ? o : undefined;
+    }
+    if (v === null || v === undefined || v === '') return undefined;
+    return v;
+  };
+  return JSON.stringify(limpar(obj) || {}).replace(/</g, '\\u003c');
+});
+
 // 3) Limpa a pasta de saída
 fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT, { recursive: true });
 
 // 4) Renderiza os templates de página (templates/*.njk, ignorando _partials)
-const SITE_URL = 'https://maranhaoatleticoclubebr.com.br';
 const rendered = new Set();
 const sitemapUrls = [];
 // Aplica o cache-busting e grava a página.
@@ -159,7 +194,7 @@ function urlPublica(outName) {
   return '/' + outName.replace(/\.html$/, '');
 }
 
-function gravar(outName, html, { noSitemap } = {}) {
+function gravar(outName, html, { noSitemap, lastmod } = {}) {
   html = html
     .replace(/assets\/css\/style\.css/g, `assets/css/style.css?v=${CSS_V}`)
     .replace(/assets\/js\/main\.js/g, `assets/js/main.js?v=${JS_V}`)
@@ -167,7 +202,7 @@ function gravar(outName, html, { noSitemap } = {}) {
   fs.writeFileSync(path.join(OUT, outName), html);
   rendered.add(outName);
   if (!noSitemap && outName !== '404.html') {
-    sitemapUrls.push(SITE_URL + urlPublica(outName));
+    sitemapUrls.push({ loc: SITE_URL + urlPublica(outName), lastmod });
   }
 }
 
@@ -196,7 +231,7 @@ if (noticias.length && fs.existsSync(path.join(TEMPLATES_DIR, '_artigo.njk'))) {
       site_url: SITE_URL,
       page: { name: n.url, url: SITE_URL + urlPublica(n.url) },
     });
-    gravar(n.url, env.render('_artigo.njk', ctx));
+    gravar(n.url, env.render('_artigo.njk', ctx), { lastmod: n.date });
   }
 }
 
@@ -285,7 +320,9 @@ async function encolherFotos() {
 
 // 8) Gera sitemap.xml e robots.txt
 const sitemap = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-  sitemapUrls.map(u => `  <url><loc>${u}</loc></url>`).join('\n') +
+  sitemapUrls.map(u =>
+    `  <url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`
+  ).join('\n') +
   '\n</urlset>\n';
 fs.writeFileSync(path.join(OUT, 'sitemap.xml'), sitemap);
 fs.writeFileSync(path.join(OUT, 'robots.txt'),

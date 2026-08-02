@@ -5,5 +5,17 @@ competitions:
     image: /assets/img/tabela/Tabela MAC Campeonato Maranhense 01082026.png
     updated: 2026-08-01
     note: ''
+  - name: Copa do Nordeste
+    image: ''
+    updated: ''
+    note: ''
+  - name: Copa do Brasil
+    image: ''
+    updated: ''
+    note: ''
+  - name: Série C do Campeonato Brasileiro
+    image: ''
+    updated: ''
+    note: ''
 empty: A tabela da competição será publicada aqui assim que divulgada.
 footer_note: A classificação segue a tabela oficial divulgada pela entidade organizadora da competição. Em caso de divergência, vale sempre o boletim oficial.

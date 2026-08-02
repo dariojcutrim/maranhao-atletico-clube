@@ -3,6 +3,34 @@
 <head>
 {% set page_title = home.meta.title %}
 {% set page_desc = home.meta.description %}
+
+{#- Identidade do clube para os buscadores.
+    O "sameAs" é a parte que mais importa: ele diz ao Google que este site e os
+    perfis oficiais do MAC são a mesma entidade. Como o Google cruza essa
+    informação nos dois sentidos, o efeito só se completa quando as redes do
+    clube também apontarem para cá — está anotado como pendência para o Erick. -#}
+{% set page_jsonld = {
+  "@context": "https://schema.org",
+  "@type": "SportsTeam",
+  "name": "Maranhão Atlético Clube",
+  "alternateName": ["MAC", "Maranhão A.C.", "Machão da Ilha"],
+  "sport": "Futebol",
+  "url": site_url,
+  "logo": site_url + "/assets/img/escudo-mac.png",
+  "image": site_url + "/assets/img/og-image.jpg",
+  "description": page_desc,
+  "foundingDate": "1932-09-24",
+  "foundingLocation": { "@type": "Place", "name": "São Luís, Maranhão, Brasil" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": contato.address,
+    "addressLocality": "São Luís",
+    "addressRegion": "MA",
+    "addressCountry": "BR"
+  },
+  "email": contato.email,
+  "sameAs": [site.social.instagram, site.social.youtube]
+} %}
 {% include "_head.njk" %}
 </head>
 <body class="home">
