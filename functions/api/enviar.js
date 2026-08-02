@@ -152,9 +152,14 @@ export async function onRequestPost({ request, env }) {
     </div>`;
 
   // ---- 5. Envia ---------------------------------------------------------
+  // EMAIL_PARA aceita mais de um endereço separado por vírgula — dá para somar
+  // a caixa do marketing depois sem mexer no código. Cada endereço novo precisa
+  // ser verificado na Cloudflare, senão o envio deixa de ser gratuito.
+  const destinatarios = String(EMAIL_PARA).split(',').map(s => s.trim()).filter(Boolean);
+
   const nomeCabecalho = limparCabecalho(nome);
   const envio = {
-    to: EMAIL_PARA,
+    to: destinatarios.length === 1 ? destinatarios[0] : destinatarios,
     from: { address: EMAIL_DE, name: 'Site do MAC' },
     subject: `[${origem}] ${nomeCabecalho}`,
     text: texto,
