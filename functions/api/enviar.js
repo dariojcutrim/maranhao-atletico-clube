@@ -5,24 +5,22 @@
  * Cloudflare. Roda como Pages Function: este arquivo vira a rota /api/enviar
  * automaticamente, por causa do caminho functions/api/enviar.js.
  *
- * POR QUE REST API E NÃO O BINDING:
- * a Cloudflare tem um atalho (`env.EMAIL.send`) bem mais simples, mas ele só
- * funciona em Workers — Pages Functions não aceita o binding send_email.
- * Então falamos com a API por HTTP mesmo.
+ * POR QUE RESEND E NÃO O EMAIL SERVICE DA CLOUDFLARE:
+ * a documentação da Cloudflare diz que envio para endereço verificado é
+ * gratuito em qualquer plano — e é, mas o recurso inteiro fica atrás do
+ * Workers Paid: no plano grátis não dá nem para habilitar. O Resend entrega
+ * 3.000 mensagens por mês (100/dia) de graça, muito além do que os dois
+ * formulários de um clube geram.
  *
- * POR QUE ISSO É GRATUITO:
- * a Cloudflare só cobra envio para destinatário qualquer. Envio para um
- * endereço verificado da própria conta é livre em qualquer plano e nem entra
- * na cota. Como o formulário só escreve para a caixa do clube (EMAIL_PARA,
- * verificada no painel da Cloudflare), a conta nunca sai do plano grátis.
- * O e-mail de quem escreveu entra como "responder para", então basta o clube
- * apertar Responder — nada é enviado para o visitante por aqui.
+ * O e-mail de quem escreveu entra como "responder para", então o clube só
+ * aperta Responder. Nada é enviado ao visitante por aqui — o único destino é
+ * a caixa do próprio clube.
  *
  * VARIÁVEIS (painel da Cloudflare > Pages > Settings > Variables and Secrets):
- *   CF_ACCOUNT_ID  id da conta Cloudflare
- *   CF_EMAIL_TOKEN token de API com permissão de envio  ← marcar como Secret
+ *   RESEND_API_KEY chave da API do Resend  ← marcar como Secret
  *   EMAIL_DE       remetente, no domínio do clube (ex.: site@dominio.com.br)
- *   EMAIL_PARA     caixa que recebe, verificada na Cloudflare
+ *                  o domínio precisa estar verificado no Resend
+ *   EMAIL_PARA     caixa que recebe; aceita várias separadas por vírgula
  */
 
 // Nomes bonitos para os campos, na ordem em que aparecem no e-mail.
@@ -106,9 +104,9 @@ export async function onRequestPost({ request, env }) {
 
   // ---- 3. Confere se a conta está configurada ---------------------------
   // Sem isso o envio falha lá na frente com uma mensagem enigmática.
-  const { CF_ACCOUNT_ID, CF_EMAIL_TOKEN, EMAIL_DE, EMAIL_PARA } = env;
-  if (!CF_ACCOUNT_ID || !CF_EMAIL_TOKEN || !EMAIL_DE || !EMAIL_PARA) {
-    console.error('Envio de e-mail não configurado: falta CF_ACCOUNT_ID, CF_EMAIL_TOKEN, EMAIL_DE ou EMAIL_PARA.');
+  const { RESEND_API_KEY, EMAIL_DE, EMAIL_PARA } = env;
+  if (!RESEND_API_KEY || !EMAIL_DE || !EMAIL_PARA) {
+    console.error('Envio de e-mail não configurado: falta RESEND_API_KEY, EMAIL_DE ou EMAIL_PARA.');
     return responder({ ok: false, erro: 'O envio está temporariamente indisponível.' }, 503);
   }
 
@@ -153,37 +151,33 @@ export async function onRequestPost({ request, env }) {
 
   // ---- 5. Envia ---------------------------------------------------------
   // EMAIL_PARA aceita mais de um endereço separado por vírgula — dá para somar
-  // a caixa do marketing depois sem mexer no código. Cada endereço novo precisa
-  // ser verificado na Cloudflare, senão o envio deixa de ser gratuito.
+  // a caixa do marketing depois sem mexer no código.
   const destinatarios = String(EMAIL_PARA).split(',').map(s => s.trim()).filter(Boolean);
 
   const nomeCabecalho = limparCabecalho(nome);
   const envio = {
-    to: destinatarios.length === 1 ? destinatarios[0] : destinatarios,
-    from: { address: EMAIL_DE, name: 'Site do MAC' },
+    to: destinatarios,
+    from: `Site do MAC <${EMAIL_DE}>`,
     subject: `[${origem}] ${nomeCabecalho}`,
     text: texto,
     html,
   };
-  if (respondePara) envio.reply_to = { address: respondePara, name: nomeCabecalho };
+  if (respondePara) envio.reply_to = respondePara;
 
   try {
-    const resp = await fetch(
-      `https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/email/sending/send`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${CF_EMAIL_TOKEN}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(envio),
+    const resp = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
       },
-    );
+      body: JSON.stringify(envio),
+    });
 
     if (!resp.ok) {
       // O corpo do erro fica no log da Cloudflare, nunca na tela do visitante:
       // pode conter detalhes da conta.
-      console.error('Email Service recusou o envio:', resp.status, await resp.text());
+      console.error('Resend recusou o envio:', resp.status, await resp.text());
       return responder({ ok: false, erro: 'Não conseguimos enviar sua mensagem agora.' }, 502);
     }
 
