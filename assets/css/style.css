@@ -1177,6 +1177,17 @@ body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none
   border-left: 4px solid var(--mac-red);
   margin-bottom: 26px;
 }
+/* Assinatura do autor da matéria. Aparece no topo, no fim ou nos dois —
+   quem decide é o painel, campo "Onde mostrar o autor". */
+.artigo-autor { font-size: 0.9rem; color: var(--text-muted); }
+.artigo-autor span { color: var(--mac-blue); font-weight: 700; }
+.artigo-autor--topo { margin-bottom: 24px; }
+.artigo-autor--fim {
+  margin-top: 28px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
 .artigo-corpo { color: var(--text-muted); font-size: 1.02rem; line-height: 1.75; }
 .artigo-corpo p { margin-bottom: 18px; }
 .artigo-corpo h2, .artigo-corpo h3 {

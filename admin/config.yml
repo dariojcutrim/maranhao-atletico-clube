@@ -57,6 +57,17 @@ collections:
       - { label: "Foto de capa", name: image, widget: image, required: false, hint: "Aparece no cartão e no topo da matéria. Se ficar vazio, entra o escudo do clube." }
       - { label: "Descrição da foto", name: image_alt, widget: string, required: false, hint: "Texto de acessibilidade da foto de capa." }
       - { label: "Resumo (opcional)", name: summary, widget: text, required: false, hint: "Uma ou duas frases que aparecem no cartão e no começo da matéria. Se deixar vazio, o site usa o início do texto." }
+      - { label: "Autor (opcional)", name: author, widget: string, required: false, hint: "Quem assina a matéria. Ex.: João Silva, ou Departamento de Comunicação. Deixando vazio, nenhuma assinatura aparece." }
+      - label: "Onde mostrar o autor"
+        name: author_position
+        widget: select
+        required: false
+        default: "topo"
+        options:
+          - { label: "Logo abaixo do subtítulo", value: "topo" }
+          - { label: "No final da matéria", value: "fim" }
+          - { label: "Nos dois lugares", value: "ambos" }
+        hint: "Só tem efeito se o campo Autor estiver preenchido."
       - { label: "Texto da matéria", name: body, widget: markdown, buttons: [bold, italic, link, heading-two, heading-three, quote, bulleted-list, numbered-list], hint: "O corpo da notícia. Para destacar: selecione a palavra e clique no botão — N (negrito), A azul ou A vermelho." }
       - { label: "Rascunho (não publicar ainda)", name: draft, widget: boolean, required: false, default: false, hint: "Ligado = a matéria fica guardada mas NÃO aparece no site. Desligue quando quiser publicar." }
 

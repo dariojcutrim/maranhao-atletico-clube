@@ -10,6 +10,17 @@
 {% set page_published = noticia.date %}
 {% set page_section = noticia.category %}
 
+{#- Assinatura: só existe se o painel preencheu o campo Autor. A posição vem
+    do painel também; sem escolha, fica no topo. -#}
+{% set autorPos = noticia.author_position if noticia.author_position else "topo" %}
+{% set autorTopo = noticia.author and autorPos != "fim" %}
+{% set autorFim = noticia.author and autorPos != "topo" %}
+
+{#- Com autor nomeado, o Google prefere Person a Organization: é o sinal de
+    que existe gente real por trás do texto. Sem autor, o clube assina. -#}
+{% set autorLd = { "@type": "Person", "name": noticia.author } if noticia.author
+   else { "@type": "Organization", "name": "Maranhão Atlético Clube", "url": site_url } %}
+
 {#- Dados estruturados de notícia. É o que permite a matéria aparecer como
     notícia no Google (e não como página comum), com data e foto. O bloco
     "publisher" é o que identifica o clube como a fonte — importante porque
@@ -25,7 +36,7 @@
   "articleSection": noticia.category,
   "inLanguage": "pt-BR",
   "mainEntityOfPage": { "@type": "WebPage", "@id": page.url },
-  "author": { "@type": "Organization", "name": "Maranhão Atlético Clube", "url": site_url },
+  "author": autorLd,
   "publisher": {
     "@type": "Organization",
     "name": "Maranhão Atlético Clube",
@@ -64,7 +75,15 @@
       <p class="artigo-resumo">{{ noticia.summary }}</p>
       {%- endif %}
 
+      {%- if autorTopo %}
+      <p class="artigo-autor artigo-autor--topo">Por <span>{{ noticia.author }}</span></p>
+      {%- endif %}
+
       <div class="artigo-corpo">{{ noticia.corpo | markdown | safe }}</div>
+
+      {%- if autorFim %}
+      <p class="artigo-autor artigo-autor--fim">Por <span>{{ noticia.author }}</span></p>
+      {%- endif %}
 
       {#- Outras matérias, exceto esta -#}
       {%- set outras = [] %}
