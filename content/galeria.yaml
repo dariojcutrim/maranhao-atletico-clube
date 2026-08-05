@@ -11,10 +11,10 @@ section_title: Momentos
 filter_all: Todas
 images:
   - src: Imagens MAC/IMG_3770.JPG
-    year: '2022'
+    year: ''
     alt: ''
   - src: Imagens MAC/IMG_3775.JPG
-    year: '2022'
+    year: ''
     alt: ''
   - src: Imagens MAC/IMG_3804.JPG
     year: ''
@@ -90,4 +90,16 @@ images:
     alt: ''
   - src: Imagens MAC/IMG_5309.JPG
     year: ''
+    alt: ''
+  - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06 (3).jpeg
+    year: '2025'
+    alt: ''
+  - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06 (2).jpeg
+    year: '2025'
+    alt: ''
+  - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.48.37.jpeg
+    year: '2025'
+    alt: ''
+  - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06.jpeg
+    year: '2025'
     alt: ''
