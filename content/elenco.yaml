@@ -162,7 +162,7 @@ groups:
         number: ''
         nationality: ''
       - photo: /assets/img/elenco/5.jpg
-        name: Cirilo
+        name: Jeferson Cirilo
         role: Auxíliar Técnico
         number: ''
         nationality: ''
@@ -219,7 +219,7 @@ groups:
         nationality: ''
       - photo: /assets/img/elenco/ERICK.jpg
         name: Erick Almeida
-        role: Assessor de Imprensa
+        role: Assessor de Imprensa & Social Media
         number: ''
         nationality: ''
 meta:
