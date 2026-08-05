@@ -185,7 +185,7 @@ groups:
     players:
       - photo: /assets/img/elenco/10.jpg
         name: Rodrigo Loureiro
-        role: Fisioterapeuta
+        role: Coordenador do Departamento Médico
         number: ''
         nationality: ''
       - photo: /assets/img/elenco/8.jpg
@@ -203,6 +203,23 @@ groups:
       - photo: /assets/img/elenco/1.jpg
         name: Ronaldo Budega
         role: Massagista
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/2.jpg
+        name: Lucas
+        role: Auxíliar de Rouparia
+        number: ''
+        nationality: ''
+  - position: Comunicação
+    players:
+      - photo: /assets/img/elenco/IURY.jpg
+        name: Iury Oliveira
+        role: Fotógrafo & Marketing
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/ERICK.jpg
+        name: Erick Almeida
+        role: Assessor de Imprensa
         number: ''
         nationality: ''
 meta:
