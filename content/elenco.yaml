@@ -33,7 +33,7 @@ groups:
       - photo: /assets/img/elenco/ALMEIDA.jpg
         name: Luis Felipe Almeida
         role: ''
-        number: '4'
+        number: ''
         nationality: ''
       - photo: /assets/img/elenco/FERNANDO.jpg
         name: Edson Fernando Diniz
@@ -58,17 +58,17 @@ groups:
       - photo: /assets/img/elenco/IRAN.jpg.jpeg
         name: Iran Sidny
         role: ''
-        number: ''
+        number: '4'
         nationality: ''
       - photo: /assets/img/elenco/MAURICIO.jpg
         name: Maurício
         role: ''
-        number: '2'
+        number: '25'
         nationality: ''
       - photo: /assets/img/elenco/BALL.jpg
         name: Ball
         role: ''
-        number: ''
+        number: '2'
         nationality: ''
   - position: Meio-campistas
     players:
