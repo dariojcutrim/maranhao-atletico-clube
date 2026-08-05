@@ -55,10 +55,10 @@ groups:
         role: ''
         number: '16'
         nationality: ''
-      - photo: /assets/img/elenco/KEVEN.jpg
-        name: Keven
+      - photo: /assets/img/elenco/IRAN.jpg.jpeg
+        name: Iran Sidny
         role: ''
-        number: '18'
+        number: ''
         nationality: ''
       - photo: /assets/img/elenco/MAURICIO.jpg
         name: Maurício
