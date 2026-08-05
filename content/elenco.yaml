@@ -171,10 +171,25 @@ groups:
         role: Preparador Físico
         number: ''
         nationality: ''
+      - photo: /assets/img/elenco/7.jpg
+        name: Raul Magno
+        role: Preparador de Goleiro
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/4.jpg
+        name: Werbeth Marques
+        role: Analista de Desempenho
+        number: ''
+        nationality: ''
   - position: Departamento Médico
     players:
       - photo: /assets/img/elenco/10.jpg
         name: Rodrigo Loureiro
+        role: Fisioterapeuta
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/8.jpg
+        name: Leonardo Milhomem
         role: Fisioterapeuta
         number: ''
         nationality: ''
