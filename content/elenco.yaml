@@ -193,6 +193,18 @@ groups:
         role: Fisioterapeuta
         number: ''
         nationality: ''
+  - position: Staff
+    players:
+      - photo: /assets/img/elenco/3.jpg
+        name: Dominguinhos
+        role: Roupeiro
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/1.jpg
+        name: Ronaldo Budega
+        role: Massagista
+        number: ''
+        nationality: ''
 meta:
   title: Elenco — Maranhão Atlético Clube
   description: Conheça o elenco do Maranhão Atlético Clube — goleiros, defensores, meio-campistas e atacantes.
