@@ -1,36 +1,44 @@
-# =====================================================================
-# Página "Borderôs"
-# O borderô é o demonstrativo oficial de cada partida: público pagante,
-# receita de bilheteria, despesas e resultado líquido do jogo.
-#
-# COMO PUBLICAR UM BORDERÔ: na aba 🎫 Borderôs do painel, clique em
-# adicionar, preencha o jogo, a competição e a data, envie o PDF e
-# (se quiser) preencha os números que aparecem no "+ INFO".
-# =====================================================================
-title: "Borderôs"
-subtitle: "Demonstrativo financeiro de cada partida do Maranhão Atlético Clube"
-hero_image: "Imagens MAC/IMG_5052.JPG"
-
-intro: "O [[borderô]] é o documento oficial de cada partida: mostra o público presente, a receita de bilheteria, as despesas do jogo e o resultado final. O Maranhão Atlético Clube publica aqui os borderôs dos seus jogos, com acesso [[livre e gratuito]] a torcedores e demais interessados."
-
-list_heading: "Partidas"
-
-# Lista dos borderôs publicados. Enquanto estiver vazia, o site mostra o
-# aviso de "empty" abaixo no lugar dos cartões.
-#
-# Exemplo de um item preenchido:
-#   - match: "Maranhão x Sampaio Corrêa"
-#     competition: "Campeonato Maranhense"
-#     date: "2026-03-15"
-#     venue: "Estádio Nhozinho Santos"
-#     file: "assets/img/uploads/bordero-mac-sampaio.pdf"
-#     data:
-#       - label: "Público pagante"
-#         value: "4.312"
-#       - label: "Receita bruta"
-#         value: "R$ 128.450,00"
-items: []
-
-empty: "Os borderôs das partidas serão publicados nesta página assim que disponibilizados pelo clube."
-
-note: "Os valores apresentados seguem o borderô oficial da partida, emitido conforme as normas da competição. Dúvidas sobre qualquer informação desta página podem ser encaminhadas pela [[Ouvidoria]] do clube."
+title: Borderôs
+subtitle: Demonstrativo financeiro de cada partida do Maranhão Atlético Clube
+hero_image: Imagens MAC/IMG_5052.JPG
+intro: 'O [[borderô]] é o documento oficial de cada partida: mostra o público presente, a receita de bilheteria, as despesas do jogo e o resultado final. O Maranhão Atlético Clube publica aqui os borderôs dos seus jogos, com acesso [[livre e gratuito]] a torcedores e demais interessados.'
+list_heading: Partidas
+items:
+  - match: MARANHÃO X GUARANI
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-04-04
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X GUARANI.pdf
+    data: []
+  - match: MARANHÃO X VOLTA REDONDA-RJ
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-04-25
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X VOLTA REDONDA.pdf
+    data: []
+  - match: MARANHÃO X BOTAFOGO-PB
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-05-09
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X BOTAFOGO.pdf
+    data: []
+  - match: MARANHÃO X CAXIAS-RS
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-05-23
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X CAXIAS.pdf
+    data: []
+  - match: MARANHÃO X PAYSUNDU-PA
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-06-20
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X PAYSANDU.pdf
+    data: []
+  - match: MARANHÃO X INTER DE LIMEIRA-SP
+    competition: CAMPEONATO BRASILEIRO SERIE C
+    date: 2026-07-04
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X INTER DE LIMEIRA.pdf
+    data: []
+empty: Os borderôs das partidas serão publicados nesta página assim que disponibilizados pelo clube.
+note: Os valores apresentados seguem o borderô oficial da partida, emitido conforme as normas da competição. Dúvidas sobre qualquer informação desta página podem ser encaminhadas pela [[Ouvidoria]] do clube.
