@@ -161,6 +161,23 @@ groups:
         role: Técnico
         number: ''
         nationality: ''
+      - photo: /assets/img/elenco/5.jpg
+        name: Cirilo
+        role: Auxíliar Técnico
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/9.jpg
+        name: Otávio Everton
+        role: Preparador Físico
+        number: ''
+        nationality: ''
+  - position: Departamento Médico
+    players:
+      - photo: /assets/img/elenco/10.jpg
+        name: Rodrigo Loureiro
+        role: Fisioterapeuta
+        number: ''
+        nationality: ''
 meta:
   title: Elenco — Maranhão Atlético Clube
   description: Conheça o elenco do Maranhão Atlético Clube — goleiros, defensores, meio-campistas e atacantes.
