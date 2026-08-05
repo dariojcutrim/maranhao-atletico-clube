@@ -5,40 +5,46 @@ intro: 'O [[borderô]] é o documento oficial de cada partida: mostra o público
 list_heading: Partidas
 items:
   - match: MARANHÃO X GUARANI
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-04-04
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X GUARANI.pdf
     data: []
   - match: MARANHÃO X VOLTA REDONDA-RJ
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-04-25
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X VOLTA REDONDA.pdf
     data: []
   - match: MARANHÃO X BOTAFOGO-PB
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-05-09
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X BOTAFOGO.pdf
     data: []
   - match: MARANHÃO X CAXIAS-RS
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-05-23
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X CAXIAS.pdf
     data: []
   - match: MARANHÃO X PAYSUNDU-PA
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-06-20
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X PAYSANDU.pdf
     data: []
   - match: MARANHÃO X INTER DE LIMEIRA-SP
-    competition: CAMPEONATO BRASILEIRO SERIE C
+    competition: CAMPEONATO BRASILEIRO SERÍE C
     date: 2026-07-04
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X INTER DE LIMEIRA.pdf
+    data: []
+  - match: MARANHÃO X YPIRANGA-RS
+    competition: CAMPEONATO BRASILEIRO SERÍE C
+    date: 2026-07-12
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X YPIRANGA.pdf
     data: []
 empty: Os borderôs das partidas serão publicados nesta página assim que disponibilizados pelo clube.
 note: Os valores apresentados seguem o borderô oficial da partida, emitido conforme as normas da competição. Dúvidas sobre qualquer informação desta página podem ser encaminhadas pela [[Ouvidoria]] do clube.
