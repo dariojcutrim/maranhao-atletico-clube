@@ -166,12 +166,12 @@ groups:
         role: Auxíliar Técnico
         number: ''
         nationality: ''
-      - photo: /assets/img/elenco/9.jpg
+      - photo: /assets/img/elenco/SITE-02.jpg.jpeg
         name: Otávio Everton
         role: Preparador Físico
         number: ''
         nationality: ''
-      - photo: /assets/img/elenco/7.jpg
+      - photo: /assets/img/elenco/SITE-06.jpg.jpeg
         name: Raul Magno
         role: Preparador de Goleiro
         number: ''
@@ -183,7 +183,7 @@ groups:
         nationality: ''
   - position: Departamento Médico
     players:
-      - photo: /assets/img/elenco/10.jpg
+      - photo: /assets/img/elenco/SITE.jpg-01.jpg.jpeg
         name: Rodrigo Loureiro
         role: Coordenador do Departamento Médico
         number: ''
@@ -208,6 +208,11 @@ groups:
       - photo: /assets/img/elenco/2.jpg
         name: Lucas
         role: Auxíliar de Rouparia
+        number: ''
+        nationality: ''
+      - photo: /assets/img/elenco/SITE-05.jpg.jpeg
+        name: Antônio Carlos Sabiá
+        role: Supervisor
         number: ''
         nationality: ''
   - position: Comunicação
