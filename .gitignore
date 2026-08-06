@@ -15,3 +15,10 @@ _site/
 
 # Arquivos de referência de design (não vão pro site)
 *.pdf
+# ...menos o manual entregue ao clube, que é versionado de propósito
+!documentos/*.pdf
+
+# Perfil descartável que o gerador do manual cria ao rodar o Chrome
+documentos/.chrome-profile/
+documentos/.completo.html
+documentos/.bruto.pdf
