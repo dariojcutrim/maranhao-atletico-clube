@@ -181,6 +181,11 @@ groups:
         role: Analista de Desempenho
         number: ''
         nationality: ''
+      - photo: /assets/img/elenco/SITE-04.jpg.jpeg
+        name: Jeferson
+        role: Auxiliar de Preparador de Goleiro
+        number: ''
+        nationality: ''
   - position: Departamento Médico
     players:
       - photo: /assets/img/elenco/SITE.jpg-01.jpg.jpeg
