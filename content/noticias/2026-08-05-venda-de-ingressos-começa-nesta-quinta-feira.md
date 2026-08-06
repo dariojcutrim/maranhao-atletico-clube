@@ -5,6 +5,8 @@ category: Venda de ingressos
 image: /assets/img/noticias/WhatsApp Image 2026-08-05 at 13.55.26.jpeg
 image_alt: ''
 summary: Nesta quinta feira, começa a venda de ingressos para a partida diante do Brusque-SC pela décima sexta rodada do Campeonato Brasileiro Seríe C.
+author: 'Por: Erick Almeida'
+author_position: topo
 draft: false
 ---
 
