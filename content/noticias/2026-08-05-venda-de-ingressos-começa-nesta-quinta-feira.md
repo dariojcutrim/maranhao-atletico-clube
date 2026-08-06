@@ -8,7 +8,7 @@ summary: Nesta quinta feira, começa a venda de ingressos para a partida diante 
 draft: false
 ---
 
-O Maranhão Atlético abre nesta quinta feira (06) a venda de ingressos para a partida diante do Brusque-SC no estádio Castelão pela décima sexta rodada do Brasileirão Seríe C.De forma fisico, os ingressos estarão disponiveis na Sede Social do Clube, de forma Online, no site da Zig Tickets.  Confira os valores e locais de venda para mais uma decisão do Bode:
+O Maranhão Atlético abre nesta quinta feira (06) a venda de ingressos para a partida diante do Brusque-SC no estádio Castelão pela décima sexta rodada do Brasileirão Seríe C.De forma fisico, os ingressos estarão disponiveis na Sede Social do Clube, de forma Online você pode comprar neste link do site [Zig Tickets](https://zig.tickets/eventos/mac-x-brusque).  Confira os valores e locais de venda para mais uma decisão do Bode:
 
 Cadeira Coberta - Mista 
 
