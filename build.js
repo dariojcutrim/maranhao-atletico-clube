@@ -89,7 +89,9 @@ if (fs.existsSync(NOTICIAS_DIR)) {
       link: `noticia-${slug}`,      // endereço usado nos links (ver urlPublica)
       // Endereço completo da foto de capa. O painel grava caminho relativo,
       // mas prévia de WhatsApp e dado estruturado do Google exigem absoluto.
-      image_url: dados.image ? `${SITE_URL}/${String(dados.image).replace(/^\/+/, '')}` : '',
+      // urlSegura é essencial aqui: é esta URL que o WhatsApp busca para
+      // montar a prévia do link, e nome de arquivo com espaço a quebra.
+      image_url: dados.image ? `${SITE_URL}/${urlSegura(String(dados.image).replace(/^\/+/, ''))}` : '',
       date: dataISO(dados.date),
       corpo,
     });
@@ -189,9 +191,25 @@ const sitemapUrls = [];
  * A forma sem .html também responde 200 na Netlify, então isto não impede
  * voltar para lá se precisar.
  */
+/**
+ * Deixa um caminho seguro para virar URL, codificando trecho a trecho (as
+ * barras continuam barras).
+ *
+ * POR QUE ISTO EXISTE: o painel guarda o arquivo com o nome que o cliente
+ * enviou, e foto vinda do WhatsApp chega como "WhatsApp Image 2026-08-05 at
+ * 13.55.26.jpeg". Espaço em URL é inválido — o robô do WhatsApp desiste de
+ * buscar a imagem e o link sai sem prévia, ou com a arte genérica. O mesmo
+ * vale para acento no endereço da matéria ("...começa-nesta-quinta-feira").
+ * Só afeta URL ABSOLUTA (og:image, canonical, sitemap); os links relativos
+ * das páginas seguem crus, que o navegador resolve sozinho.
+ */
+function urlSegura(caminho) {
+  return String(caminho).split('/').map(encodeURIComponent).join('/');
+}
+
 function urlPublica(outName) {
   if (outName === 'index.html') return '/';
-  return '/' + outName.replace(/\.html$/, '');
+  return '/' + urlSegura(outName.replace(/\.html$/, ''));
 }
 
 function gravar(outName, html, { noSitemap, lastmod } = {}) {
@@ -261,6 +279,10 @@ for (const dir of ['assets', 'Imagens MAC', 'admin']) {
 const LIMITES = [
   { pasta: 'assets/img/elenco', lado: 900 },     // cards de jogador
   { pasta: 'assets/img/diretoria', lado: 900 },  // cards da diretoria
+  // Capa de matéria é o que o WhatsApp busca para montar a prévia do link, e
+  // ele desiste de imagem muito pesada. 1200px sobra para a tela e mantém o
+  // arquivo em tamanho que a prévia aceita.
+  { pasta: 'assets/img/noticias', lado: 1200 },
   { pasta: '', lado: 1600 },                     // demais (galeria, banners)
 ];
 const MIN_BYTES = 400 * 1024; // abaixo disso não compensa mexer
