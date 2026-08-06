@@ -46,4 +46,4 @@ Meia 30,00
 
 OBS: Domingo na secretaria não haverá vendas. Somente no Estádio Castelão
 
-Começam as 10h até  na hora do jogo
+Começam as 10h até  na hora do jogo![](/assets/img/noticias/WhatsApp%20Image%202026-08-06%20at%2007.13.51%20%281%29.jpeg)
