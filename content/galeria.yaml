@@ -3,93 +3,36 @@ hero:
   subtitle: Os melhores momentos do Maranhão Atlético Clube dentro e fora de campo.
   slides:
     - src: Imagens MAC/IMG_3804.JPG
-    - src: Imagens MAC/IMG_5052.JPG
+    - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06 (3).jpeg
     - src: Imagens MAC/IMG_3844.JPG
-    - src: Imagens MAC/IMG_5135.JPG
+    - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06.jpeg
     - src: Imagens MAC/IMG_4061.JPG
 section_title: Momentos
 filter_all: Todas
 images:
   - src: Imagens MAC/IMG_3770.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_3775.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_3804.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_3844.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_3848.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_3867.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4000.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4020.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4038.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4054.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_4061.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4096.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_4097.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5006.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5012.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_5052.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_5055.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5060.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5084.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5111.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5135.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5137.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: Imagens MAC/IMG_5138.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5145.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5201.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5277.JPG
-    year: ''
-    alt: ''
-  - src: Imagens MAC/IMG_5309.JPG
-    year: ''
+    year: '2026'
     alt: ''
   - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06 (3).jpeg
     year: '2025'
@@ -102,4 +45,37 @@ images:
     alt: ''
   - src: /Imagens MAC/WhatsApp Image 2026-08-05 at 13.51.06.jpeg
     year: '2025'
+    alt: ''
+  - src: /Imagens MAC/WhatsApp Image 2026-08-06 at 01.45.17.jpeg
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/f42973f6-1e59-44e6-9cf5-5305908e85ea.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/298aa535-cc00-4da7-a8d3-35bdf438eb43.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/87310e4f-e0b0-468a-8fe0-43bc5fb9e2ef.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/0ddd1d7f-784a-441a-89e4-e56a3aa0294d.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/1f2310d6-ccaa-4501-86fc-ebe92abc11f3.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/7e4aafe1-dd8d-4ecf-bba6-d679abfe167f.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/0503bea0-1a47-4b13-a6d9-5643194de85d.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/e3bf6432-bbbf-43c9-bcec-01b813066ec9.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/e6cc6498-d649-49a9-8691-abc4329f0b0e.jfif
+    year: '2026'
+    alt: ''
+  - src: /Imagens MAC/953edd66-c121-4e33-bf28-a3aa7aba53ec.jfif
+    year: '2026'
     alt: ''
