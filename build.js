@@ -81,7 +81,22 @@ if (fs.existsSync(NOTICIAS_DIR)) {
     if (!/\.md$/i.test(file)) continue;
     const { dados, corpo } = lerCabecalho(fs.readFileSync(path.join(NOTICIAS_DIR, file), 'utf8'));
     if (dados.draft) continue; // rascunho não vai para o site
-    const slug = file.replace(/\.md$/i, '');
+    // O painel monta o nome do arquivo a partir do título, e pontuação final do
+    // título vai junto para o endereço ("...no Castelão." vira ".../castelão.").
+    // WhatsApp, Telegram e clientes de e-mail tratam pontuação no fim de um link
+    // como pontuação da frase e a removem: o endereço pedido passa a ser outro,
+    // devolve 404, e o link sai sem prévia alguma — nem imagem, nem título.
+    //
+    // Duas limpezas, nesta ordem:
+    // 1) tira parênteses e aspas de qualquer posição — cortar só do fim deixaria
+    //    "(final)" como "(final", e parêntese sem par faz o WhatsApp truncar o
+    //    link no meio, que é pior que o problema original;
+    // 2) tira o que não for letra ou número no fim. Vale para qualquer alfabeto,
+    //    então acento é preservado.
+    const slug = file
+      .replace(/\.md$/i, '')
+      .replace(/[()[\]{}<>"'`]/g, '')
+      .replace(/[^\p{L}\p{N}]+$/u, '');
     noticias.push({
       ...dados,
       slug,
