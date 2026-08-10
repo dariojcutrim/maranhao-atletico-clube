@@ -2,7 +2,7 @@
 title: MARANHÃO ATLÉTICO SE IMPOE DENTRO DE CASA E VENCE POR 2X1 O BRUSQUE-SC NO CASTELÃO
 date: 2026-08-10
 category: Resultados
-image: /assets/img/noticias/WhatsApp Image 2026-08-10 at 10.18.25.jpeg
+image: /assets/img/noticias/WhatsApp Image 2026-08-10 at 10.18.25 (1).jpeg
 image_alt: 'Radija comemora o primeiro gol marcado pelo Bode na partida. FOTO: IURY OLIVEIRA (MAC)'
 summary: Com gols de André Radija e Tibúrcio, o Quadricolor vencer pelo placar de 2x1 e sobe na tabela de classificação do Campeonato Brasileiro Série C.
 author: Erick Almeida
@@ -16,7 +16,7 @@ draft: false
 
 **COM 21 PONTOS, O QUADRICOLOR SE AFASTA DE VEZ DA ZONA DE BAIXO DA TABELA E MIRA O G-8 DA COMPETICÃO. PRÓXIMO CONFRONTO DO MARANHÃO SERA CONTRA O SANTA CRUZ-PE, NO SÁBADO (15) AS 19:30 NA ARENA PERNAMBUCO.** 
 
-![](/assets/img/noticias/WhatsApp%20Image%202026-08-10%20at%2010.18.25%20%281%29.jpeg "FOTO: IURT OLIVEIRA (MAC)")
+![](/assets/img/noticias/WhatsApp%20Image%202026-08-10%20at%2010.18.25.jpeg "FOTO: IURT OLIVEIRA (MAC)")
 
 _Ficha técnica_
 
