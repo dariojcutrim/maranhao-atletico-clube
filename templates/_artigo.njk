@@ -68,7 +68,12 @@
      <div class="doc artigo">
 
       {%- if noticia.image %}
-      <img class="artigo-foto" src="{{ noticia.image }}" alt="{{ noticia.image_alt if noticia.image_alt else noticia.title }}">
+      <figure class="foto-materia foto-materia--capa">
+        <img class="artigo-foto" src="{{ noticia.image }}" alt="{{ noticia.image_alt if noticia.image_alt else noticia.title }}">
+        {%- if noticia.image_credit %}
+        <figcaption>{{ noticia.image_credit }}</figcaption>
+        {%- endif %}
+      </figure>
       {%- endif %}
 
       {%- if noticia.summary %}

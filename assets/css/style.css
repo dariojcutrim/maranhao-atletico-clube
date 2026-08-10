@@ -1200,6 +1200,19 @@ body.hero-page .site-header { border-bottom-color: transparent; box-shadow: none
 .artigo-corpo ul, .artigo-corpo ol { margin: 0 0 18px 22px; }
 .artigo-corpo li { margin-bottom: 8px; }
 .artigo-corpo img { max-width: 100%; border-radius: var(--radius); margin: 10px 0 20px; }
+
+/* Foto com crédito — vale para a capa e para as fotos do corpo da matéria.
+   O <figure> passa a carregar o espaçamento de baixo, senão a margem do
+   próprio <img> empurraria a legenda para longe da foto que ela descreve. */
+.foto-materia { margin: 0 0 26px; }
+.foto-materia img { margin: 0; display: block; }
+.artigo-corpo .foto-materia { margin: 10px 0 22px; }
+.foto-materia figcaption {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
 .artigo-corpo a { color: var(--mac-red); text-decoration: underline; }
 .artigo-corpo blockquote {
   border-left: 4px solid var(--line);

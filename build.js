@@ -136,9 +136,57 @@ env.addFilter('data', (v) => {
   return m ? `${m[3]}/${m[2]}/${m[1]}` : String(v);
 });
 
+/**
+ * Conserta o caminho das fotos inseridas no corpo da matéria.
+ *
+ * O markdown corta o endereço da imagem no primeiro espaço — e foto enviada
+ * do WhatsApp chega como "WhatsApp Image 2026-08-05 at 13.55.26.jpeg", às
+ * vezes com "(1)" no nome. Sem isto, em vez da foto aparece o código cru
+ * "![alt](caminho...)" no meio do texto, na cara do torcedor.
+ *
+ * A solução do próprio markdown é envolver o caminho em <>. A busca vai até
+ * uma extensão de imagem conhecida, e não até o primeiro ")", justamente
+ * para sobreviver a nome com parêntese.
+ */
+function corrigirCaminhoDeFoto(md) {
+  return String(md).replace(
+    /(!\[[^\]]*\]\()\s*(.+?\.(?:jpe?g|png|gif|webp|avif))\s*((?:"[^"]*")?)\s*\)/gi,
+    (inteiro, abre, caminho, titulo) => `${abre}<${caminho}>${titulo ? ' ' + titulo : ''})`
+  );
+}
+
+/**
+ * Dá legenda às fotos do corpo da matéria, para creditar quem fotografou.
+ *
+ * COMO O CLIENTE PREENCHE: ao inserir uma foto pelo painel, o campo "Title"
+ * do diálogo vira o crédito. Ele não digita marcação nenhuma.
+ *
+ * O marked transforma uma foto sozinha em <p><img ...></p>. Aqui isso vira
+ * <figure> com <figcaption>, que é a marcação certa para imagem legendada —
+ * e o Google entende a relação entre foto e legenda.
+ *
+ * Foto no meio de um parágrafo não é tocada: ali a legenda quebraria o texto.
+ * Sem crédito preenchido, sai a <figure> sem legenda — nenhum espaço vazio.
+ */
+function fotosComLegenda(html) {
+  return String(html).replace(
+    /<p>\s*(<img\b[^>]*>)\s*<\/p>/g,
+    (inteiro, img) => {
+      const m = img.match(/\stitle="([^"]*)"/);
+      const credito = m ? m[1].trim() : '';
+      // O title sai do <img>: já virou legenda visível, e mantê-lo faria o
+      // navegador mostrar a mesma frase de novo como balãozinho.
+      const semTitle = img.replace(/\stitle="[^"]*"/, '');
+      const legenda = credito ? `<figcaption>${credito}</figcaption>` : '';
+      return `<figure class="foto-materia">${semTitle}${legenda}</figure>`;
+    }
+  );
+}
+
 // Filtro "markdown": texto longo (corpo das matérias) com parágrafos e listas.
 // O filtro "md" é só para uma linha; este converte o texto inteiro.
-env.addFilter('markdown', (s) => (s ? marked.parse(applyHighlights(String(s))) : ''));
+env.addFilter('markdown', (s) =>
+  (s ? fotosComLegenda(marked.parse(applyHighlights(corrigirCaminhoDeFoto(String(s))))) : ''));
 
 // Filtro "resumo": corta o texto para a prévia dos cartões, sem cortar palavra.
 // Tira também os marcadores de destaque ([[azul]] e ((vermelho))) e a
