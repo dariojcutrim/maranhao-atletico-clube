@@ -46,5 +46,11 @@ items:
     venue: ESTÁDIO CASTELÃO
     file: /assets/img/uploads/MAC X YPIRANGA.pdf
     data: []
+  - match: MARANHÃO X BRUSQUE-SC
+    competition: CAMPEONATO BRASILEIRO SERÍE C
+    date: 2026-08-09
+    venue: ESTÁDIO CASTELÃO
+    file: /assets/img/uploads/MAC X BRUSQUE.pdf
+    data: []
 empty: Os borderôs das partidas serão publicados nesta página assim que disponibilizados pelo clube.
 note: Os valores apresentados seguem o borderô oficial da partida, emitido conforme as normas da competição. Dúvidas sobre qualquer informação desta página podem ser encaminhadas pela [[Ouvidoria]] do clube.
