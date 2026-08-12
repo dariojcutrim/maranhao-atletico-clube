@@ -2,7 +2,7 @@
 title: MARANHÃO SE REAPRESENTA VISANDO O DUELO DIANTE DO SANTA CRUZ-PE
 date: 2026-08-11
 category: Boletim de treino
-image: /assets/img/noticias/IMG_9972.JPG.jpeg
+image: /assets/img/noticias/IMG_9974.JPG.jpeg
 image_alt: ''
 image_credit: IURY OLIVEIRA/MAC
 summary: O Quadricolor iniciou a preparação para enfrentar o Santa Cruz-PE pela decima setima rodada do Campeonato Brasileiro Série C.
