@@ -2,7 +2,7 @@
 title: A venda de ingressos para a partida diante do Itabaiana-SE abre nesta quarta feira (19)
 date: 2026-08-19
 category: Venda de ingressos
-image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.13.jpeg
+image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.05.jpeg
 image_alt: ''
 image_credit: LUAN TAVARES
 summary: Nesta quinta feira, começa a venda de ingressos para a partida diante do Itabaiana-SE pela décima oitava rodada do Campeonato Brasileiro Seríe C.
