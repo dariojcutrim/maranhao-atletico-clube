@@ -2,7 +2,7 @@
 title: Maranhão derrota o Santa Cruz-PE em plena arena Pernambuco e segue vivo na busca pela segunda fase
 date: 2026-08-15
 category: Notícias do clube
-image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.05.jpeg
+image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.13.jpeg
 image_alt: ''
 image_credit: LUAN TAVARES
 summary: o Quadricolor surpreende os donos da casa, vence pelo placar de 1x0 com gol de Felipe Cruz aos 42 minutos da primeira etapa.
