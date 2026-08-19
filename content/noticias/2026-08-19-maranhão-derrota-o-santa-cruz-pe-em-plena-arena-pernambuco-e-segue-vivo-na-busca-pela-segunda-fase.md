@@ -1,5 +1,5 @@
 ---
-title: Maranhão derrota o Santa Cruz-Pe em plena arena Pernambuco e segue vivo na busca pela segunda fase
+title: Maranhão derrota o Santa Cruz-PE em plena arena Pernambuco e segue vivo na busca pela segunda fase
 date: 2026-08-15
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.05.jpeg
@@ -11,11 +11,11 @@ author_position: topo
 draft: false
 ---
 
-O Maranhão venceu o Santa Cruz, por 1 a 0, na noite deste sábado, na Arena de Pernambuco, em jogo válido pela 17ª rodada da Série C do Campeonato Brasileiro. O gol da equipe maranhense foi marcado pelo atacante Felipe Cruz, no primeiro tempo. Foi a terceira vitória em quatro jogos do MAC, que se aproxima da zona de classificação à segunda fase. Em contrapartida, a equipe pernambucana chega à segunda derrota seguida como mandante e ao terceiro jogo sem vencer na competição.
+O Maranhão venceu o Santa Cruz, por 1 a 0, na noite deste sábado (15), na Arena de Pernambuco, em jogo válido pela 17ª rodada da Série C do Campeonato Brasileiro. O gol da equipe maranhense foi marcado pelo atacante Felipe Cruz, no primeiro tempo. Foi a terceira vitória em quatro jogos do MAC, que se aproxima da zona de classificação à segunda fase.
 
 ![](/assets/img/noticias/WhatsApp%20Image%202026-08-19%20at%2010.18.09.jpeg "LUAN TAVARES")
 
-Com o resultado, o Maranhão chega aos 24 pontos, e alcança a mesma pontuação do Amazonas, time que fecha o G-8. A equipe maranhense é a 11ª colocada, também empatada em pontos com Ferroviária e Caxias, mas atrás nos critérios de desempate. O Santa Cruz, por sua vez, continua com 25 pontos, na sexta posição, mas corre o risco de deixar o G-8 no decorrer da rodada. 
+Com o resultado, o Maranhão chega aos 24 pontos, e alcança a mesma pontuação do Amazonas, time que fecha o G-8. A equipe maranhense é a 11ª colocada, também empatada em pontos com Ferroviária e Caxias, mas atrás nos critérios de desempate.
 
 ![](/assets/img/noticias/WhatsApp%20Image%202026-08-19%20at%2010.18.07%20%281%29.jpeg "LUAN TAVARES")
 
