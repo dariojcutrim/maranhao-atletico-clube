@@ -1,5 +1,5 @@
 ---
-title: MARANHÃO ATLÉTICO SE IMPÕE DENTRO DE CASA E VENCE POR 2X1 O BRUSQUE-SC NO CASTELÃO
+title: Maranhão se impõe dentro de casa e vence o Brusque-SC por 2x1 no Castelão.
 date: 2026-08-10
 category: Resultados
 image: /assets/img/noticias/WhatsApp Image 2026-08-10 at 10.18.25 (1).jpeg
