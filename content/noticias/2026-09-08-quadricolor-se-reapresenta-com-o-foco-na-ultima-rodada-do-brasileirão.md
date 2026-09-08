@@ -1,5 +1,5 @@
 ---
-title: QUADRICOLOR SE REAPRESENTA COM O FOCO NA ULTIMA RODADA DO BRASILEIRÃO
+title: Quadricolor se reapresenta com foco na ultima roda do Brasileirão Série C.
 date: 2026-08-25
 category: Preparação
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 12.06.34.jpeg
