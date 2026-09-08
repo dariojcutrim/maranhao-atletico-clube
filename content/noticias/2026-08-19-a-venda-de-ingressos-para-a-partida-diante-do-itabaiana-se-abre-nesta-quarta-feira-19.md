@@ -4,7 +4,7 @@ date: 2026-08-19
 category: Venda de ingressos
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.05.jpeg
 image_alt: ''
-image_credit: LUAN TAVARES
+image_credit: Luan Tavares
 summary: Nesta quinta feira, começa a venda de ingressos para a partida diante do Itabaiana-SE pela décima oitava rodada do Campeonato Brasileiro Seríe C.
 author: Erick Almeida
 author_position: topo
