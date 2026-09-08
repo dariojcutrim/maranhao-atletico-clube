@@ -1,5 +1,5 @@
 ---
-title: O bode fecha a preparação para o duelo diante do Figueirense-SC
+title: Maranhão fecha a preparação para o duelo diante do Figueirense-SC
 date: 2026-08-28
 category: Preparação
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 12.58.05 (2).jpeg
