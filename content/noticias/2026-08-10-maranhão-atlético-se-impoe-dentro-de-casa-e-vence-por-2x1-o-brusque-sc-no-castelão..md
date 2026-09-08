@@ -4,7 +4,7 @@ date: 2026-08-10
 category: Resultados
 image: /assets/img/noticias/WhatsApp Image 2026-08-10 at 10.18.25 (1).jpeg
 image_alt: 'Radija comemora o primeiro gol marcado pelo Bode na partida. FOTO: IURY OLIVEIRA (MAC)'
-image_credit: IURY OLIVEIRA/MAC
+image_credit: Iury Oliveira / MAC
 summary: Com gols de André Radija e Tibúrcio, o Quadricolor vencer pelo placar de 2x1 e sobe na tabela de classificação do Campeonato Brasileiro Série C.
 author: Erick Almeida
 author_position: topo
