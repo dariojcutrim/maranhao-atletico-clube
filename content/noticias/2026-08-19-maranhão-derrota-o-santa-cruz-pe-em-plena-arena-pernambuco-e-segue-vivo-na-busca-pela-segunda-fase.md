@@ -1,5 +1,5 @@
 ---
-title: Maranhão derrota o Santa Cruz-PE em plena arena Pernambuco e segue vivo na busca pela segunda fase
+title: Maranhão derrota o Santa Cruz-PE em plena arena Pernambuco e segue vivo na busca pela segunda fase.
 date: 2026-08-15
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.13.jpeg
