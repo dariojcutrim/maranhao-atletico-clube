@@ -4,7 +4,7 @@ date: 2026-08-18
 category: Boletim de treino
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.34.16 (3).jpeg
 image_alt: ''
-image_credit: IURY OLIVEIRA/MAC
+image_credit: Iury Oliveira / MAC
 summary: O macão voltou as atividades na tarde desta segunda feira (18) iniciando a preparação para o duelo diante do Itabaiana-SE pela décima oitava rodada do Campeonato Brasileiro Série C.
 author: Erick Almeida
 author_position: topo
