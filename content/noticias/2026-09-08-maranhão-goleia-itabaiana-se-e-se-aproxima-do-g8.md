@@ -1,5 +1,5 @@
 ---
-title: MARANHÃO GOLEIA ITABAIANA-SE E SE APROXIMA DO G8
+title: Maranhão goleia o Itabaiana-SE e se aproxima do G-8.
 date: 2026-08-23
 category: Resultados
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 11.47.52.jpeg
