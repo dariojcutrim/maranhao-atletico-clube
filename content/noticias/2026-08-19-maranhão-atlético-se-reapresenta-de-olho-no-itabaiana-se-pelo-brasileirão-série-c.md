@@ -1,5 +1,5 @@
 ---
-title: Maranhão Atlético se reapresenta de olho no Itabaiana-SE pelo Brasileirão Série C
+title: Maranhão Atlético se reapresenta de olho no Itabaiana-SE pelo Brasileirão Série C.
 date: 2026-08-18
 category: Boletim de treino
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.34.16 (3).jpeg
