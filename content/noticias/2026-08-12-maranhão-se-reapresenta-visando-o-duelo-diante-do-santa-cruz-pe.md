@@ -1,5 +1,5 @@
 ---
-title: MARANHÃO SE REAPRESENTA VISANDO O DUELO DIANTE DO SANTA CRUZ-PE
+title: Maranhão se reapresenta visando o duelo diante do Santa Cruz-PE.
 date: 2026-08-11
 category: Boletim de treino
 image: /assets/img/noticias/IMG_9974.JPG.jpeg
