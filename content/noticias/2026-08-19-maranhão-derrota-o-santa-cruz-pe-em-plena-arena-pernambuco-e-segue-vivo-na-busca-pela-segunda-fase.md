@@ -4,7 +4,7 @@ date: 2026-08-15
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.18.13.jpeg
 image_alt: ''
-image_credit: LUAN TAVARES
+image_credit: Luan Tavares
 summary: o Quadricolor surpreende os donos da casa, vence pelo placar de 1x0 com gol de Felipe Cruz aos 42 minutos da primeira etapa.
 author: Erick Almeida
 author_position: topo
