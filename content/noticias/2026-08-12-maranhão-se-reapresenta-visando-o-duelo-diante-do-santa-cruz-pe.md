@@ -4,7 +4,7 @@ date: 2026-08-11
 category: Boletim de treino
 image: /assets/img/noticias/IMG_9974.JPG.jpeg
 image_alt: ''
-image_credit: IURY OLIVEIRA/MAC
+image_credit: Iury Oliveira / MAC
 summary: O Quadricolor iniciou a preparação para enfrentar o Santa Cruz-PE pela decima setima rodada do Campeonato Brasileiro Série C.
 author: Erick Almeida
 author_position: topo
