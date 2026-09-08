@@ -1,9 +1,10 @@
 ---
-title: VENDA DE INGRESSOS COMEÇA NESTA QUINTA FEIRA
+title: Venda de ingressos começa nesta quinta feira.
 date: 2026-08-06
 category: Venda de ingressos
 image: /assets/img/noticias/WhatsApp Image 2026-08-05 at 13.55.26.jpeg
 image_alt: ''
+image_credit: ''
 summary: Nesta quinta feira, começa a venda de ingressos para a partida diante do Brusque-SC pela décima sexta rodada do Campeonato Brasileiro Seríe C.
 author: Erick Almeida
 author_position: topo
