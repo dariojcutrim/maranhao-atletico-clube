@@ -2,7 +2,7 @@
 title: Nota de Esclarecimento - Jerson Testoni
 date: 2026-09-09
 category: Notícias do clube
-image: /assets/img/noticias/WhatsApp Image 2026-09-11 at 09.50.15.jpeg
+image: /assets/img/noticias/13272517-8737-4f13-82c3-fdea98bdd8df.jpeg
 image_alt: ''
 image_credit: ''
 summary: Maranhão Atlético comunica a saída do Técnico Jerson Testoni e sua comissão técnica
