@@ -1,5 +1,5 @@
 ---
-title: O maranhão renova com Jorge, e Vitão para 2027
+title: O Maranhão renova com Jorge e Vitão para 2027
 date: 2026-09-17
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 11.49.57.jpeg
