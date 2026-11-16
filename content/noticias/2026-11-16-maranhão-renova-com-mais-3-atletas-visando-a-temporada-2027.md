@@ -2,7 +2,7 @@
 title: Maranhão renova com mais 3 atletas visando a temporada 2027
 date: 2026-09-16
 category: Notícias do clube
-image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.34.17.jpeg
+image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 12.06.34 (1).jpeg
 image_alt: ''
 image_credit: ''
 summary: O quadricolor renovou os contratos com o lateral direito Mauricio, zagueiro Iran e o lateral esquerdo André Radija
