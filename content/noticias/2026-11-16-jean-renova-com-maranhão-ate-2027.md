@@ -1,5 +1,5 @@
 ---
-title: JEAN RENOVA COM MARANHÃO ATE 2027
+title: Jean renova com o quadricolor até 2027
 date: 2026-09-15
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-11-16 at 14.25.14.jpeg
