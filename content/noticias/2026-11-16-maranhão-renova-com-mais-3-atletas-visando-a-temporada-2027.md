@@ -4,7 +4,7 @@ date: 2026-09-16
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 12.06.34 (1).jpeg
 image_alt: ''
-image_credit: ''
+image_credit: Iury Oliveira / MAC
 summary: O quadricolor renovou os contratos com o lateral direito Mauricio, zagueiro Iran e o lateral esquerdo André Radija
 author: Erick Almeida
 author_position: topo
