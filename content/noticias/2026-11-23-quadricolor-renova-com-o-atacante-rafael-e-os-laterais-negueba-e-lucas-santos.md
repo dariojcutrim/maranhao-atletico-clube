@@ -4,7 +4,7 @@ date: 2026-09-17
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-09-08 at 12.06.34.jpeg
 image_alt: ''
-image_credit: ''
+image_credit: Iury Oliveira / MAC
 summary: Maranhão anuncia mais 3 renovações de contrato visando a temporada 2027
 author: Erick Almeida
 author_position: topo
