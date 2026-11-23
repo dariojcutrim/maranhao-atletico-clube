@@ -15,4 +15,4 @@ O Maranhão Atlético anuncia o retorno do lateral direito Igor Nunes para a tem
 
 O defensor de 29 anos retorna ao bode onde foi campeão maranhense e conquistou o acesso a Série C do Brasileirão no ano de 2025 com 31 jogos e 1 gol. O atleta atuou pelo Serra Branca-PB na última temporada.
 
-![](/assets/img/noticias/WhatsApp%20Image%202026-11-23%20at%2015.06.33.jpeg)
+![](/assets/img/noticias/WhatsApp%20Image%202026-11-23%20at%2015.06.33.jpeg "Iury Oliveira / MAC")
