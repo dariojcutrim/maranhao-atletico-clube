@@ -1,6 +1,6 @@
 ---
 title: Luís Gustavo fica no Quadricolor para 2027
-date: 2026-09-25
+date: 2026-09-24
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-11-16 at 14.25.14 (1).jpeg
 image_alt: ''
