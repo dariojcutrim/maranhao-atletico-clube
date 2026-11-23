@@ -4,7 +4,7 @@ date: 2026-09-22
 category: Notícias do clube
 image: /assets/img/noticias/IMG_9971.JPG.jpeg
 image_alt: ''
-image_credit: ''
+image_credit: Iury Oliveira / MAC
 summary: Maranhão anuncia o contrato em vigência dos atletas Almeida, Pedro Henrique e Pedro Lucas para 2027.
 author: Erick Almeida
 author_position: topo
