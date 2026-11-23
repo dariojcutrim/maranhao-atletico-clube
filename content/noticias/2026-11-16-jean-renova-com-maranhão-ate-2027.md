@@ -17,4 +17,4 @@ O goleiro de 34 anos renova por mais 1 ano com o bode. Desde 2024 no clube, o at
 
 Avante, Maranhão!
 
-![](/assets/img/noticias/WhatsApp%20Image%202026-11-15%20at%2021.05.25.jpeg)
+![](/assets/img/noticias/WhatsApp%20Image%202026-11-15%20at%2021.05.25.jpeg "Iury Oliveira / MAC")
