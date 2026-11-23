@@ -4,7 +4,7 @@ date: 2026-09-21
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-08-19 at 10.34.16.jpeg
 image_alt: ''
-image_credit: ''
+image_credit: Iury Oliveira / MAC
 summary: o Quadricolor anuncia as renovações de contrato dos atletas Fernando, Cauê, Railson e Kessinho para a temporada 2027.
 author: Erick Almeida
 author_position: topo
