@@ -1,5 +1,5 @@
 ---
-title: Peu renova com o bode para 2027.
+title: Peu renova com o bode para 2027
 date: 2026-09-25
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-11-16 at 14.25.19 (2).jpeg
