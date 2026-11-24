@@ -1,5 +1,5 @@
 ---
-title: Tabela de jogos do Campeonato Maranhense esta definida para 2027
+title: Tabela de jogos do Campeonato Maranhense está definida para 2027
 date: 2026-11-20
 category: Notícias do clube
 image: /assets/img/noticias/WhatsApp Image 2026-11-24 at 09.45.58.jpeg
